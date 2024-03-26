@@ -13,10 +13,10 @@ CREATE TABLE IF NOT EXISTS articulos (
   descuento DECIMAL(5,0) NOT NULL,
   impuesto DECIMAL(5,0) NOT NULL,
   stock INT NOT NULL,
-  descipcion VARCHAR(50) NOT NULL,
+  descipcion VARCHAR(50) NOT NULL, 
   img VARCHAR(200) NOT NULL
 );
-
+ 
 CREATE TABLE IF NOT EXISTS categorias (
   idCategoria SERIAL PRIMARY KEY,
   descripcion VARCHAR(11) NOT NULL

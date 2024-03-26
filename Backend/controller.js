@@ -14,6 +14,7 @@ const usuarios = (req, res) => {
     });
 };
 
+
 const telefonos = (req, res) => {
     pool.query('SELECT * FROM telefonos', (error, results) => {
         if (error) {

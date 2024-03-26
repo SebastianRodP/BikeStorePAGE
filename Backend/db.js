@@ -12,3 +12,4 @@ const pool = mysql.createPool({
 
 // Exportar el pool de conexiones para que pueda ser utilizado en otros módulos
 module.exports = pool;
+

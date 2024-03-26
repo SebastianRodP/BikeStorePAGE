@@ -8,4 +8,4 @@ paths:
       summary: Obtener todos los datos
       responses:
         '200':
-          description: Respuesta exitosa
+          description: Respuesta exitosa 
