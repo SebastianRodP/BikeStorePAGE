@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com');
+@import url('https://fonts.gstatic.com');
+@import url('https://fonts.googleapis.com/css2?family=Jockey+One&display=swap');
+@import url('https://fonts.googleapis.com');
+@import url('https://fonts.gstatic.com');
+@import url('https://fonts.googleapis.com/css2?family=Yaldevi:wght@200..700&display=swap');
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.header{
+    background-color: black;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    font-family: "Jockey One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+}
+
+.logo img{
+    height: 50px;
+}
+
+.logo-letra{
+    font-size: 40px;
+    font-weight: bold;
+    padding: 0px 0px 0px 40px;
+    line-height: 80px;
+
+    .blue{
+        color: #A1D1D8;
+    }
+}
+
+.nav{
+    display: flex;
+    justify-content: space-between
+    
+    
+    
+    ;
+    max-width: 80%;
+    height: 100px;
+    margin: 0 auto;
+}
+
+.nav-link{
+    text-decoration: none;
+    color: white;
+}
+
+
+.nav-menu{
+    display: flex;
+    list-style: none;
+}
+
+.nav-menu-item{
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    margin: 0px 10px;
+  
+    width: max-content;
+}
+
+.nav-menu-link{
+    padding: 4px 12px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.nav-menu-link:hover{
+    background-color: #9f9f9f;
+    transition: 0.5s;
+}
+
+
+.nav-toggle{
+    color: rgb(255, 255, 255);
+    background: none;
+    border: none;
+    font-size: 30px;
+    padding: 0px 20px;
+    line-height: 60px;
+    cursor: pointer;
+    display: none;
+}
+
+
+.navegation{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  
+  .main{ 
+    display: flex;
+    align-items: center;
+    height:30px;
+    width:fit-content;
+    background-color: #FFFFFF;
+    padding: 08px;
+    border-radius: 30px;
+    gap: 5px;
+  }
+  
+  input{
+    font-family: "Jockey One", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: #C2C2C2;
+    border: 0px;
+    outline: 0px;
+    width: 400px;
+    font-size: 16px;
+  }
+  
+  .fa-magnifying-glass{
+    color: #C2C2C2;
+  }
+
+  .options {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    }
+
+    .options .contactanos{
+        text-decoration: none;
+        color: black;
+        background-color: white;
+        border-radius: 10px;
+        padding: 2px 4px;
+    }
+.options{
+.corazon{
+height: 4vh;
+}
+.carrito{
+height: 5vh;
+}
+.user{
+    width: 45px;
+}
+}
+
+    .optionsUp{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .optionsDown{
+        display: flex;
+        color: white;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+
+
+    @media screen and (max-width: 768px){
+        body{
+            background-color: white;
+            }
+            
+            .header{    
+                height: 60px;
+            
+            }
+            
+            .nav{
+                display: flex;
+                justify-content: space-between;
+            }
+            
+            .nav-link{
+                text-decoration: none;
+                color: white;
+            }
+            
+            .logo{
+                display: flex;
+                align-items: center;
+            }
+            
+            .logo img{
+                height: 50px;
+            }
+            
+            .logo-letra{
+                font-size: 40px;
+    
+                padding: 0px 0px 0px 30px;
+                line-height: 60px;
+            
+             
+            }
+    
+    
+            .nav{
+                height: 50px;
+            }
+            
+            .nav-menu{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-right: 30px;
+                background-color: #cfcfcf;
+                position: fixed;
+                left: 0px;
+                top: 60px;
+                width: 100%;
+                padding: 20px 0;
+                height: calc(100% - 60px);
+                overflow-y: auto;
+                left: 100%;
+                transition:left 0.3s;
+            }
+            
+            .nav-menu-item{
+                font-size: 28px;
+                line-height: 70px;  
+            }
+            
+        
+            
+            .nav-menu-link:hover{
+                background: none;
+                color: #000000;
+            }
+            
+            
+            .nav-toggle{
+                display: block;
+            }
+    
+        .nav-menu-visible{
+            left: 0;
+        }
+
+
+}
