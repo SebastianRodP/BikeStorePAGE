@@ -3,46 +3,46 @@ import "./Navbar.css";
 
 export const Navbar = () => {
 
-Return(
-  <header class="header">
-      <nav class="nav">
-        <div class="logo">
-            <a href="../pages/index.html" class="logo-letra nav-link">Bike<span class="blue">Store</span></a>
-            <img src="../assets/img/bicicleta-navbar.png" alt="logo BikeStore"></img>
+return(
+  <header className="header">
+      <nav className="nav">
+        <div className="logo">
+            <a href="../pages/index.html" className="logo-letra nav-link">Bike<span className="blue">Store</span></a>
+            <img src="../assets/img/imgNavbar/bicicleta-navbar.png" alt="logo BikeStore"></img>
         </div>
-        <button class="nav-toggle"><i class="fa-solid fa-bars"></i></button>
-        <div class="navegation">
-          <div class="main">
-            <a href=""> <i class="fa-solid fa-magnifying-glass"></i></a>
+        <button className="nav-toggle"><i className="fa-solid fa-bars"></i></button>
+        <div className="navegation">
+          <div className="main">
+            <a href=""> <i className="fa-solid fa-magnifying-glass"></i></a>
             <input type="search" placeholder="buscar"></input>
           </div>
-        <ul class="nav-menu">
+        <ul className="nav-menu">
 
-          <li class="nav-menu-item">
-            <a  class="nav-menu-link nav-link">Bicicletas</a>
+          <li className="nav-menu-item">
+            <a  className="nav-menu-link nav-link">Bicicletas</a>
           </li>
-          <li class="nav-menu-item">
-            <a  class="nav-menu-link nav-link">Accesorios</a>
+          <li className="nav-menu-item">
+            <a  className="nav-menu-link nav-link">Accesorios</a>
           </li>
-          <li class="nav-menu-item">
-            <a  class="nav-menu-link nav-link">Repuestos</a>
+          <li className="nav-menu-item">
+            <a  className="nav-menu-link nav-link">Repuestos</a>
           </li>
-          <li class="nav-menu-item">
-            <a  class="nav-menu-link  nav-link">Vestuarios</a>
+          <li className="nav-menu-item">
+            <a  className="nav-menu-link  nav-link">Vestuarios</a>
           </li>
         </ul>
 
  </div>
-        <div class="options">
-          <div class="optionsUp">
-              <img src="../assets/img/corazon- favoritos.png" alt="" class="corazon"></img>
-              <a href="#" class="contactanos">Contactanos</a>
-              <img src="../assets/img/carrito de compras.png" alt="carro-de-compras" class="carrito"></img>
+        <div className="options">
+          <div className="optionsUp">
+              <img src="../assets/img/corazon- favoritos.png" alt="" className="corazon"></img>
+              <a href="#" className="contactanos">Contactanos</a>
+              <img src="../assets/img/carrito de compras.png" alt="carro-de-compras" className="carrito"></img>
             </div>
 
-            <div class="optionsDown">
-              <p class="bienvenido">Bienvenido, usuario</p>
-              <img src="../assets/img/Iniciar sesion.png" class="user"></img>
+            <div className="optionsDown">
+              <p className="bienvenido">Bienvenido, usuario</p>
+              <img src="../assets/img/Iniciar sesion.png" className="user"></img>
             </div>
         </div>
       </nav>
