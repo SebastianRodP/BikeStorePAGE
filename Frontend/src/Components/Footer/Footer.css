@@ -1,0 +1,73 @@
+
+@import url('https://fonts.googleapis.com');
+@import url('https://fonts.gstatic.com');
+@import url('https://fonts.googleapis.com/css2?family=Jockey+One&display=swap');
+@import url('https://fonts.googleapis.com');
+@import url('https://fonts.gstatic.com');
+@import url('https://fonts.googleapis.com/css2?family=Yaldevi:wght@200..700&display=swap');
+/* footer*/
+@import url('https://fonts.googleapis.com/css2?family=Jockey+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&display=swap');
+/* footer*/
+footer{
+    font-family: "Jockey One", sans-serif;
+}
+.logo-footer{
+    color: black;
+    font-size: 80px;
+    font-weight: bold;
+    padding: 0px 0px 0px 40px;
+    line-height: 80px;
+    .blue{
+        color: #A1D1D8;
+    }
+}
+
+.logo-footer img{
+    height: 20%;
+}
+
+
+
+.pie-pagina{
+    margin-top: 100px;
+    width: 100%;
+    background-color:#F1F1F1 ;
+}
+
+.pie-pagina .grupo-1{
+    width: 100%;
+    max-width: 100%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 50px;
+    padding: 45px 0px;
+   
+}
+
+.pie-pagina .grupo-1 .box figure{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pie-pagina .grupo-1 .box figure{
+    width: 250px;
+}
+
+.pie-pagina .grupo-1 .box p{
+    margin-bottom: 5px;
+}
+
+@media screen and (max-width: 800px) {
+    .pie-pagina .grupo-1{
+        width: 90%;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 30px;
+        padding: 35px 0px;
+        
+    }
+}

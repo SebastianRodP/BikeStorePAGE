@@ -1,0 +1,90 @@
+.content{
+ 
+  display: flex;
+  flex-direction: row;
+  max-width: auto;
+  display: grid;
+  gap: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 10px;
+  padding: 70px;
+}
+
+.caja-bicicletas{
+  margin: 10px;
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  background-color: #E3E3E3;
+  border-radius: 8px;
+  height: auto;
+  text-align: center;
+  width: 390px;
+  box-shadow: 5px 5px 5px #b7b7b7;
+  cursor: default;
+  transition: all 400ms ease;
+  img{
+      max-width: 100%;
+      padding: 20px;
+  }
+}
+
+.caja-bicicletas:hover{
+  position: unset,;
+  box-shadow: 7px 7px 7px #b7b7b7;
+  transform: translateY(-3%);
+  cursor: pointer;
+}
+
+.caja-bicicletas #precio{
+  margin-left: 5px;
+  display: flex;
+  overflow: hidden;
+}
+
+.caja-bicicletas #precio{
+  font-family: "Jockey One", sans-serif;  
+  font-style: normal;
+  color:#006C11;
+  background-color: white;
+  max-width: fit-content;
+  max-height: fit-content;
+  padding: 4px;
+  margin: 5px;
+  border-radius: 10px;
+}
+
+.caja-bicicletas #descuento{
+  font-family: "Jockey One", sans-serif;  
+  font-style: normal;
+  color:#000000;
+  background-color: white;
+  max-width: fit-content;
+  max-height: fit-content;
+  padding: 2px;
+  margin: 5px;
+  border-radius: 10px;
+}
+
+
+.detalle-bicicletas{
+  background-color: white;
+  padding: 5px;
+  border-radius: 0px 0px 8px 8px ;
+  font-family: "Yaldevi", sans-serif;
+  font-style: normal;
+  
+}
+
+.detalle-bicicletas p {
+  padding: 2px;
+  margin: 5px;
+  display: flex;
+  text-align: start;
+  justify-content: flex-start;
+  color: #616161;
+}
