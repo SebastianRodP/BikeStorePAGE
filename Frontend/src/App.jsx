@@ -1,12 +1,12 @@
 import { useState } from 'react'
-import { Home } from './Pages/Home'
+import { Iniciosesion } from "../src/Components/Inicio_sesion/inicio-sesion"
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-    <Home/>
+    <Iniciosesion/>
     </>
   )
 }
