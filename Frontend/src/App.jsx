@@ -1,14 +1,15 @@
-import { useState } from 'react'
-import { Iniciosesion } from "../src/Components/Inicio_sesion/inicio-sesion"
+import { useState } from 'react';
+import Registrouser from "../src/Components/Registro_user/register";
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <>
-    <Iniciosesion/>
+      <Registrouser />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
