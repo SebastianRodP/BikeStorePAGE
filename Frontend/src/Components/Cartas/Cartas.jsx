@@ -14,6 +14,7 @@ export const Cartas  = () =>{
   <div className="detalle-bicicletas">
     <h2 className="nombre-bici">Bicicleta MTB GW</h2>
     <p>16 unidades <br/> 3 colores disponibles </p>
+    <i className="fa-solid fa-house"></i>
   </div>
 </div>
 </div>
