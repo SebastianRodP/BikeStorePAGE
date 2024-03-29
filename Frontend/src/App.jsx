@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Registrouser from "../src/Components/Registro_user/register";
+import Iniciosesion from "../src/Components/Inicio_sesion/inicio-sesion";
 
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-      <Registrouser />
+      <Iniciosesion />
     </>
   );
 }
