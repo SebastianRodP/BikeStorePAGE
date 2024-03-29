@@ -5,6 +5,9 @@ import carritoDeCompras from "../../assets/img/imgNavbar/carritoDeCompras.png";
 import corazonFavoritos from "../../assets/img/imgNavbar/corazonFavoritos.png";
 import iniciarSesion from "../../assets/img/imgNavbar/iniciarSesion.png";
 
+
+
+
 export const Navbar = () => {
   return (
     <header className="header">
