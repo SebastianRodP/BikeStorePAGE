@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
+import { createClient } from '@supabase/supabase-js';
 import "./registro.css";
 import logo from "../../assets/img/imgInicioRegistro/logo.png";
 
-// esa vaina de los mensajes de error
+
+const supabaseUrl = '';
+const supabaseAnonKey = '';
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
 function MyLoginPage() {
+    // estados para los campos del formulario y errores
     const [nombre, setNombre] = useState('');
     const [correo, setCorreo] = useState('');
     const [password, setPassword] = useState('');
@@ -11,11 +17,11 @@ function MyLoginPage() {
     const [aceptaTerminos, setAceptaTerminos] = useState(false);
     const [errores, setErrores] = useState({}); 
 
+    // validacion del  formulario
     const validarFormulario = () => {
         let erroresTemp = {};
         let esFormularioValido = true;
 
-        // Validación de nombre
         if (!nombre) {
             erroresTemp.nombre = "El campo nombre es obligatorio.";
             esFormularioValido = false;
@@ -29,19 +35,16 @@ function MyLoginPage() {
             esFormularioValido = false;
         }
 
-        // Validación de password
         if (!password) {
             erroresTemp.password = "El campo contraseña es obligatorio.";
             esFormularioValido = false;
         }
 
-        // Validación de confirmPassword
         if (password !== confirmPassword) {
             erroresTemp.confirmPassword = "Las contraseñas no coinciden.";
             esFormularioValido = false;
         }
 
-        // Validación de aceptaTerminos
         if (!aceptaTerminos) {
             erroresTemp.aceptaTerminos = "Debe aceptar los términos y condiciones.";
             esFormularioValido = false;
@@ -51,6 +54,7 @@ function MyLoginPage() {
         return esFormularioValido;
     };
 
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -58,9 +62,29 @@ function MyLoginPage() {
             return;
         }
 
-        // Lógica para enviar los datos...
+        // esto era pa ver si se podian insertar los datos en la tabla 
+        const { data, error } = await supabase
+          .from('usuarios')
+          .insert([
+            {
+              nombre: document.getElementById('nombre').value,
+              correo: document.getElementById('correo').value,
+              contraseña: document.getElementById('contraseña').value,
+              idrol: 2, 
+            },
+          ]);
+
+        if (error) {
+            console.error('Error al insertar datos:', error);
+            alert('Hubo un error al registrar el usuario. Por favor, inténtalo de nuevo.');
+        } else {
+            console.log('Usuario registrado con éxito:', data);
+            alert('El usuario se registró correctamente.');
+          
+        }
     };
 
+    // comoponente del jsx
     return (
         <div className='todo'>
             <img className='logo' src={logo} alt="logo"></img>
@@ -69,17 +93,17 @@ function MyLoginPage() {
                 <h1 className='tit'>Registro de usuario</h1>
                 <div className='nombre'>
                     <div>Nombre</div>
-                    <input className='inpus' type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} />
+                    <input id='nombre' className='inpus' type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} />
                     {errores.nombre && <p className="error">{errores.nombre}</p>}
                 </div>
                 <div className='correo'>
                     <div>Correo electrónico</div>
-                    <input className='inpus' type="email" value={correo} onChange={(e) => setCorreo(e.target.value)} />
+                    <input id='correo' className='inpus' type="email" value={correo} onChange={(e) => setCorreo(e.target.value)} />
                     {errores.correo && <p className="error">{errores.correo}</p>}
                 </div>
                 <div className='contraseña'>
                     <div>Contraseña</div>
-                    <input className='inpus' type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                    <input id='contraseña' className='inpus' type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                     {errores.password && <p className="error">{errores.password}</p>}
                 </div>
                 <div className='confcontra'>

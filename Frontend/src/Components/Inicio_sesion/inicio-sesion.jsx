@@ -5,13 +5,13 @@ import logo from "../../assets/img/imgInicioRegistro/logo.png";
 function MyLoginPage() {
     const [correo, setCorreo] = useState('');
     const [password, setPassword] = useState('');
-    const [errores, setErrores] = useState({}); // Almacena los mensajes de error
+    const [errores, setErrores] = useState({}); 
 
     const validarFormulario = () => {
         let erroresTemp = {};
         let esFormularioValido = true;
 
-        // Validación de correo
+        // Validacion del correo electronico ese
         if (!correo) {
             erroresTemp.correo = "El campo correo es obligatorio.";
             esFormularioValido = false;
@@ -20,7 +20,7 @@ function MyLoginPage() {
             esFormularioValido = false;
         }
 
-        // Validación de contraseña
+        // Validacion de las contraseñas
         if (!password) {
             erroresTemp.password = "El campo contraseña es obligatorio.";
             esFormularioValido = false;
@@ -37,7 +37,7 @@ function MyLoginPage() {
             return;
         }
 
-        // Lógica para enviar los datos...
+ 
     };
 
     return (

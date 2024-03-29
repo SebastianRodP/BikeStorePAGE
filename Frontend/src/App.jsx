@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Iniciosesion from "../src/Components/Inicio_sesion/inicio-sesion";
+import Terminos from "./Components/terminos_condiciones/terminos";
 
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-      <Iniciosesion />
+      <Terminos />
     </>
   );
 }
