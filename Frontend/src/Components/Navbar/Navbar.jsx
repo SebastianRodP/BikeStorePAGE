@@ -46,7 +46,6 @@ export const Navbar = () => {
         </div>
         <div className="options">
           <div className="optionsUp">
-            <img src={corazonFavoritos} alt="" className="corazon"></img>
             <a href="#" className="contactanos">
               Contactanos
             </a>
