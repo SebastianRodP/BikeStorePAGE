@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com');
+@import url('https://fonts.gstatic.com');
+@import url('https://fonts.googleapis.com/css2?family=Jockey+One&display=swap');
+@import url('https://fonts.googleapis.com');
+@import url('https://fonts.gstatic.com');
+@import url('https://fonts.googleapis.com/css2?family=Yaldevi:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jockey+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&display=swap');
+
+/* Estilos generales */
+.filtro {
+  display: flex;
+  justify-content: center;
+}
+
+.filtro-menu {
+  display: flex;
+  margin-right: 40px;
+  list-style: none;
+  border-top: 1px solid #cfcfcf;
+  border-bottom: 1px solid #cfcfcf;
+}
+
+.filtro-menu-item {
+  font-family: "Yaldevi", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  margin: 0px 70px;
+  line-height: 60px;
+  width: max-content;
+}
+
+.filtro-menu-btn {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 4px 12px;
+  border-radius: 3px;
+  font: inherit;
+  outline: inherit;
+  text-decoration: none;
+  color: #565656;
+}
+
+.filtro-menu-btn:hover {
+  background-color: #eaeaea;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+.filtro-menu > li {
+  float: left;
+}
+
+.filtro-menu li ul {
+  display: none;
+  position: absolute;
+  min-width: 140px;
+}
+
+.filtro-menu li:hover > ul {
+  display: block;
+}
+
+.submenu {
+  color: #565656;
+  text-decoration: none;
+  background-color: white;
+  border: 1px solid #cfcfcf;
+  padding: 2px 8px;
+  display: block;
+}
+
+.submenu:hover {
+  background-color: #eaeaea;
+}
+
+.submenu {
+  background-color: white;
+  border: 1px solid #cfcfcf;
+  padding: 2px 8px;
+  display: block;
+}
+
+.submenu:hover {
+  background-color: #eaeaea;
+}
+
+/* Estilos para pantallas más pequeñas */
+@media screen and (max-width: 768px) {
+  .filtro-menu {
+    flex-direction: column;
+    margin-right: 0;
+  }
+
+  .filtro-menu-item {
+    margin: 0;
+    width: 100%;
+  }
+
+  .filtro-menu-btn {
+    width: 100%;
+    text-align: left;
+  }
+
+  .filtro-menu li ul {
+    position: static;
+    display: none;
+  }
+
+  .filtro-menu li:hover > ul {
+    display: block;
+    position: static;
+    width: 100%;
+  }
+}
