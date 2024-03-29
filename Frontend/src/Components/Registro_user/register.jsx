@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import "./registro.css";
 import logo from "../../assets/img/imgInicioRegistro/logo.png";
 
+// esa vaina de los mensajes de error
 function MyLoginPage() {
     const [nombre, setNombre] = useState('');
     const [correo, setCorreo] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [aceptaTerminos, setAceptaTerminos] = useState(false);
-    const [errores, setErrores] = useState({}); // Almacena los mensajes de error
+    const [errores, setErrores] = useState({}); 
 
     const validarFormulario = () => {
         let erroresTemp = {};
@@ -20,9 +21,11 @@ function MyLoginPage() {
             esFormularioValido = false;
         }
 
-        // Validación de correo
         if (!correo) {
             erroresTemp.correo = "El campo correo es obligatorio.";
+            esFormularioValido = false;
+        } else if (!/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(correo)) {
+            erroresTemp.correo = "El correo electrónico no es válido.";
             esFormularioValido = false;
         }
 
@@ -62,6 +65,7 @@ function MyLoginPage() {
         <div className='todo'>
             <img className='logo' src={logo} alt="logo"></img>
             <div className='formulario'>
+            
                 <h1 className='tit'>Registro de usuario</h1>
                 <div className='nombre'>
                     <div>Nombre</div>
@@ -86,7 +90,7 @@ function MyLoginPage() {
                 <div className='aceptarc'>
                     <div>
                         <input type="checkbox" checked={aceptaTerminos} onChange={(e) => setAceptaTerminos(e.target.checked)} />
-                        Aceptar términos y condiciones
+                        Aceptar <a href="">términos y condiciones</a>
                     </div>
                     {errores.aceptaTerminos && <p className="error">{errores.aceptaTerminos}</p>}
                 </div>
