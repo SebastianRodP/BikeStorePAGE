@@ -1,16 +1,18 @@
 import React from 'react';
 import "./Footer.css";
+
 import BicicletaNegraFooter from '../../assets/img/imgFooter/BicicletaNegraFooter.png'
 export const Footer = () =>{
   return(
     <footer className="pie-pagina"> 
         <div className="grupo-1">
             <div className="box">
-                <div className="logo"> 
-                <a href="#">
-                    <img src={BicicletaNegraFooter} alt="Logo de BikeStore"></img>
-                </a>
-            </div>
+                <div className="logo-footer"> 
+                <a href="" className="logo-footer nav-link">Bike<span className="blue">Store</span></a>    
+                  <a href="#">
+                      <img src={BicicletaNegraFooter} alt="Logo de BikeStore"></img>
+                  </a>
+                </div>
             </div>
 
             <div className="box">
