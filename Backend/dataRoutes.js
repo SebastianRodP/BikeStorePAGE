@@ -8,5 +8,6 @@ router.get("/usuarios", controller.usuarios)
 router.get("/telefonos", controller.telefonos)
 router.get("/rol", controller.rol)
 router.get("/marcas", controller.marcas)
+router.get("/articulos",controller.articulos)
 
 module.exports = router
