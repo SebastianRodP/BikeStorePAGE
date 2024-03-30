@@ -4,6 +4,7 @@ const app = express()
 const controller = require("./controller.js")
 
 router.get("/", controller.saludo)
+router.get("/articulos", controller.articulos)
 router.get("/usuarios", controller.usuarios)
 router.get("/telefonos", controller.telefonos)
 router.get("/rol", controller.rol)
