@@ -30,14 +30,6 @@ export const Filtro = () => {
           </ul>
         </li>
         <li className="filtro-menu-item">
-          <button className="filtro-menu-btn">TALLA</button>
-          <ul>
-            <li><a href="" className="submenu">XXS</a></li>
-            <li><a href="" className="submenu">XS</a></li>
-            <li><a href="" className="submenu">S</a></li>
-          </ul>
-        </li>
-        <li className="filtro-menu-item">
           <button className="filtro-menu-btn">ORDENAR POR</button>
           <ul>
             <li><a href="" className="submenu">Precio(de mayor a menor)</a></li>
