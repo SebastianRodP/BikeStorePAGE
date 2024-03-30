@@ -1,0 +1,131 @@
+.contenedor-separador {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.separador {
+  border-top: 1px solid #ccc;
+  width: 80%;
+
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.tarjeta {
+  width: 85%; /* Ancho total de la tarjeta */
+  border-radius: 10px;
+  overflow: hidden; /* Para corregir desbordamientos */
+  margin: 20px auto; /* Centrar la tarjeta */
+  display: flex;
+  padding: 3%;
+}
+
+.columna {
+  flex: 1; /* Cada columna ocupa 50% del ancho */
+}
+
+.imagen {
+  border-right: 1px solid #ccc; /* Separador entre columnas */
+}
+
+.imagen img {
+  width: 100%; /* La imagen ocupa todo el ancho de su columna */
+  height: auto; /* Altura automática para mantener la proporción */
+  display: block; /* Para evitar espacio adicional debajo de la imagen */
+}
+
+.contenido {
+  font-size: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.precio-y-boton {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.precio {
+  max-width: fit-content;
+  padding: 20px; /* Aumentar el relleno */
+  border-radius: 0 0 10px 0; /* Ajustar el radio de borde de la esquina inferior izquierda */
+}
+
+.precio span {
+  font-size: 50px; /* Aumentar el tamaño de fuente */
+  font-weight: bold;
+}
+
+
+.tarjeta .compra {
+  display: inline-block;
+  background-color: #000;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 10px 10px; /* Ajustar el radio de borde de la esquina inferior derecha */
+}
+
+.tarjeta .compra:hover {
+  background-color: #333;
+}
+.colores-disponibles {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.colores-disponibles > div {
+  width: 3em;
+  height: 3em;
+  margin-right: 5px;
+}
+
+.color-rojo {
+  background-color: red;
+}
+
+.color-azul {
+  background-color: blue;
+}
+
+.color-verde {
+  background-color: green;
+}
+
+
+/* Media queries para hacer la tarjeta responsive */
+@media only screen and (max-width: 768px) {
+  .tarjeta {
+    flex-direction: column; /* Cambiar a una columna en pantallas más pequeñas */
+  }
+
+  .columna {
+    width: 100%; /* Cada columna ocupa el 100% del ancho en pantallas más pequeñas */
+    border-right: none; /* Eliminar el separador entre columnas en pantallas más pequeñas */
+  }
+  .precio {
+    padding: 30px; /* Aumentar el relleno */
+  }
+
+  .precio span {
+    font-size: 28px; /* Aumentar el tamaño de fuente */
+  }
+
+  .imagen {
+    border-radius: 10px 10px 0 0; /* Ajustar el radio de borde de la esquina superior en pantallas más pequeñas */
+  }
+
+  .colores-disponibles > div {
+    width: 2em;
+    height: 2em;
+    margin-right: 5px;
+  }
+}
