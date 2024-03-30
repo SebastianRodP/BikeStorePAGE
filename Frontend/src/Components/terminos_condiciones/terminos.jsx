@@ -1,11 +1,10 @@
 import React from 'react';
 import logo from "../../assets/img/imgInicioRegistro/logo.png";
-import "./terminos.css"; // Asegúrate de que la ruta del archivo CSS sea correcta
+import "./terminos.css";
 
 function TerminosCondiciones() {
 
     const handleSubmit = () => {
-        // Aquí puedes escribir la lógica para manejar el envío del formulario
         console.log('Formulario enviado');
     };
 

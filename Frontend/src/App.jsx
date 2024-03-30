@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Terminos from "./Components/terminos_condiciones/terminos";
+import Registro from "./Components/Registro_user/register";
 
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-      <Terminos />
+      <Registro />
     </>
   );
 }

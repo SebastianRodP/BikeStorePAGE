@@ -21,12 +21,11 @@ align-items: center;
 .formulario{
 	background-color: white;
 	padding: 30px;
-	max-width: 350px;
+	max-width: 380px;
 	font-size: 15px;
 	border-radius: 5px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-	display: flex;
-	flex-direction: column;
+	
 }
 
 .todo{
@@ -37,7 +36,7 @@ align-items: center;
 
 .logo{
 	height: auto;
-	width: 350px;
+
 }
 
 .contras{
@@ -47,19 +46,9 @@ align-items: center;
 
 }
 
-.btnc{
-	margin-bottom: 0px;
-}
-
-.inpus{
-	height: 25px;
-	width: 320px;
-	margin-bottom: 20px;
-	margin-top: 20px;
-}
 .boton{
 	height: 30px;
-	width: 320px;
+	width: 380px;
 	background-color: black;
 	color: white;
 	display: flex;
@@ -69,6 +58,13 @@ align-items: center;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 	cursor: pointer;
 	margin-bottom: 10px;
+}
+li{
+	display: flex;
+	flex-direction: column;
+	text-align: justify;
+	justify-content: center;
+	margin-left: -35px;
 }
 .n{
 	color: black;
