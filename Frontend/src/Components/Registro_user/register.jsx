@@ -1,14 +1,10 @@
 import React, { useState } from 'react';
-import { createClient } from '@supabase/supabase-js';
 import "./registro.css";
 import logo from "../../assets/img/imgInicioRegistro/logo.png";
-
-const supabaseUrl = 'https://hetfaqksgxjlcxatxcvl.supabase.co/auth/v1';
-const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhldGZhcWtzZ3hqbGN4YXR4Y3ZsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTExNjI0OTcsImV4cCI6MjAyNjczODQ5N30.jg0cFimQOh3erlrtL9AILrtyQIrRJLnFs-594uJXiiY';
-const supabase = createClient(supabaseUrl, supabaseAnonKey);
+import { client } from "../../Pages/SupaBase/client";
+import { debounce } from 'lodash';
 
 function MyLoginPage() {
-    // Estados para los campos del formulario
     const [nombre, setNombre] = useState('');
     const [correo, setCorreo] = useState('');
     const [password, setPassword] = useState('');
@@ -16,18 +12,16 @@ function MyLoginPage() {
     const [aceptaTerminos, setAceptaTerminos] = useState(false);
     const [errores, setErrores] = useState({});
 
-    // Validacion del formulario
     const validarFormulario = () => {
         let erroresTemp = {};
         let esFormularioValido = true;
 
-        // Validaciones
-        if (!nombre) {
+        if (!nombre.trim()) {
             erroresTemp.nombre = "El campo nombre es obligatorio.";
             esFormularioValido = false;
         }
 
-        if (!correo) {
+        if (!correo.trim()) {
             erroresTemp.correo = "El campo correo es obligatorio.";
             esFormularioValido = false;
         } else if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(correo)) {
@@ -35,12 +29,15 @@ function MyLoginPage() {
             esFormularioValido = false;
         }
 
-        if (!password) {
+        if (!password.trim()) {
             erroresTemp.password = "El campo contraseña es obligatorio.";
             esFormularioValido = false;
         }
 
-        if (password !== confirmPassword) {
+        if (!confirmPassword.trim()) {
+            erroresTemp.confirmPassword = "Debe confirmar la contraseña.";
+            esFormularioValido = false;
+        } else if (confirmPassword !== password) {
             erroresTemp.confirmPassword = "Las contraseñas no coinciden.";
             esFormularioValido = false;
         }
@@ -56,34 +53,34 @@ function MyLoginPage() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        if (validarFormulario()) {
+        
+        // Validar el formulario antes de intentar enviarlo
+        const esFormularioValido = validarFormulario();
+    
+        if (esFormularioValido) {
             try {
-                const { data, error } = await supabase
-                    .from('usuarios')
-                    .insert([
-                        {
-                            nombre: nombre,
-                            correo: correo,
-                            idrol: 2, 
-                            contraseña: password
-                        },
-                    ]);
-
+                // Agregar un retraso antes de enviar la solicitud (por ejemplo, 1000 milisegundos = 1 segundo)
+                await new Promise(resolve => setTimeout(resolve, 1000));
+    
+                const { user, error } = await client.auth.signUp({
+                    email: correo, // Cambiar "correo" a "email" si es el campo correcto en tu base de datos
+                    password: password,
+                    data: { nombre: nombre }
+                });
+                
                 if (error) {
-                    console.error('Error al insertar datos:', error.message);
-                    alert('Hubo un error al registrar el usuario. Por favor, inténtalo de nuevo.');
+                    console.error('Error al registrar el usuario:', error.message);
                 } else {
-                    console.log('Usuario registrado con éxito:', data);
-                    alert('El usuario se registró correctamente.');
+                    console.log('Usuario registrado correctamente:', user);
                 }
             } catch (error) {
-                console.error('Error al insertar datos:', error.message);
-                alert('Hubo un error al registrar el usuario. Por favor, inténtalo de nuevo.');
+                console.error('Error al registrar el usuario:', error.message);
             }
+        } else {
+            console.log('El formulario contiene errores. Por favor, corríjalos.');
         }
     };
-
+    
     return (
         <div className='todo'>
             <img className='logo' src={logo} alt="Logo" />
