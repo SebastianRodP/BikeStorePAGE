@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import "./inisesion.css";
 import logo from "../../assets/img/imgInicioRegistro/logo.png";
-import { client } from "../../Pages/SupaBase/client"; 
+import { client } from "../../Pages/SupaBase/client";
+import { Link } from "react-router-dom";
 
 function MyLoginPage() {
     const [correo, setCorreo] = useState('');
     const [password, setPassword] = useState('');
     const [errores, setErrores] = useState({});
+
 
     const validarFormulario = () => {
         let erroresTemp = {};
@@ -28,33 +30,33 @@ function MyLoginPage() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
+
         const esFormularioValido = validarFormulario();
-    
+
         if (esFormularioValido) {
             try {
                 const { data, error } = await client
                     .from('usuarios')
                     .select('correo, contraseña, idrol, nombre, direccion, nodocumento')
                     .eq('correo', correo)
-                    console.log ("el correo coincide");
-              
-    
+
+
                 if (error) {
                     console.error('Error al consultar la base de datos:', error.message);
                 } else {
                     if (data.length > 0) {
                         const usuario = data[0];
-                       
-    
+
+
                         if (usuario.contraseña === password) {
                             console.log('La contraseña coincide. Iniciando sesión...');
-                           
+
                             if (usuario.idrol === 1) {
                                 console.log('Bienvenido admin');
                                 console.log('nombre:', usuario.nombre);
                                 console.log('Numero de documento:', usuario.nodocumento);
                                 console.log('direccion:', usuario.direccion);
+                                
                             } else {
                                 console.log('Bienvenido usuario');
                                 console.log('nombre:', usuario.nombre);
@@ -62,10 +64,10 @@ function MyLoginPage() {
                                 console.log('direccion:', usuario.direccion);
                             }
                         } else {
-                            console.log('La contraseña no coincide. Inténtalo de nuevo.');
+                            setErrores({ password: 'La contraseña no coincide.' });
                         }
                     } else {
-                        console.log('No se encontró ningún usuario con ese correo.');
+                        setErrores({ correo: 'No se encontró ningún usuario con ese correo.' });
                     }
                 }
             } catch (error) {
@@ -75,15 +77,15 @@ function MyLoginPage() {
             console.log('El formulario contiene errores. Por favor, corríjalos.');
         }
     };
-    
-    
+
+
 
     return (
         <div onSubmit={handleSubmit} className='todo'>
             <img className='logo' src={logo} alt="Logo" />
             <div className='formulario'>
                 <h1 className='tit'>Inicio de sesión</h1>
-                
+
                 <div className='correo'>
                     <div>Correo electrónico</div>
                     <input id='correo' className='inpus' type="email" value={correo} onChange={(e) => setCorreo(e.target.value)} />
@@ -103,8 +105,9 @@ function MyLoginPage() {
                     <button className='boton' onClick={handleSubmit}>Iniciar sesión</button>
                 </div>
                 <div>
-                    ¿No tienes una cuenta? <a href="">Registrate</a>
+                    ¿No tienes una cuenta? <Link to="/registro">Registrate</Link>
                 </div>
+
             </div>
         </div>
     );

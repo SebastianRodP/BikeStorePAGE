@@ -3,6 +3,8 @@ import "./registro.css";
 import logo from "../../assets/img/imgInicioRegistro/logo.png";
 import { client } from "../../Pages/SupaBase/client";
 import { debounce } from 'lodash';
+import { Link } from "react-router-dom";
+
 
 function MyLoginPage() {
     const [nombre, setNombre] = useState('');
@@ -53,26 +55,26 @@ function MyLoginPage() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
-       
+
+
         const esFormularioValido = validarFormulario();
-    
+
         if (esFormularioValido) {
             try {
-                
+
                 await new Promise(resolve => setTimeout(resolve, 1000));
-    
+
                 const { user, error } = await client.auth.signUp({
-                    email: correo, 
+                    email: correo,
                     password: password,
-                    data: { 
-                        nombre: nombre, 
-                        nodocumento: null, 
+                    data: {
+                        nombre: nombre,
+                        nodocumento: null,
                         direccion: null,
-                        idrol: 2 
+                        idrol: 2
                     }
                 });
-                
+
                 if (error) {
                     console.error('Error al registrar el usuario:', error.message);
                 } else {
@@ -85,7 +87,7 @@ function MyLoginPage() {
             console.log('El formulario contiene errores. Por favor, corríjalos.');
         }
     };
-    
+
     return (
         <div className='todo'>
             <img className='logo' src={logo} alt="Logo" />
@@ -113,12 +115,19 @@ function MyLoginPage() {
                 </div>
                 <div className='aceptarc'>
                     <input type="checkbox" checked={aceptaTerminos} onChange={(e) => setAceptaTerminos(e.target.checked)} />
-                    Aceptar <a href="">términos y condiciones</a>
+                    <div>
+                        aceptar <Link to="/terminos">Terminos y condiciones</Link>
+                    </div>
+
                 </div>
                 {errores.aceptaTerminos && <p className="error">{errores.aceptaTerminos}</p>}
                 <div className='btnc'>
                     <button className='boton' onClick={handleSubmit}>Registrarse</button>
                 </div>
+                <div>
+                    ¿Ya tienes una cuenta? <Link to="/inicio">Inicie sesion</Link>
+                </div>
+
             </div>
         </div>
     );

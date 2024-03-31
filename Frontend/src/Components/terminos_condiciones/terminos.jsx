@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from "../../assets/img/imgInicioRegistro/logo.png";
 import "./terminos.css";
+import { Link } from "react-router-dom";
 
 function TerminosCondiciones() {
 
@@ -75,7 +76,8 @@ function TerminosCondiciones() {
                     </ul>
                 </div>
                 <div className='btnc'>
-                    <button className='boton' onClick={handleSubmit}>Continuar</button>
+                <Link to="/registro"><button className='boton' onClick={handleSubmit}>Continuar</button></Link>
+                    
                 </div>
             </div>
         </div>
