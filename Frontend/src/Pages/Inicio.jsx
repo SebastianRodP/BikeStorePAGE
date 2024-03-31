@@ -6,10 +6,11 @@ import { useFetchGetArticulos } from '../../hooks/UseFetchGetArticulos';
 import { articulos } from '../../../Backend/controller';
 
 function Iniciop() {
-    const {data, loading}= useFetchGetArticulos("http://localhost:3000/articulos") 
+    const {data, loading, error}= useFetchGetArticulos("http://localhost:3000/articulos") 
         return(
             <div className='box-catalogo'>
                 <div className='box-bicicletas'>
+                {error && <li>Error: {error}</li>}
                 {loading && <li>Loading...</li>}
                 {data?.map((articulos) =>
                     (<li key={articulos.idArticulos}>
