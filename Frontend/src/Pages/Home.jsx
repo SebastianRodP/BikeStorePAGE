@@ -12,9 +12,7 @@ export const Home = () => {
   return (
   <>
     <Navbar/>
-    <Banner/>
-    <Filtro/>
-    <Cartas/>
+ 
     <Footer/>
   </>
   )

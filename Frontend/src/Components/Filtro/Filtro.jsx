@@ -41,3 +41,5 @@ export const Filtro = () => {
     </div>
   )
 }
+
+export default Filtro

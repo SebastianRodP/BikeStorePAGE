@@ -50,3 +50,5 @@ export const DetallesArt = () => {
     </>
   );
 };
+
+export default DetallesArt

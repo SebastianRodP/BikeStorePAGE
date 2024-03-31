@@ -30,3 +30,5 @@ export const Cartas = () => {
     </>
   );
 };
+
+export default Cartas
