@@ -1,22 +1,32 @@
 import React from "react";
 import "./Cartas.css";
 import catalogo from "../../assets/img/catalogo.png";
+import useFetchGetArticulos from "../../hooks/useFetchGetArticulos";
 
 export const Cartas = () => {
+  const { dataArticulos } = useFetchGetArticulos();
   return (
+    <>
     <div className="content">
-      <div className="caja-bicicletas">
-        <img src={catalogo} alt=""></img>
-        <p id="descuento">-50%</p>
-        <p id="precio"> descuento 1.600.000</p>
-        <div className="detalle-bicicletas">
-          <h2 className="nombre-bici">Bicicleta MTB GW</h2>
-          <p>
-            16 unidades <br /> 3 colores disponibles{" "}
-          </p>
-          <i className="fa-solid fa-house"></i>
-        </div>
-      </div>
+      {dataArticulos.map((articulos) => {
+        return (
+          
+            <div className="caja-bicicletas">
+              <img src={articulos.img} alt=""></img>
+              <p id="descuento">{articulos.descuento}<span>%</span></p>
+              <p id="precio"> <span>$</span> {articulos.costo}</p>
+              <div className="detalle-bicicletas">
+                <h2 className="nombre-bici">{articulos.nombre}</h2>
+                <p>
+                 {articulos.stock} <br />{articulos.color}
+                </p>
+                <i className="fa-solid fa-house"></i>
+              </div>
+            </div>
+         
+        );
+      })}
     </div>
+    </>
   );
 };
