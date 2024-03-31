@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar } from "../Navbar/Navbar";
+import Navbar  from "../Navbar/Navbar";
 import { Footer } from "../Footer/Footer";
 import Bicicleta from "../../assets/img/Bicicleta.png";
 import "./DetallesArt.css";
