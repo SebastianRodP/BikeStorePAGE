@@ -1,12 +1,11 @@
 import React from "react";
 import "./Navbar.css";
+import { Link } from "react-router-dom";
 import bicicletaNavbar from "../../assets/img/imgNavbar/bicicletaNavbar.png";
 import carritoDeCompras from "../../assets/img/imgNavbar/carritoDeCompras.png";
-import corazonFavoritos from "../../assets/img/imgNavbar/corazonFavoritos.png";
 import iniciarSesion from "../../assets/img/imgNavbar/iniciarSesion.png";
 
-
-export const Navbar = () => {
+const Navbar = () => {
   return (
     <header className="header">
       <nav className="nav">
@@ -29,7 +28,7 @@ export const Navbar = () => {
           </div>
           <ul className="nav-menu">
             <li className="nav-menu-item">
-              <a className="nav-menu-link nav-link">Bicicletas</a>
+              <Link to="/bicicletas" className="nav-menu-link nav-link">Bicicletas</Link>
             </li>
             <li className="nav-menu-item">
               <a className="nav-menu-link nav-link">Accesorios</a>

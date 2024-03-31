@@ -47,6 +47,7 @@
 
 .caja-bicicletas #precio{
   font-family: "Jockey One", sans-serif;  
+  font-size: 30px;
   font-style: normal;
   color:#006C11;
   background-color: white;
@@ -86,4 +87,32 @@
   text-align: start;
   justify-content: flex-start;
   color: #616161;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; /* Espacio superior */
+}
+
+.pagination li {
+  list-style: none;
+  margin: 0 5px;
+}
+
+.pagination li button {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  color: #333;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.pagination li button:hover {
+  background-color: #f0f0f0;
+}
+
+.pagination li.active button {
+  background-color: #A1D1D8;
+  color: #fff;
 }

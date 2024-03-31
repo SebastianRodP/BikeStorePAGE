@@ -1,19 +1,20 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Navbar} from "../Components/Navbar/Navbar";
 import { Footer } from "../Components/Footer/Footer";
-import { Cartas } from '../Components/Cartas/Cartas';
-import {Banner} from '../Components/Banner/Banner';
-import {Filtro} from '../Components/Filtro/Filtro'
 
 
 
-export const Home = () => {
+
+const Home = () => {
 
   return (
   <>
     <Navbar/>
- 
+    <h1>HOLA SOY EL HOME</h1>
     <Footer/>
   </>
   )
 }
+
+
+export default Home;

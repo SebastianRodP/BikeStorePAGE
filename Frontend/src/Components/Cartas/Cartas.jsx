@@ -1,34 +1,61 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Cartas.css";
 import catalogo from "../../assets/img/catalogo.png";
 import useFetchGetArticulos from "../../hooks/useFetchGetArticulos";
 
 export const Cartas = () => {
   const { dataArticulos } = useFetchGetArticulos();
+  const [currentPage, setCurrentPage] = useState(1);
+  const [articulosPerPage] = useState(12); // Número de artículos por página
+
+  // Calcular los índices de los artículos a mostrar en la página actual
+  const indexOfLastArticulo = currentPage * articulosPerPage;
+  const indexOfFirstArticulo = indexOfLastArticulo - articulosPerPage;
+  const currentArticulos = dataArticulos.slice(
+    indexOfFirstArticulo,
+    indexOfLastArticulo
+  );
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   return (
     <>
-    <div className="content">
-      {dataArticulos.map((articulos) => {
-        return (
-          
-            <div className="caja-bicicletas">
-              <img src={articulos.img} alt=""></img>
-              <p id="descuento">{articulos.descuento}<span>%</span></p>
-              <p id="precio"> <span>$</span> {articulos.costo}</p>
+      <main className="content">
+        {currentArticulos.map((articulo) => {
+          return (
+            <div className="caja-bicicletas" key={articulo.id}>
+              <img src={articulo.img} alt="" />
+              <p id="descuento">
+                {articulo.descuento}
+                <span>%</span>
+              </p>
+              <p id="precio">
+                <span>$</span> {articulo.costo}
+              </p>
               <div className="detalle-bicicletas">
-                <h2 className="nombre-bici">{articulos.nombre}</h2>
+                <h2 className="nombre-bici">{articulo.nombre}</h2>
                 <p>
-                 {articulos.stock} <br />{articulos.color}
+                  {articulo.stock} <span>Unidades disponibles</span>
                 </p>
+                <p>{articulo.color}</p>
                 <i className="fa-solid fa-house"></i>
               </div>
             </div>
-         
-        );
-      })}
-    </div>
+          );
+        })}
+      </main>
+      {/* Paginación */}
+      <ul className="pagination">
+        {Array.from({
+          length: Math.ceil(dataArticulos.length / articulosPerPage),
+        }).map((_, index) => (
+          <li key={index} className={currentPage === index + 1 ? "active" : ""}>
+            <button onClick={() => paginate(index + 1)}>{index + 1}</button>
+          </li>
+        ))}
+      </ul>
     </>
   );
 };
 
-export default Cartas
+export default Cartas;
