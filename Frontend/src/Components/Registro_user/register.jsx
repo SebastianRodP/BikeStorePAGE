@@ -54,18 +54,23 @@ function MyLoginPage() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         
-        // Validar el formulario antes de intentar enviarlo
+       
         const esFormularioValido = validarFormulario();
     
         if (esFormularioValido) {
             try {
-                // Agregar un retraso antes de enviar la solicitud (por ejemplo, 1000 milisegundos = 1 segundo)
+                
                 await new Promise(resolve => setTimeout(resolve, 1000));
     
                 const { user, error } = await client.auth.signUp({
-                    email: correo, // Cambiar "correo" a "email" si es el campo correcto en tu base de datos
+                    email: correo, 
                     password: password,
-                    data: { nombre: nombre }
+                    data: { 
+                        nombre: nombre, 
+                        nodocumento: null, 
+                        direccion: null,
+                        idrol: 2 
+                    }
                 });
                 
                 if (error) {

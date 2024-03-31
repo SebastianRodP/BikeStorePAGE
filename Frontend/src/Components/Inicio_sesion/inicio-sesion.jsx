@@ -1,32 +1,23 @@
 import React, { useState } from 'react';
-import { createClient } from '@supabase/supabase-js';
-import "./inisesion.css"; 
+import "./inisesion.css";
 import logo from "../../assets/img/imgInicioRegistro/logo.png";
-
-const supabaseUrl = 'https://hetfaqksgxjlcxatxcvl.supabase.co';
-const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhldGZhcWtzZ3hqbGN4YXR4Y3ZsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTExNjI0OTcsImV4cCI6MjAyNjczODQ5N30.jg0cFimQOh3erlrtL9AILrtyQIrRJLnFs-594uJXiiY';
-const supabase = createClient(supabaseUrl, supabaseAnonKey);
+import { client } from "../../Pages/SupaBase/client"; 
 
 function MyLoginPage() {
     const [correo, setCorreo] = useState('');
     const [password, setPassword] = useState('');
-    const [errores, setErrores] = useState({}); 
+    const [errores, setErrores] = useState({});
 
     const validarFormulario = () => {
         let erroresTemp = {};
         let esFormularioValido = true;
 
-        // Valida el correo electronico
-        if (!correo) {
+        if (!correo.trim()) {
             erroresTemp.correo = "El campo correo es obligatorio.";
-            esFormularioValido = false;
-        } else if (!/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(correo)) {
-            erroresTemp.correo = "El correo electrónico no es válido.";
             esFormularioValido = false;
         }
 
-        // Valida las contraseñas
-        if (!password) {
+        if (!password.trim()) {
             erroresTemp.password = "El campo contraseña es obligatorio.";
             esFormularioValido = false;
         }
@@ -37,68 +28,82 @@ function MyLoginPage() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        if (!validarFormulario()) {
-            return;
+        
+        const esFormularioValido = validarFormulario();
+    
+        if (esFormularioValido) {
+            try {
+                const { data, error } = await client
+                    .from('usuarios')
+                    .select('correo, contraseña, idrol, nombre, direccion, nodocumento')
+                    .eq('correo', correo)
+                    console.log ("el correo coincide");
+              
+    
+                if (error) {
+                    console.error('Error al consultar la base de datos:', error.message);
+                } else {
+                    if (data.length > 0) {
+                        const usuario = data[0];
+                       
+    
+                        if (usuario.contraseña === password) {
+                            console.log('La contraseña coincide. Iniciando sesión...');
+                           
+                            if (usuario.idrol === 1) {
+                                console.log('Bienvenido admin');
+                                console.log('nombre:', usuario.nombre);
+                                console.log('Numero de documento:', usuario.nodocumento);
+                                console.log('direccion:', usuario.direccion);
+                            } else {
+                                console.log('Bienvenido usuario');
+                                console.log('nombre:', usuario.nombre);
+                                console.log('Numero de documento:', usuario.nodocumento);
+                                console.log('direccion:', usuario.direccion);
+                            }
+                        } else {
+                            console.log('La contraseña no coincide. Inténtalo de nuevo.');
+                        }
+                    } else {
+                        console.log('No se encontró ningún usuario con ese correo.');
+                    }
+                }
+            } catch (error) {
+                console.error('Error al consultar la base de datos:', error.message);
+            }
+        } else {
+            console.log('El formulario contiene errores. Por favor, corríjalos.');
         }
-
-        //consultar la base de datos para verificar si el correo existe
-        const { data: usuarios, error } = await supabase
-            .from('usuarios')
-            .select('*')
-            .eq('correo', correo);
-
-        if (error) {
-            console.error('Error al buscar usuario:', error.message);
-            alert('Hubo un error al iniciar sesión. Por favor, inténtalo de nuevo.');
-            return;
-        }
-
-        if (usuarios.length === 0) {
-            alert('No existe ningún usuario con este correo electrónico.');
-            return;
-        }
-
-        // verifica la contraseña
-        const usuario = usuarios[0];
-        if (usuario.contraseña !== password) {
-            alert('La contraseña es incorrecta.');
-            return;
-        }
-
-        // mostrar mensaje de inicio de sesión exitoso si se hace bien
-        alert('¡Se ha iniciado sesión correctamente!');
     };
+    
+    
 
     return (
-        <div className='todo'>
-            <img className='logo' src={logo} alt="logo "></img>
-            
+        <div onSubmit={handleSubmit} className='todo'>
+            <img className='logo' src={logo} alt="Logo" />
             <div className='formulario'>
-                <h1 className='tit'>Iniciar sesión</h1>
+                <h1 className='tit'>Inicio de sesión</h1>
+                
                 <div className='correo'>
                     <div>Correo electrónico</div>
-                    <input className='inpus' type="email" value={correo} onChange={(e) => setCorreo(e.target.value)} />
+                    <input id='correo' className='inpus' type="email" value={correo} onChange={(e) => setCorreo(e.target.value)} />
                     {errores.correo && <p className="error">{errores.correo}</p>}
                 </div>
                 <div className='contraseña'>
-                    <div className='contras'>
-                        <div>Contraseña</div>
-                        <a className='n' href=''>Recuperar contraseña</a>
-                    </div>
-                    <input className='inpus' type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                    <div>Contraseña</div>
+                    <input id='contraseña' className='inpus' type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                     {errores.password && <p className="error">{errores.password}</p>}
                 </div>
                 <div className='reccontra'>
-                    <input type="checkbox" />
-                    <div> Recordar contraseña</div>
+                    <input type="checkbox" name="" id="" />
+                    Recordar contraseña
                 </div>
+
                 <div className='btnc'>
-                    <button className='boton' onClick={handleSubmit}> Iniciar sesión </button>
+                    <button className='boton' onClick={handleSubmit}>Iniciar sesión</button>
                 </div>
-                <div className='crearc'>
-                    <div>¿No tienes una cuenta?</div>
-                    <div><a className='n' href="../registro_user/register.jsx">Crear cuenta</a></div>
+                <div>
+                    ¿No tienes una cuenta? <a href="">Registrate</a>
                 </div>
             </div>
         </div>

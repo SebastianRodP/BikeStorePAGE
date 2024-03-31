@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Registro from "./Components/Registro_user/register";
+import Inicio from "./Components/Inicio_sesion/inicio-sesion";
 
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-      <Registro />
+      <Inicio />
     </>
   );
 }
