@@ -3,12 +3,11 @@ import "./Cartas.css";
 import catalogo from "../../assets/img/catalogo.png";
 import useFetchGetArticulos from "../../hooks/useFetchGetArticulos";
 
-export const Cartas = () => {
+const Cartas = () => {
   const { dataArticulos } = useFetchGetArticulos();
   const [currentPage, setCurrentPage] = useState(1);
-  const [articulosPerPage] = useState(12); // Número de artículos por página
+  const [articulosPerPage] = useState(12);
 
-  // Calcular los índices de los artículos a mostrar en la página actual
   const indexOfLastArticulo = currentPage * articulosPerPage;
   const indexOfFirstArticulo = indexOfLastArticulo - articulosPerPage;
   const currentArticulos = dataArticulos.slice(
@@ -44,6 +43,7 @@ export const Cartas = () => {
           );
         })}
       </main>
+
       {/* Paginación */}
       <ul className="pagination">
         {Array.from({

@@ -5,7 +5,7 @@ import bicicletaNavbar from "../../assets/img/imgNavbar/bicicletaNavbar.png";
 import carritoDeCompras from "../../assets/img/imgNavbar/carritoDeCompras.png";
 import iniciarSesion from "../../assets/img/imgNavbar/iniciarSesion.png";
 
-const Navbar = () => {
+export const Navbar = () => {
   return (
     <header className="header">
       <nav className="nav">
