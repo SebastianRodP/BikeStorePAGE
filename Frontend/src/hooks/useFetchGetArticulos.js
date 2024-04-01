@@ -25,7 +25,7 @@ const useFetchData = () => {
   useEffect(() => {
     const fetchdataCategorias = async() =>{
       const respuesta = await fetch(
-          'http://localhost:3000/categorias',{
+          'http://localhost:3000/articulos/${}',{
               method: "GET",
               headers: {
                   'Content-Type': 'application/json',

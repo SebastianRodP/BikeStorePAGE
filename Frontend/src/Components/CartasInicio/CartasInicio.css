@@ -1,3 +1,6 @@
+.titulito{
+  text-align: center;
+}
 .content{
   display: flex;
   flex-direction: row;

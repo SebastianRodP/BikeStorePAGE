@@ -14,6 +14,7 @@ const indexOfFirstArticulo = indexOfLastArticulo - articulosPerPage;
 const currentArticulos = dataArticulos.slice(0,4);
 
 
+
 return (
     <>
     <div className="container-anuncio">
@@ -23,9 +24,9 @@ return (
     <h1 className="titulito">BICICLETAS</h1>
     </div>
     <main className="content">
-        {currentArticulos.map((articulo, categorias) => {
+        {currentArticulos.map((articulo) => {
         return (
-            <div className="caja-bicicletas" key={articulo.idCategoria ==1}>
+            <div className="caja-bicicletas" key={articulo.id =1}>
             <img src={articulo.img} alt="" />
             <p id="descuento">
                 {articulo.descuento}
@@ -45,6 +46,8 @@ return (
             </div>
         );
         })}
+
+    {/*ACCESORIOS*/}
     </main>
     <div className="titulos">
     <h1 className="">ACCESORIOS</h1>
@@ -72,6 +75,7 @@ return (
             </div>
         );
         })}
+        {/* REPUESTOS */}
     </main>
     <div className="titulos">
     <h1 className="">REPUESTOS</h1>
@@ -99,6 +103,7 @@ return (
             </div>
         );
         })}
+        {/* VESTUARIOS */}
     </main>
     <div className="titulos">
     <h1 className="">VESTUARIOS</h1>

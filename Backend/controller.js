@@ -59,7 +59,7 @@ const articulos = (req, res) => {
     });
 };
 const categorias = (req, res) => {
-    pool.query('SELECT * FROM articulos', (error, results) => {
+    pool.query('SELECT * FROM categorias', (error, results) => {
         if (error) {
             console.error('Error al ejecutar la consulta:', error);
             res.status(500).json({ error: 'Error interno del servidor' });
@@ -68,9 +68,21 @@ const categorias = (req, res) => {
         res.status(200).json(results.rows);
     });
 };
+const artCategoria = (req, res) => {
+    const id  = req.params.idCategorias;
+    pool.query('SELECT * FROM articulos WHERE idCategorias = $1 ',[id], (error, results) => {
+        if (error) {
+            console.error('Error al ejecutar la consulta:', error);
+            res.status(500).json({ error: 'Error interno del servidor' });
+            return;
+        }
+        res.status(200).json(results.rows);
+    });
+};
+// artCategoria
 
 module.exports = {
-    saludo, usuarios, telefonos , rol, marcas, articulos, categorias
+    saludo, usuarios, telefonos , rol, marcas, articulos, categorias, artCategoria
 }
 
 
