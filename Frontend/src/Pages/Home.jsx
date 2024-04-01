@@ -5,14 +5,12 @@ import Contactanos from '../Components/Contactanos/Contactanos';
 
 
 
-
-
 const Home = () => {
 
   return (
   <>
     <Navbar/>
-    <Contactanos/>
+   
     <h1>HOLA SOY EL HOME</h1>
     <Footer/>
     
