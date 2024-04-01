@@ -23,9 +23,15 @@ const useFetchData = () => {
   }, []);
 
   useEffect(() => {
-    const fetchdataCategorias = async() =>{
+    // const fetchCategorias= ()=>{
+    //   const c1 = ('http://localhost:3000/articulos/:idCategoria')
+    //   const c2 = ('http://localhost:3000/articulos/2')
+    //   const c3 = ('http://localhost:3000/articulos/3')
+    //   const c4 = ('http://localhost:3000/articulos/4')
+    // }
+    const fetchDataCategorias = async(id) =>{
       const respuesta = await fetch(
-          'http://localhost:3000/articulos/${}',{
+          `http://localhost:3000/articulos/${id}`,{
               method: "GET",
               headers: {
                   'Content-Type': 'application/json',
@@ -37,7 +43,7 @@ const useFetchData = () => {
       console.log(resultados) 
       setDataCategorias(resultados)
     }
-    fetchdataCategorias()
+    fetchDataCategorias()
   }, []);
 
   return ({
@@ -46,4 +52,4 @@ const useFetchData = () => {
   })
 }
 
-export default useFetchData
+export default {useFetchData }
