@@ -43,9 +43,7 @@ export const Navbar = () => {
         </div>
         <div className="options">
           <div className="optionsUp">
-            <a href="#" className="contactanos">
-              Contactanos
-            </a>
+          <Link to="/Contactanos" className="contactanos">Contactanos</Link>
             <img
               src={carritoDeCompras}
               alt="carro-de-compras"
@@ -63,4 +61,4 @@ export const Navbar = () => {
   );
 };
 
-export default Navbar
+export default Navbar;
