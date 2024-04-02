@@ -1,0 +1,89 @@
+[33m9a125d4[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{0}: pull origin main: Fast-forward
+[33mb032a71[m HEAD@{1}: checkout: moving from cantangolo to main
+[33m6293fac[m[33m ([m[1;32mcantangolo[m[33m)[m HEAD@{2}: commit: cambio
+[33ma3628be[m[33m ([m[1;31morigin/cantangolo[m[33m)[m HEAD@{3}: checkout: moving from inicio_registro to cantangolo
+[33md4d0d4a[m[33m ([m[1;32minicio_registro[m[33m)[m HEAD@{4}: commit (merge): fusion
+[33m9ef0940[m HEAD@{5}: checkout: moving from main to inicio_registro
+[33mb032a71[m HEAD@{6}: commit (merge): hola
+[33m6c3299a[m HEAD@{7}: commit: todo
+[33m65ed194[m HEAD@{8}: checkout: moving from prueba to main
+[33m65ed194[m HEAD@{9}: pull origin inicio_registro: updating HEAD
+[33m65ed194[m HEAD@{10}: pull origin inicio_registro: updating HEAD
+[33m65ed194[m HEAD@{11}: pull origin inicio_registro: updating HEAD
+[33m65ed194[m HEAD@{12}: checkout: moving from main to prueba
+[33m65ed194[m HEAD@{13}: commit: subo archivos actualizados
+[33m4274ab3[m HEAD@{14}: commit: Agrego los componentes con rutas para prueba
+[33mb920273[m HEAD@{15}: checkout: moving from cantangolo to main
+[33m0616344[m HEAD@{16}: checkout: moving from main to cantangolo
+[33mb920273[m HEAD@{17}: commit: datos actualizados
+[33m834d503[m HEAD@{18}: checkout: moving from inicio_registro to main
+[33m9ef0940[m HEAD@{19}: checkout: moving from main to inicio_registro
+[33m834d503[m HEAD@{20}: checkout: moving from inicio_registro to main
+[33m9ef0940[m HEAD@{21}: checkout: moving from main to inicio_registro
+[33m834d503[m HEAD@{22}: checkout: moving from cantangolo to main
+[33m0616344[m HEAD@{23}: reset: moving to HEAD
+[33m0616344[m HEAD@{24}: checkout: moving from main to cantangolo
+[33m834d503[m HEAD@{25}: checkout: moving from cantangolo to main
+[33m0616344[m HEAD@{26}: checkout: moving from main to cantangolo
+[33m834d503[m HEAD@{27}: checkout: moving from cantangolo to main
+[33m0616344[m HEAD@{28}: reset: moving to HEAD
+[33m0616344[m HEAD@{29}: pull origin cantangolo: Fast-forward
+[33m0e1d2cd[m HEAD@{30}: checkout: moving from main to cantangolo
+[33m834d503[m HEAD@{31}: commit: app
+[33m95ea6ee[m HEAD@{32}: commit: agrego el componente de detalles con datos consumidos desde la base de datos, asi mismo el componente de detalles y el HOOK de articulos
+[33m5fbaaf8[m HEAD@{33}: commit: agrego cambios hechos en el filtro de la página
+[33m2ca8b91[m HEAD@{34}: commit: subo componente de tarjetas para los articulos
+[33m368e0b6[m HEAD@{35}: commit: subo los archivos de ruya y controllers actualizados con la ruta de articulos
+[33m10f06e6[m HEAD@{36}: reset: moving to HEAD
+[33m10f06e6[m HEAD@{37}: commit: Ignorando la carpeta node_modules
+[33mabb22b9[m HEAD@{38}: commit: subo el archivo gitignore
+[33md07e421[m HEAD@{39}: checkout: moving from DetallesArt to main
+[33md07e421[m HEAD@{40}: checkout: moving from main to DetallesArt
+[33md07e421[m HEAD@{41}: checkout: moving from DetallesArt to main
+[33md07e421[m HEAD@{42}: checkout: moving from main to DetallesArt
+[33md07e421[m HEAD@{43}: pull origin main: Fast-forward
+[33mcb5c718[m HEAD@{44}: reset: moving to HEAD
+[33mcb5c718[m HEAD@{45}: checkout: moving from inicio_registro to main
+[33m9ef0940[m HEAD@{46}: pull origin inicio_registro: Merge made by the 'ort' strategy.
+[33mda7f180[m HEAD@{47}: checkout: moving from main to inicio_registro
+[33mcb5c718[m HEAD@{48}: checkout: moving from inicio_registro to main
+[33mda7f180[m HEAD@{49}: checkout: moving from main to inicio_registro
+[33mcb5c718[m HEAD@{50}: commit: elimino el boton de favoritos
+[33m1d6770d[m HEAD@{51}: checkout: moving from inicio_registro to main
+[33mda7f180[m HEAD@{52}: checkout: moving from main to inicio_registro
+[33m1d6770d[m HEAD@{53}: commit: formato
+[33mfc63bc8[m HEAD@{54}: commit: Agregando regla para ignorar node_modules
+[33m6ef887a[m HEAD@{55}: checkout: moving from inicio_registro to main
+[33mda7f180[m HEAD@{56}: commit: ?
+[33m229b5a6[m HEAD@{57}: checkout: moving from main to inicio_registro
+[33m6ef887a[m HEAD@{58}: commit: recursos complementarios
+[33m08b0ac4[m HEAD@{59}: commit: agrego en el Home componentes de banner, filtro, cartas
+[33m9f231d4[m HEAD@{60}: commit: agrego el componente de filtro.css
+[33m5a357e1[m HEAD@{61}: commit: agrego el componente de filtro.jsx
+[33ma1f5e96[m HEAD@{62}: commit: agrego el componente de Navbar.css con correciones
+[33m04afa4b[m HEAD@{63}: commit: agrego el componente de navbar con correciones
+[33m452e282[m HEAD@{64}: commit: agrego el componente de banner
+[33m29cdf7f[m HEAD@{65}: checkout: moving from inicio_registro to main
+[33m229b5a6[m HEAD@{66}: reset: moving to HEAD
+[33m229b5a6[m HEAD@{67}: pull: Fast-forward
+[33mb4f9891[m HEAD@{68}: checkout: moving from main to inicio_registro
+[33m29cdf7f[m HEAD@{69}: checkout: moving from componentes to main
+[33m703fda7[m HEAD@{70}: checkout: moving from main to componentes
+[33m29cdf7f[m HEAD@{71}: checkout: moving from inicio_registro to main
+[33mb4f9891[m HEAD@{72}: checkout: moving from main to inicio_registro
+[33m29cdf7f[m HEAD@{73}: commit: guardo
+[33m9d311f3[m HEAD@{74}: commit: subo las imagenes del footer y el navbar, entre otros componentes para el funcionamiento de la página
+[33m63c5cae[m HEAD@{75}: commit: Subo el componente de Home.jsx en el cual se le agrego los componentes de Navbar, Cartas, Footer
+[33m8109751[m HEAD@{76}: commit: Subo el componente de Navbar.jsx, se le hizo algunas correciones y se les agrego las imagenes a mostrar
+[33m629e313[m HEAD@{77}: commit: Subo el componente de Footer.jsx, el cual va a ser utilizado en las diversas páginas
+[33m55fa5de[m HEAD@{78}: pull: Fast-forward
+[33m0e1d2cd[m HEAD@{79}: commit: agrego carpeta de imagenes a utilizar en el front y en distintos componentes
+[33md52f066[m HEAD@{80}: commit: Agrego la importación del navbar al frame Home
+[33mf146694[m HEAD@{81}: commit: Agrego contenido del componente de navbar
+[33me8bf176[m HEAD@{82}: commit: componentes
+[33m703fda7[m HEAD@{83}: checkout: moving from componentes to main
+[33m703fda7[m HEAD@{84}: checkout: moving from main to componentes
+[33m703fda7[m HEAD@{85}: commit: borro carpeta nodeJS
+[33m7395a49[m HEAD@{86}: commit: subir todos los archivos
+[33mecb2ad1[m HEAD@{87}: commit: subo archivo de prueba
+[33mac6f284[m HEAD@{88}: clone: from https://github.com/SebastianRodP/BikeStorePAGE.git
