@@ -41,11 +41,14 @@ align-items: center;
 	height: auto;
 	width: 350px;
 }
+
 .contraseña{
-	margin-bottom: 20px;
+	margin-bottom: 5px;
 	display: flex;
-	justify-content: center;
 	flex-direction: column;
+}
+.reccontra{
+	margin-top: 0px;
 }
 .nombre{
 	margin-bottom: 20px;

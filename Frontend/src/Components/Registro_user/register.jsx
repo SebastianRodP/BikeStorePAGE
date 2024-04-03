@@ -100,7 +100,13 @@ function MyLoginPage() {
                 </div>
                 <div className='correo'>
                     <div>Correo electrónico</div>
-                    <input id='correo' className='inpus' type="email" value={correo} onChange={(e) => setCorreo(e.target.value)} />
+                    <input
+                        id='correo'
+                        className='inpus'
+                        type="email"
+                        value={correo}
+                        onChange={(e) => setCorreo(e.target.value.toLowerCase())} 
+                    />
                     {errores.correo && <p className="error">{errores.correo}</p>}
                 </div>
                 <div className='contraseña'>

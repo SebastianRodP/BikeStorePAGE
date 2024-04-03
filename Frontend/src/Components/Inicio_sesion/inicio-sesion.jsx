@@ -56,7 +56,7 @@ function MyLoginPage() {
                                 console.log('nombre:', usuario.nombre);
                                 console.log('Numero de documento:', usuario.nodocumento);
                                 console.log('direccion:', usuario.direccion);
-                                
+
                             } else {
                                 console.log('Bienvenido usuario');
                                 console.log('nombre:', usuario.nombre);
@@ -88,14 +88,27 @@ function MyLoginPage() {
 
                 <div className='correo'>
                     <div>Correo electrónico</div>
-                    <input id='correo' className='inpus' type="email" value={correo} onChange={(e) => setCorreo(e.target.value)} />
+                    <input
+                        id='correo'
+                        className='inpus'
+                        type="email"
+                        value={correo}
+                        onChange={(e) => setCorreo(e.target.value.toLowerCase())} 
+                    />
                     {errores.correo && <p className="error">{errores.correo}</p>}
                 </div>
+
                 <div className='contraseña'>
                     <div>Contraseña</div>
-                    <input id='contraseña' className='inpus' type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                    <input id='contraseña'
+                        className='inpus'
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)} 
+                    />
                     {errores.password && <p className="error">{errores.password}</p>}
                 </div>
+                
                 <div className='reccontra'>
                     <input type="checkbox" name="" id="" />
                     Recordar contraseña
@@ -103,6 +116,9 @@ function MyLoginPage() {
 
                 <div className='btnc'>
                     <button className='boton' onClick={handleSubmit}>Iniciar sesión</button>
+                </div>
+                  <div className='reccontra'>
+                    <Link to="/reccontra">¿Ha olvidado su contraseña?</Link>
                 </div>
                 <div>
                     ¿No tienes una cuenta? <Link to="/registro">Registrate</Link>

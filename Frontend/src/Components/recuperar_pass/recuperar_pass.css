@@ -13,10 +13,26 @@ font-family: "Zen Kaku Gothic New", sans-serif;
 font-style: normal;
 align-items: center;
 }
+.texto{
+	margin-bottom: 20px;
+}
 .tit{
 	margin-top: 0px;
 	display: flex;
 	justify-content: center;
+}
+.inic{
+	color: white;
+	background-color: black;
+	border-radius: 10px;
+	padding: 5px;
+	max-width: 11%;
+	height: 15px;
+	size: cover;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none;
 }
 .formulario{
 	background-color: white;
@@ -53,13 +69,13 @@ align-items: center;
 
 .inpus{
 	height: 25px;
-	width: 320px;
+	width: 340px;
 	margin-bottom: 20px;
 	margin-top: 20px;
 }
 .boton{
 	height: 30px;
-	width: 320px;
+	width: 348px;
 	background-color: black;
 	color: white;
 	display: flex;
