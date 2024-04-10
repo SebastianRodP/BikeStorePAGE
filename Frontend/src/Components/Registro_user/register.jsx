@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import "./registro.css";
 import logo from "../../assets/img/imgInicioRegistro/logo.png";
-import { client } from "../../Pages/SupaBase/client";
-import { debounce } from 'lodash';
 import { Link } from "react-router-dom";
-
+import { createClient } from '@supabase/supabase-js';
 
 function MyLoginPage() {
     const [nombre, setNombre] = useState('');
@@ -13,6 +11,8 @@ function MyLoginPage() {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [aceptaTerminos, setAceptaTerminos] = useState(false);
     const [errores, setErrores] = useState({});
+
+    const supabase = createClient('https://hetfaqksgxjlcxatxcvl.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhldGZhcWtzZ3hqbGN4YXR4Y3ZsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTExNjI0OTcsImV4cCI6MjAyNjczODQ5N30.jg0cFimQOh3erlrtL9AILrtyQIrRJLnFs-594uJXiiY');
 
     const validarFormulario = () => {
         let erroresTemp = {};
@@ -56,32 +56,23 @@ function MyLoginPage() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-
         const esFormularioValido = validarFormulario();
 
         if (esFormularioValido) {
             try {
-
-                await new Promise(resolve => setTimeout(resolve, 1000));
-
-                const { user, error } = await client.auth.signUp({
-                    email: correo,
-                    password: password,
-                    data: {
-                        nombre: nombre,
-                        nodocumento: null,
-                        direccion: null,
-                        idrol: 2
-                    }
-                });
+                // Insertar datos en la tabla de Supabase
+                const { data, error } = await supabase
+                    .from('usuarios')
+                    .insert([{ nombre, correo, contraseña: password, idrol: 2 }]);
 
                 if (error) {
-                    console.error('Error al registrar el usuario:', error.message);
+                    console.error('Error al registrar los datos:', error.message);
                 } else {
-                    console.log('Usuario registrado correctamente:', user);
+                    console.log('Datos registrados correctamente:', data);
+                    // necesito el mercho escuchando a fercho, para poder redirigir al home.
                 }
             } catch (error) {
-                console.error('Error al registrar el usuario:', error.message);
+                console.error('Error al registrar los datos:', error.message);
             }
         } else {
             console.log('El formulario contiene errores. Por favor, corríjalos.');
@@ -124,16 +115,14 @@ function MyLoginPage() {
                     <div>
                         aceptar <Link to="/terminos">Terminos y condiciones</Link>
                     </div>
-
                 </div>
                 {errores.aceptaTerminos && <p className="error">{errores.aceptaTerminos}</p>}
                 <div className='btnc'>
                     <button className='boton' onClick={handleSubmit}>Registrarse</button>
                 </div>
                 <div>
-                    ¿Ya tienes una cuenta? <Link to="/inicio">Inicie sesion</Link>
+                    ¿Ya tienes una cuenta? <Link to="/">Inicia sesión aquí</Link>
                 </div>
-
             </div>
         </div>
     );
