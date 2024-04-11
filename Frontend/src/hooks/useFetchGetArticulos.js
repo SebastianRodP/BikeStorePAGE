@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-const useFetchGetUser = () => {
+const useFetchGetArticulos = () => {
   const [dataArticulos, setDataArticulos] = useState([]);
 
   useEffect(() => {
@@ -25,4 +25,4 @@ const useFetchGetUser = () => {
   })
 }
 
-export default useFetchGetUser;
+export default useFetchGetArticulos;
