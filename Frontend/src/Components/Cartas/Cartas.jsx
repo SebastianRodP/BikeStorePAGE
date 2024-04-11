@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./Cartas.css";
-import catalogo from "../../assets/img/catalogo.png";
 import useFetchGetArticulos from "../../hooks/useFetchGetArticulos";
 
 const Cartas = () => {
