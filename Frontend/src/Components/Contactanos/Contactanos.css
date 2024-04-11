@@ -1,3 +1,14 @@
 .modal-contenedor{background-color: #c23a3a;
 height: 50vh;
 width: 50vh;}
+.titulo{
+    text-align: center;
+}
+.one{
+    display: flex;
+    justify-content: space-between;
+}
+.two{
+    display: flex;
+    justify-content: space-between;
+} 
