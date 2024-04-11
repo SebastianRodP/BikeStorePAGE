@@ -43,45 +43,46 @@ function MyLoginPage() {
         const esFormularioValido = validarFormulario();
 
         if (esFormularioValido) {
-            try {
-                const { data, error } = await client
-                    .from('usuarios')
-                    .select('nombre, direccion, nodocumento')
-                    .eq('correo', correo);
+           try {
+    const { data, error } = await client
+        .from('usuarios')
+        .select('nombre, direccion, nodocumento')
+        .eq('correo', correo);
 
-                if (error) {
-                    console.error('Error al consultar la base de datos:', error.message);
-                } else {
-                    if (data.length > 0) {
-                        const usuario = data[0];
+    if (error) {
+        console.error('Error al consultar la base de datos:', error.message);
+    } else {
+        if (data.length > 0) {
+            const usuario = data[0];
 
-                        console.log('Usuario encontrado en la base de datos:');
-                        console.log('Nombre:', usuario.nombre);
-                        console.log('Número de documento:', usuario.nodocumento);
-                        console.log('Dirección:', usuario.direccion);
+            console.log('Usuario encontrado en la base de datos:');
+            console.log('Nombre:', usuario.nombre);
+            console.log('Número de documento:', usuario.nodocumento);
+            console.log('Dirección:', usuario.direccion);
 
-                        // Verificación de contraseña y mensaje de bienvenida
-                        console.log('Bienvenido usuario');
+            // Verificación de contraseña y mensaje de bienvenida
+            console.log('Bienvenido usuario');
 
-                        // Actualizar contraseña en la base de datos
-                        const { error: updateError } = await client
-                            .from('usuarios')
-                            .update({ contraseña: password })
-                            
+            // Actualizar contraseña en la base de datos
+            const { error: updateError } = await client
+                .from('usuarios')
+                .update({ contraseña: password })
+                .eq('correo', correo);
 
-                        if (updateError) {
-                            console.error('Error al actualizar la contraseña:', updateError.message);
-                        } else {
-                            console.log('Contraseña actualizada con éxito.');
-                            console.log('Se modificó la contraseña.');
-                        }
-                    } else {
-                        setErrores({ correo: 'El correo electrónico no está registrado.' });
-                    }
-                }
-            } catch (error) {
-                console.error('Error al consultar la base de datos:', error.message);
+            if (updateError) {
+                console.error('Error al actualizar la contraseña:', updateError.message);
+            } else {
+                console.log('Contraseña actualizada con éxito.');
+                console.log('Se modificó la contraseña.');
             }
+        } else {
+            setErrores({ correo: 'El correo electrónico no está registrado.' });
+        }
+    }
+} catch (error) {
+    console.error('Error al consultar la base de datos:', error.message);
+}
+
         } else {
             console.log('El formulario contiene errores. Por favor, corríjalos.');
         }
@@ -90,9 +91,9 @@ function MyLoginPage() {
     return (
         <div className='todo'>
             <img className='logo' src={logo} alt="logo "></img>
-            
+
             <div className='formulario'>
-            <Link className='inic' to="/inicio">Volver</Link>
+                <Link className='inic' to="/inicio">Volver</Link>
                 <h1 className='tit'>Recuperar contraseña</h1>
                 <div className='texto'>Por favor introduce tu correo electrónico para cambiar la contraseña.</div>
 
@@ -128,7 +129,7 @@ function MyLoginPage() {
                 </div>
 
                 <div className='btnc'>
-                    <button className='boton' onClick={handleSubmit}>Registrarse</button>
+                    <button className='boton' onClick={handleSubmit}>Cambiar contraseña</button>
                 </div>
             </div>
         </div>
