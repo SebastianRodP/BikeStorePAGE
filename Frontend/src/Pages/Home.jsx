@@ -2,16 +2,12 @@ import React from 'react'
 import Navbar from "../Components/Navbar/Navbar";
 import  Footer  from "../Components/Footer/Footer";
 import Contactanos from '../Components/Contactanos/Contactanos';
-import CartasInicio from '../Components/CartasInicio/CartasInicio'
-
-
 
 const Home = () => {
 
   return (
   <>
     <Navbar/>
-    <CartasInicio/>
     <h1>HOLA SOY EL HOME</h1>
     <Footer/>
     
