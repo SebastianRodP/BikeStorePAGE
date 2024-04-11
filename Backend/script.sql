@@ -73,8 +73,8 @@ CREATE TABLE IF NOT EXISTS ventasdet (
 );
 -- Agregar las llaves foráneas a la tabla articulos
 ALTER TABLE articulos
-ADD CONSTRAINT fk_categoria
-FOREIGN KEY (idCategorias) REFERENCES categorias(idCategoria),
+ADD CONSTRAINT fk_categorias
+FOREIGN KEY (idCategorias) REFERENCES categorias(idCategorias),
 ADD CONSTRAINT fk_marca
 FOREIGN KEY (idMarca) REFERENCES marcas(idMarca);
 

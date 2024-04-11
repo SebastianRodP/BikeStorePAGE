@@ -10,6 +10,6 @@ router.get("/rol", controller.rol)
 router.get("/marcas", controller.marcas)
 router.get("/articulos",controller.articulos)
 router.get("/categorias",controller.categorias)
-router.get("/articulos/:idCategoria", controller.artCategoria )
+router.get("/articulos/:idCategoria", controller.artCategorias )
 
 module.exports = router
