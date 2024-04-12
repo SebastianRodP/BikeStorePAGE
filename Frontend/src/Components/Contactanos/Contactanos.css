@@ -1,14 +1,71 @@
-.modal-contenedor{background-color: #c23a3a;
-height: 50vh;
-width: 50vh;}
-.titulo{
-    text-align: center;
-}
+@import url('https://fonts.googleapis.com/css2?family=Yaldevi:wght@200..700&display=swap');
+
+.modal{
+    font-family: "Yaldevi", sans-serif;
+    display: flex;
+    justify-content: center;
+    margin-top: 5vh;}
+
+p{margin-bottom: 10px;}
+
+.modal-contenedor{
+    padding: 30px 30px;
+    margin: 0;
+    border-radius: 10px;
+    background-color: rgb(242, 241, 241);
+    height: 80vh;
+    width: 100vh;}
+
+.titulo{text-align: center;}
+
 .one{
     display: flex;
-    justify-content: space-between;
-}
+    justify-content: space-between;}
+
 .two{
     display: flex;
-    justify-content: space-between;
-} 
+    justify-content: space-between;}
+
+.mensaje{
+    padding-left: 10px;
+    width:90vh;
+    height: 30vh;
+    margin: 0;
+    margin-bottom: 10px;}
+
+input{
+    padding-left: 10px;
+    width:40vh;
+    height: 45px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    margin-left: 0; margin-right: 0;
+    border-radius: 5px;
+    box-shadow: 0vh 0vh 10px 0  rgb(82, 79, 79)}
+
+.enviar-mensaje {
+    display: flex;
+    justify-content: center;}
+  
+.enviar-mensaje button {
+    margin-top: 0;
+    padding: 10px 20px;
+    background-color: #c7c6c6;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    max-width: 200px;}
+
+.cerrar {
+    margin-top: 5vh; /* Ajusta este valor según sea necesario para alinear verticalmente con el título */
+    background: none;
+    left: 40vh;
+    right: -47vh;
+    border: none;
+    font-size: 5vh;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;}
+  

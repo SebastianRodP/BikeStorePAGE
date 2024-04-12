@@ -5,7 +5,7 @@ const Contactanos = () => {
   return (
     <div className='modal'>
         <div className='modal-contenedor'>
-         <h1 className='titulo'>contactanos</h1>
+         <h1 className='titulo'>CONTÁCTANOS</h1>
          <button className='cerrar'>x</button>
          <div className='one'>
          <input type="text" placeholder='Nombre'/>
@@ -16,12 +16,15 @@ const Contactanos = () => {
          <input type="text" placeholder='Empresa' />
          </div>
          <p>Mensaje</p>
-         <input type="text" />
+         <input className='mensaje' type="text" />
+         <div className='enviar-mensaje'>
          <button>Enviar</button>
+         </div>
         </div>
       
     </div>
   )
 }
+
 
 export default Contactanos;
