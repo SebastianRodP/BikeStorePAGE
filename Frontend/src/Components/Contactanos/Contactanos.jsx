@@ -7,11 +7,11 @@ const Contactanos = () => {
         <div className='modal-contenedor'>
          <h1 className='titulo'>CONTÁCTANOS</h1>
          <button className='cerrar'>x</button>
-         <div className='one'>
+         <div className='input-group'>
          <input type="text" placeholder='Nombre'/>
          <input type='email' placeholder='Email' />
          </div>
-         <div className='two'>
+         <div className='input-group'>
          <input type="text" placeholder='Telefono' />
          <input type="text" placeholder='Empresa' />
          </div>

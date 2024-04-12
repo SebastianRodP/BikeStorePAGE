@@ -1,37 +1,76 @@
 @import url('https://fonts.googleapis.com/css2?family=Yaldevi:wght@200..700&display=swap');
 
-.modal{
-    font-family: "Yaldevi", sans-serif;
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;}
+
+body{ font-family: "Yaldevi", sans-serif;}
+
+.modal {
+    background-color: rgba(0, 0, 0, 0.671);
     display: flex;
     justify-content: center;
-    margin-top: 5vh;}
+    align-items: center; /* Esto centrará el contenido verticalmente */
+    position: fixed; /* Esto asegurará que el modal se mantenga fijo en la pantalla */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ancho igual al ancho de la ventana del navegador */
+    height: 100%; /* Altura igual a la altura de la ventana del navegador */}
 
 p{margin-bottom: 10px;}
 
 .modal-contenedor{
-    padding: 30px 30px;
+    padding: 30px ;
     margin: 0;
     border-radius: 10px;
     background-color: rgb(242, 241, 241);
-    height: 80vh;
-    width: 100vh;}
+    height: 500px;}
+@media (max-width: 768px){
+        .modal-contenedor
+         {width: 90%; 
+        margin-top: -30%;}}
 
-.titulo{text-align: center;}
+@media (min-width:768px){
+    .modal-contenedor
+        {width: 90%;}}
 
-.one{
+@media (max-width: 1024px){
+        .modal-contenedor
+        {height: 500px;}}
+    
+    @media (min-width:600px){
+        .modal-contenedor
+            {width: 40%;}}
+
+
+    
+
+.titulo{
+    text-align: center;
+    margin-bottom: 20px;}
+
+.input-group{
     display: flex;
-    justify-content: space-between;}
+    justify-content:
+    space-between;}
 
-.two{
-    display: flex;
-    justify-content: space-between;}
+.input-group input{width: calc(50% - 10px);}
 
 .mensaje{
-    padding-left: 10px;
     width:90vh;
-    height: 30vh;
-    margin: 0;
+    height: 30vh; 
     margin-bottom: 10px;}
+    @media (max-width: 768px){
+        .mensaje
+         {width: 100%;
+        height: 35%; }}
+@media (min-width: 820px){
+    .mensaje
+        {width: 100%;
+        height: 35%;}}
+
+
 
 input{
     padding-left: 10px;
@@ -48,7 +87,6 @@ input{
     justify-content: center;}
   
 .enviar-mensaje button {
-    margin-top: 0;
     padding: 10px 20px;
     background-color: #c7c6c6;
     border: none;
@@ -58,14 +96,12 @@ input{
     width: 100%;
     max-width: 200px;}
 
-.cerrar {
-    margin-top: 5vh; /* Ajusta este valor según sea necesario para alinear verticalmente con el título */
+.cerrar { position: absolute;
+    top: 10px;
+    right: 10px;
     background: none;
-    left: 40vh;
-    right: -47vh;
     border: none;
-    font-size: 5vh;
+    font-size: 24px;
     cursor: pointer;
-    position: absolute;
-    top: 10px;}
+   }
   
