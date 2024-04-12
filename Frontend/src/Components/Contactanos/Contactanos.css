@@ -8,7 +8,7 @@
 body{ font-family: "Yaldevi", sans-serif;}
 
 .modal {
-    background-color: rgba(0, 0, 0, 0.671);
+    background-color: rgba(0, 0, 0, 0.388);
     display: flex;
     justify-content: center;
     align-items: center; /* Esto centrará el contenido verticalmente */
