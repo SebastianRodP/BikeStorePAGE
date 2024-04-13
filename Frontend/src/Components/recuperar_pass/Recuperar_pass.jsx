@@ -9,6 +9,14 @@ function MyLoginPage() {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [errores, setErrores] = useState({});
+    const [mostrarPanel, setMostrarPanel] = useState(false);
+    const [mensajePanel, setMensajePanel] = useState('');
+
+    const mostrarMensaje = (mensaje) => {
+        setMensajePanel(mensaje);
+        setMostrarPanel(true);
+    };
+
 
     const validarFormulario = () => {
         let erroresTemp = {};
@@ -43,43 +51,44 @@ function MyLoginPage() {
         const esFormularioValido = validarFormulario();
 
         if (esFormularioValido) {
-           try {
-    const { data, error } = await client
-        .from('usuarios')
-        .select('nombre, direccion, nodocumento')
-        .eq('correo', correo);
+            try {
+                const { data, error } = await client
+                    .from('usuarios')
+                    .select('nombre, direccion, nodocumento')
+                    .eq('correo', correo);
 
-    if (error) {
-        console.error('Error al consultar la base de datos:', error.message);
-    } else {
-        if (data.length > 0) {
-            const usuario = data[0];
+                if (error) {
+                    console.error('Error al consultar la base de datos:', error.message);
+                } else {
+                    if (data.length > 0) {
+                        const usuario = data[0];
 
-            console.log('Usuario encontrado en la base de datos:');
-            console.log('Nombre:', usuario.nombre);
-            console.log('Número de documento:', usuario.nodocumento);
-            console.log('Dirección:', usuario.direccion);
+                        console.log('Usuario encontrado en la base de datos:');
+                        console.log('Nombre:', usuario.nombre);
+                        console.log('Número de documento:', usuario.nodocumento);
+                        console.log('Dirección:', usuario.direccion);
 
-            console.log('Bienvenido usuario');
+                        console.log('Bienvenido usuario');
 
-            const { error: updateError } = await client
-                .from('usuarios')
-                .update({ contraseña: password })
-                .eq('correo', correo);
+                        const { error: updateError } = await client
+                            .from('usuarios')
+                            .update({ contraseña: password })
+                            .eq('correo', correo);
 
-            if (updateError) {
-                console.error('Error al actualizar la contraseña:', updateError.message);
-            } else {
-                console.log('Contraseña actualizada con éxito.');
-                console.log('Se modificó la contraseña.');
+                        if (updateError) {
+                            console.error('Error al actualizar la contraseña:', updateError.message);
+                        } else {
+                            console.log('Contraseña actualizada con éxito.');
+                            console.log('Se modificó la contraseña.');
+                            mostrarMensaje('Se modifico la contraseña correctamente, inicie sesion.');
+                        }
+                    } else {
+                        setErrores({ correo: 'El correo electrónico no está registrado.' });
+                    }
+                }
+            } catch (error) {
+                console.error('Error al consultar la base de datos:', error.message);
             }
-        } else {
-            setErrores({ correo: 'El correo electrónico no está registrado.' });
-        }
-    }
-} catch (error) {
-    console.error('Error al consultar la base de datos:', error.message);
-}
 
         } else {
             console.log('El formulario contiene errores. Por favor, corríjalos.');
@@ -88,6 +97,13 @@ function MyLoginPage() {
 
     return (
         <div className='todo'>
+            {mostrarPanel && (
+                <div className="panel-emergente">
+                    <p>{mensajePanel}</p>
+                    <Link className='inic2' to="/inicio">Continuar</Link>
+                </div>
+            )}
+
             <img className='logo' src={logo} alt="logo "></img>
 
             <div className='formulario'>

@@ -34,6 +34,19 @@ align-items: center;
 	align-items: center;
 	text-decoration: none;
 }
+.inic2{
+	color: white;
+	background-color: black;
+	border-radius: 10px;
+	padding: 5px;
+	max-width: 30%;
+	height: 15px;
+	size: cover;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none;
+}
 .formulario{
 	background-color: white;
 	padding: 30px;
@@ -97,6 +110,22 @@ align-items: center;
 .code{
 	margin-bottom: 20px;
 }
+.panel-emergente {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: white;
+    border: 1px solid black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
 
 @media screen and (max-width: 768px) {
     .formulario {

@@ -11,6 +11,13 @@ function MyLoginPage() {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [aceptaTerminos, setAceptaTerminos] = useState(false);
     const [errores, setErrores] = useState({});
+    const [mostrarPanel, setMostrarPanel] = useState(false);
+    const [mensajePanel, setMensajePanel] = useState('');
+
+    const mostrarMensaje = (mensaje) => {
+        setMensajePanel(mensaje);
+        setMostrarPanel(true);
+    };
 
     const supabase = createClient('https://hetfaqksgxjlcxatxcvl.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhldGZhcWtzZ3hqbGN4YXR4Y3ZsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTExNjI0OTcsImV4cCI6MjAyNjczODQ5N30.jg0cFimQOh3erlrtL9AILrtyQIrRJLnFs-594uJXiiY');
 
@@ -88,6 +95,8 @@ function MyLoginPage() {
                     console.error('Error al registrar los datos:', error.message);
                 } else {
                     console.log('Datos registrados correctamente:', data);
+                    mostrarMensaje('Se registro al usuario correctamente, inicie sesion.');
+                        
                     // necesito el mercho escuchando a fercho, para poder redirigir al home.
                 }
             } catch (error) {
@@ -101,6 +110,12 @@ function MyLoginPage() {
 
     return (
         <div className='todo'>
+             {mostrarPanel && (
+                <div className="panel-emergente">
+                    <p>{mensajePanel}</p>
+                    <Link className='inic2' to="/inicio">Continuar</Link>
+                </div>
+            )}
             <img className='logo' src={logo} alt="Logo" />
             <div className='formulario'>
                 <h1 className='tit'>Registro de usuario</h1>
