@@ -37,6 +37,12 @@ const Cartas = () => {
                 </p>
                 <p>{articulo.color}</p>
                 <i className="fa-solid fa-house"></i>
+
+                <div className="footer">
+                  <div className="button">
+                    <button className="btn">Añadir al carrito</button>
+                  </div>
+                </div>
               </div>
             </div>
           );
