@@ -55,16 +55,35 @@ function MyLoginPage() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+    
         const esFormularioValido = validarFormulario();
-
+    
         if (esFormularioValido) {
             try {
-                // Insertar datos en la tabla de Supabase
+                const { data: usuarios, error: errorConsulta } = await supabase
+                    .from('usuarios')
+                    .select('*')
+                    .eq('correo', correo);
+    
+                if (errorConsulta) {
+                    console.error('Error al consultar el correo:', errorConsulta.message);
+                    return;
+                }
+    
+                if (usuarios && usuarios.length > 0) {
+                    console.log('El correo ya está en uso.');
+                    setErrores(prevErrores => ({
+                        ...prevErrores,
+                        correo: 'El correo ya está en uso.'
+                    }));
+                    return;
+                }
+    
+                // insertar datos en  Supabase
                 const { data, error } = await supabase
                     .from('usuarios')
                     .insert([{ nombre, correo, contraseña: password, idrol: 2 }]);
-
+    
                 if (error) {
                     console.error('Error al registrar los datos:', error.message);
                 } else {
@@ -78,6 +97,7 @@ function MyLoginPage() {
             console.log('El formulario contiene errores. Por favor, corríjalos.');
         }
     };
+    
 
     return (
         <div className='todo'>

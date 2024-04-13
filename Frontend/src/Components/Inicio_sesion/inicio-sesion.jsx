@@ -81,11 +81,11 @@ function MyLoginPage() {
 
 
     return (
-        <div onSubmit={handleSubmit} className='todo'>
+        <div>
             <img className='logo' src={logo} alt="Logo" />
-            <div className='formulario'>
-                <h1 className='tit'>Inicio de sesión</h1>
+            <div onSubmit={handleSubmit} className='form'>
 
+                <h1 className='tit'>Inicio de sesión</h1>
                 <div className='correo'>
                     <div>Correo electrónico</div>
                     <input
@@ -93,7 +93,7 @@ function MyLoginPage() {
                         className='inpus'
                         type="email"
                         value={correo}
-                        onChange={(e) => setCorreo(e.target.value.toLowerCase())} 
+                        onChange={(e) => setCorreo(e.target.value.toLowerCase())}
                     />
                     {errores.correo && <p className="error">{errores.correo}</p>}
                 </div>
@@ -104,11 +104,11 @@ function MyLoginPage() {
                         className='inpus'
                         type="password"
                         value={password}
-                        onChange={(e) => setPassword(e.target.value)} 
+                        onChange={(e) => setPassword(e.target.value)}
                     />
                     {errores.password && <p className="error">{errores.password}</p>}
                 </div>
-                
+
                 <div className='reccontra'>
                     <input type="checkbox" name="" id="" />
                     Recordar contraseña
@@ -117,13 +117,12 @@ function MyLoginPage() {
                 <div className='btnc'>
                     <button className='boton' onClick={handleSubmit}>Iniciar sesión</button>
                 </div>
-                  <div className='reccontra'>
+                <div className='reccontra'>
                     <Link to="/reccontra">¿Ha olvidado su contraseña?</Link>
                 </div>
                 <div>
                     ¿No tienes una cuenta? <Link to="/registro">Registrate</Link>
                 </div>
-
             </div>
         </div>
     );

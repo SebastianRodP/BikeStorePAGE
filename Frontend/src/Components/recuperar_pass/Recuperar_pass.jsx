@@ -60,10 +60,8 @@ function MyLoginPage() {
             console.log('Número de documento:', usuario.nodocumento);
             console.log('Dirección:', usuario.direccion);
 
-            // Verificación de contraseña y mensaje de bienvenida
             console.log('Bienvenido usuario');
 
-            // Actualizar contraseña en la base de datos
             const { error: updateError } = await client
                 .from('usuarios')
                 .update({ contraseña: password })
