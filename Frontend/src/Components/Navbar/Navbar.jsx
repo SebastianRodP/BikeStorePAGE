@@ -81,11 +81,10 @@ export const Navbar = () => {
         <div className="options">
           <div className="optionsUp">
           <Link to="/Contactanos" className="contactanos">Contactanos</Link>
-            <img
-              src={carritoDeCompras}
-              alt="carro-de-compras"
-              className="carrito"
-            ></img>
+            <div className="carrito">
+              <box-icon name='cart' color="white"></box-icon>
+              <span className="item-total">0</span>
+            </div>
           </div>
 
           <div className="optionsDown">
