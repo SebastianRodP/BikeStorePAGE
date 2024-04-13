@@ -1,0 +1,73 @@
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loprim{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: solid 1px darkgray;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+.desplegables{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    justify-content: space-around;
+    border: solid 1px darkgray;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+.form{
+    min-width: 100%;
+}
+.ultm{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: solid 1px darkgray;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+.cat{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+select {
+    width: 320px;
+    height: 30px;
+}
+.marc{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.prices{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: solid 1px darkgray;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+.porcentajes{
+    display: flex;
+    flex-direction: row;
+    border: solid 1px darkgray;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+.porcentajes input{
+    display: flex;
+    justify-content: space-around;
+    margin: 10px;
+}
