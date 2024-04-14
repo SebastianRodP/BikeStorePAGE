@@ -3,7 +3,7 @@ import Navbar from '../Components/Navbar/Navbar'
 import Footer from '../Components/Footer/Footer'
 import Banner from '../Components/Banner/Banner'
 import Filtro from '../Components/Filtro/Filtro'
-import Cartas from '../Components/Cartas/Cartas'
+import CartasNavegacion from '../Components/CartasNavegacion/CartasNavegacion'
 import 'boxicons';
 
 const Vestuarios = () => {
@@ -12,7 +12,7 @@ const Vestuarios = () => {
     <Navbar/>
     <Banner/>
     <Filtro/>
-    <Cartas id_categorias={3}/>
+    <CartasNavegacion id_categorias={3}/>
     <Footer/>
     </>
   )

@@ -1,8 +1,19 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import "./Navbar.css";
 
-const Navbar = () => {
+const Navbar = ({ search }) => {
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const handleSearchInputChange = (event) => {
+    const searchTerm = event.target.value;
+    setSearchTerm(searchTerm);
+    // Llamar a la función de búsqueda para filtrar los artículos
+    if (search) {
+      search(searchTerm);
+    }
+  };
   return (
     <header className="header">
       <nav className="nav">
@@ -24,7 +35,14 @@ const Navbar = () => {
 
             {/*Filtro de búsqueda*/}
 
-            <input type="search" placeholder="buscar" />
+            <form>
+        <input
+          type="text"
+          placeholder="Buscar..."
+          value={searchTerm}
+          onChange={handleSearchInputChange}
+        />
+      </form>
           </div>
 
           {/*Menu de navegación */}
@@ -71,5 +89,7 @@ const Navbar = () => {
     </header>
   );
 };
-
+Navbar.propTypes = {
+  search: PropTypes.number.isRequired,
+};
 export default Navbar;
