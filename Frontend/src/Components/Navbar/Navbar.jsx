@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 import bicicletaNavbar from "../../assets/img/imgNavbar/bicicletaNavbar.png";
-import carritoDeCompras from "../../assets/img/imgNavbar/carritoDeCompras.png";
 import iniciarSesion from "../../assets/img/imgNavbar/iniciarSesion.png";
 import useFetchGetArticulos from "../../hooks/useFetchGetArticulos";
 
@@ -34,8 +33,8 @@ export const Navbar = () => {
 
                   <input id="searchInput" type="text" placeholder="buscar" onChange={(event) => {
                       setSearchTerm(event.target.value);
-                    }}
-      />
+                    }}/>
+                    
             {data && data.length > 0 && (
               <div>
                 {data
@@ -61,8 +60,6 @@ export const Navbar = () => {
           </div>
 
             {/*Menu de navegacion */}
-
-
           <ul className="nav-menu">
             <li className="nav-menu-item">
               <Link to="/bicicletas" className="nav-menu-link nav-link">Bicicletas</Link>
@@ -81,7 +78,7 @@ export const Navbar = () => {
         <div className="options">
           <div className="optionsUp">
           <Link to="/Contactanos" className="contactanos">Contactanos</Link>
-            <div className="carrito">
+            <div className="carrito-compra">
               <box-icon name='cart' color="white"></box-icon>
               <span className="item-total">0</span>
             </div>

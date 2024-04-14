@@ -5,6 +5,7 @@ import{DetallesArt} from './Components/DetallesArt/DetallesArt';
 import Bicicletas from './Pages/Bicicletas';
 import Contactanos  from "./Components/Contactanos/Contactanos";
 
+
 function App() {
   const [count, setCount] = useState(0)
   return (

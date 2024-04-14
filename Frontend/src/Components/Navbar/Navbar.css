@@ -141,15 +141,16 @@ input {
     border-radius: 10px;
     padding: 2px 4px;
 }
-.options .optionsUp .carrito{
+.options .optionsUp .carrito-compra{
     position: relative;
 }
 
-.options .optionsUp .carrito box-icon{
+.options .optionsUp .carrito-compra box-icon{
+    cursor: pointer;
     height: 35px;
     width: 40px;
 }
-.options .optionsUp .carrito span{
+.options .optionsUp .carrito-compra span{
     position: absolute;
     top: -0.01rem;
     right: -0.7rem;
