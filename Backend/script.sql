@@ -4,7 +4,7 @@
 -- Create the tables
 CREATE TABLE IF NOT EXISTS articulos (
   idArticulos SERIAL PRIMARY KEY,
-  idCategorias INT NOT NULL,
+  id_categorias INT NOT NULL,
   idMarca INT NOT NULL,
   tipo VARCHAR(50) NOT NULL,
   nombre VARCHAR(150) NOT NULL,
@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS articulos (
 );
  
 CREATE TABLE IF NOT EXISTS categorias (
-  idCategoria SERIAL PRIMARY KEY,
+  id_categorias SERIAL PRIMARY KEY,
   descripcion VARCHAR(11) NOT NULL
 );
 
@@ -74,7 +74,7 @@ CREATE TABLE IF NOT EXISTS ventasdet (
 -- Agregar las llaves foráneas a la tabla articulos
 ALTER TABLE articulos
 ADD CONSTRAINT fk_categorias
-FOREIGN KEY (idCategorias) REFERENCES categorias(idCategorias),
+FOREIGN KEY (id_categorias) REFERENCES categorias(id_categorias),
 ADD CONSTRAINT fk_marca
 FOREIGN KEY (idMarca) REFERENCES marcas(idMarca);
 

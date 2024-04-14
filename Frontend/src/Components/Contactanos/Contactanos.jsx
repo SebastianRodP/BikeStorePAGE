@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 import './Contactanos.css'
 
 const Contactanos = () => {
@@ -6,7 +7,9 @@ const Contactanos = () => {
     <div className='modal'>
         <div className='modal-contenedor'>
          <h1 className='titulo'>CONTÁCTANOS</h1>
+         <Link to="/home" >
          <button className='cerrar'>x</button>
+         </Link>
          <div className='input-group'>
          <input type="text" placeholder='Nombre'/>
          <input type='email' placeholder='Email' />

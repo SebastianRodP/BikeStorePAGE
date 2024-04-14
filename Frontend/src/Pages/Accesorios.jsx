@@ -6,16 +6,16 @@ import Filtro from '../Components/Filtro/Filtro'
 import Cartas from '../Components/Cartas/Cartas'
 import 'boxicons';
 
-const Bicicletas = () => {
+const Accesorios = () => {
   return (
     <>
     <Navbar/>
     <Banner/>
     <Filtro/>
-    <Cartas id_categorias = {4}/>
+    <Cartas id_categorias={1}/>
     <Footer/>
     </>
   )
 }
 
-export default Bicicletas
+export default Accesorios

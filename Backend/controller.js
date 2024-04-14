@@ -69,23 +69,28 @@ const categorias = (req, res) => {
     });
 };
 
-const artCategorias = async (req, res) => {
+
+const getArticulosByCategoria = async (req, res) => {
+    const { id_categorias } = req.params;
+    let response = parseInt(id_categorias);
+    console.log(typeof id_categorias);
+    console.log(response);
     try {
-        let { idCategorias } = req.params; 
-        idCategorias = Number.parseInt(idCategorias);
-        console.log(idCategorias);
-        const results = await pool.query('SELECT * FROM articulos WHERE tipo = $1', [idCategorias]);
-        res.status(200).json(results.rows);
+        const query = 'SELECT * FROM articulos WHERE id_categorias = (SELECT id_categorias FROM categorias WHERE id_categorias = $1)';
+        const respuesta = await pool.query(query, [response]);
+        // Solo envía las filas seleccionadas al cliente
+        res.status(200).json(respuesta.rows);
     } catch (error) {
         console.error('Error al ejecutar la consulta:', error);
         res.status(500).json({ error: 'Error interno del servidor' });
     }
 };
 
-// artCategoria
+
+
 
 module.exports = {
-    saludo, usuarios, telefonos , rol, marcas, articulos, categorias, artCategorias}
+    saludo, usuarios, telefonos , rol, marcas, articulos, categorias, getArticulosByCategoria}
 
 
 
