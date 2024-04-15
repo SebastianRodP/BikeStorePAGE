@@ -5,7 +5,20 @@
   height: 200vh; /* Ajusta la altura al 100% del viewport height */
 }
 
-
+#tezt{
+  /*Esta vaina modifica las letras del panel izquierdo*/
+  color: black;
+}
+.teztitu{
+  /*Esta vaina modifica las letras del titulo del panel izquierdo*/
+  color: black;
+  font-size: 30px;
+}
+#izqui{
+  /*Esta vaina modifica el fondo  del panel izquierdo*/
+background-color: #aed6d6;
+color: black;
+}
 .cuadro img{
   width: 120px;
   height: auto;
@@ -14,9 +27,7 @@
   color: black;
   margin: 5px;
 }
-.atri{
 
-}
 .modal {
   position: fixed;
   top: 0;
@@ -93,6 +104,7 @@ width: 200px;
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   padding: 10px;
+  margin-left: 50px;
 }
 
 
@@ -16415,14 +16427,14 @@ width: 200px;
 
 .btn-dark,
 .btn.bg-gradient-dark {
-  box-shadow: 0 3px 3px 0 rgba(52, 71, 103, 0.15), 0 3px 1px -2px rgba(52, 71, 103, 0.2), 0 1px 5px 0 rgba(52, 71, 103, 0.15);
+  box-shadow: 0 3px 3px 0 rgba(84, 130, 132, 0.15), 0 3px 1px -2px rgba(52, 71, 103, 0.2), 0 1px 5px 0 rgba(52, 71, 103, 0.15);
 }
 
 .btn-dark:hover,
 .btn.bg-gradient-dark:hover {
   background-color: #344767;
   border-color: #344767;
-  box-shadow: 0 14px 26px -12px rgba(52, 71, 103, 0.4), 0 4px 23px 0 rgba(52, 71, 103, 0.15), 0 8px 10px -5px rgba(52, 71, 103, 0.2);
+  box-shadow: 0 14px 26px -12px rgb(0, 89, 243), 0 4px 23px 0 rgba(0, 94, 255, 0.15), 0 8px 10px -5px rgba(52, 71, 103, 0.2);
 }
 
 .btn-dark .btn.bg-outline-dark,
@@ -18250,7 +18262,8 @@ label,
 }
 
 .bg-gradient-dark {
-  background-image: linear-gradient(195deg, #42424a 0%, #191919 100%);
+  background-color: #aed6d6
+  
 }
 
 .bg-gradient-faded-primary {
