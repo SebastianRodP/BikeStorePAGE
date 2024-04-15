@@ -1,0 +1,172 @@
+
+@import url('https://fonts.googleapis.com');
+@import url('https://fonts.gstatic.com');
+@import url('https://fonts.googleapis.com/css2?family=Jockey+One&display=swap');
+@import url('https://fonts.googleapis.com');
+@import url('https://fonts.gstatic.com');
+@import url('https://fonts.googleapis.com/css2?family=Yaldevi:wght@200..700&display=swap');
+
+
+.carritos{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 300ms ease-in-out;
+  background-color: rgba(0, 0, 0, .6);
+  z-index: 10002;
+  padding-bottom: 5rem;
+  visibility: hidden;
+}
+
+.carrito{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%)
+  scale(1);
+  width: 60%;
+  height: 80%;
+  border-radius: 8px;
+  overflow-x: scroll;
+  transition: all 300ms ease-in-out;
+  background-color: white;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.carrito h2{
+ text-align: center;
+  font-size: 2rem;  
+}
+
+.carritos.show{
+  visibility: visible;
+}
+.carrito.show{
+  transform: translate(-50%, -50%)
+  scale(1.1);
+  opacity: 1;
+  visibility: visible;
+}
+
+.carrito-closed box-icon{
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  transform: all 300ms ease-in-out;
+  margin: 3rem 0 0 2rem;
+}
+
+.carrito-closed box-icon:hover{
+  fill:crimson;
+}
+
+.carrito-center{
+  width: 90%;
+  margin: 0 auto;
+}
+
+.carrito-item{
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1fr;
+  width: 80%;
+  margin: 2rem auto;
+  box-shadow: 0 1px 10px #C2C2C2;
+  border-radius: 5px;
+}
+
+.carrito-item img{
+  width: 9rem;
+  margin-top: 2rem;
+}
+
+.carrito-item h3{
+  margin-top: 1.5rem;
+  font-weight: 400;
+  font-size: 1.5rem;
+  font-family: "Jockey One", sans-serif;
+}
+
+.carrito-item .price{
+  color: #1a202c;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: start;
+  margin-left: -1rem;
+}
+
+.carrito-item box-icon{
+  fill: black ;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  margin-top: .3rem;
+}
+
+.carrito-item .cantidad{
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.carrito-item .remove-item box-icon{
+  width: 60px;
+  height: 80px;
+  fill: crimson;
+  margin-top: 2rem;
+}
+
+.carrito-footer{
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.carrito-footer h3{
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.carrito-footer .btn{
+  color: white;
+  display: inline-block;
+  padding: .3rem 1rem;
+  font-size: 1.2rem;
+  background-color:black ;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+}
+.carrito-footer .btn:hover{
+  background-color: #C2C2C2 ;
+  color: white;
+}
+
+
+@media only screen and(max-width: 1000px){
+  .carrito-item{
+    width: 92%;
+  }
+}
+
+@media only screen and(max-width: 700px){
+  .carrito{
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+  }
+  .carrito-item h3{
+    font-size: 1.2rem;
+  } 
+}
+
+@media only screen and(max-width: 450px){
+  .carrito-item h2{
+    display: .5rem;
+  }
+  .carrito-item .remove-item box-icon{
+    width: 30px;
+    height: 70px;
+  }
+}

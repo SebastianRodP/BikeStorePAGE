@@ -58,7 +58,7 @@ const Navbar = () => {
             <Link to="/Contactanos" className="contactanos">
               Contactanos
             </Link>
-            <div className="carrito">
+            <div className="carrito-compra">
               <box-icon name="cart" color="white"></box-icon>
               <span className="item-total">0</span>
             </div>
