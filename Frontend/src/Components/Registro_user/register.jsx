@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import "./registro.css";
 import logo from "../../assets/img/imgInicioRegistro/logo.png";
-import { client } from "../../Pages/SupaBase/client";
-import { debounce } from 'lodash';
 import { Link } from "react-router-dom";
-
+import { createClient } from '@supabase/supabase-js';
 
 function MyLoginPage() {
     const [nombre, setNombre] = useState('');
@@ -13,6 +11,15 @@ function MyLoginPage() {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [aceptaTerminos, setAceptaTerminos] = useState(false);
     const [errores, setErrores] = useState({});
+    const [mostrarPanel, setMostrarPanel] = useState(false);
+    const [mensajePanel, setMensajePanel] = useState('');
+
+    const mostrarMensaje = (mensaje) => {
+        setMensajePanel(mensaje);
+        setMostrarPanel(true);
+    };
+
+    const supabase = createClient('https://hetfaqksgxjlcxatxcvl.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhldGZhcWtzZ3hqbGN4YXR4Y3ZsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTExNjI0OTcsImV4cCI6MjAyNjczODQ5N30.jg0cFimQOh3erlrtL9AILrtyQIrRJLnFs-594uJXiiY');
 
     const validarFormulario = () => {
         let erroresTemp = {};
@@ -55,41 +62,60 @@ function MyLoginPage() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-
+    
         const esFormularioValido = validarFormulario();
-
+    
         if (esFormularioValido) {
             try {
-
-                await new Promise(resolve => setTimeout(resolve, 1000));
-
-                const { user, error } = await client.auth.signUp({
-                    email: correo,
-                    password: password,
-                    data: {
-                        nombre: nombre,
-                        nodocumento: null,
-                        direccion: null,
-                        idrol: 2
-                    }
-                });
-
+                const { data: usuarios, error: errorConsulta } = await supabase
+                    .from('usuarios')
+                    .select('*')
+                    .eq('correo', correo);
+    
+                if (errorConsulta) {
+                    console.error('Error al consultar el correo:', errorConsulta.message);
+                    return;
+                }
+    
+                if (usuarios && usuarios.length > 0) {
+                    console.log('El correo ya está en uso.');
+                    setErrores(prevErrores => ({
+                        ...prevErrores,
+                        correo: 'El correo ya está en uso.'
+                    }));
+                    return;
+                }
+    
+                // insertar datos en  Supabase
+                const { data, error } = await supabase
+                    .from('usuarios')
+                    .insert([{ nombre, correo, contraseña: password, idrol: 2 }]);
+    
                 if (error) {
-                    console.error('Error al registrar el usuario:', error.message);
+                    console.error('Error al registrar los datos:', error.message);
                 } else {
-                    console.log('Usuario registrado correctamente:', user);
+                    console.log('Datos registrados correctamente:', data);
+                    mostrarMensaje('Se registro al usuario correctamente, inicie sesion.');
+                        
+                    // necesito el mercho escuchando a fercho, para poder redirigir al home.
                 }
             } catch (error) {
-                console.error('Error al registrar el usuario:', error.message);
+                console.error('Error al registrar los datos:', error.message);
             }
         } else {
             console.log('El formulario contiene errores. Por favor, corríjalos.');
         }
     };
+    
 
     return (
         <div className='todo'>
+             {mostrarPanel && (
+                <div className="panel-emergente">
+                    <p>{mensajePanel}</p>
+                    <Link className='inic2' to="/inicio">Continuar</Link>
+                </div>
+            )}
             <img className='logo' src={logo} alt="Logo" />
             <div className='formulario'>
                 <h1 className='tit'>Registro de usuario</h1>
@@ -100,7 +126,13 @@ function MyLoginPage() {
                 </div>
                 <div className='correo'>
                     <div>Correo electrónico</div>
-                    <input id='correo' className='inpus' type="email" value={correo} onChange={(e) => setCorreo(e.target.value)} />
+                    <input
+                        id='correo'
+                        className='inpus'
+                        type="email"
+                        value={correo}
+                        onChange={(e) => setCorreo(e.target.value.toLowerCase())} 
+                    />
                     {errores.correo && <p className="error">{errores.correo}</p>}
                 </div>
                 <div className='contraseña'>
@@ -118,16 +150,14 @@ function MyLoginPage() {
                     <div>
                         aceptar <Link to="/terminos">Terminos y condiciones</Link>
                     </div>
-
                 </div>
                 {errores.aceptaTerminos && <p className="error">{errores.aceptaTerminos}</p>}
                 <div className='btnc'>
                     <button className='boton' onClick={handleSubmit}>Registrarse</button>
                 </div>
                 <div>
-                    ¿Ya tienes una cuenta? <Link to="/inicio">Inicie sesion</Link>
+                    ¿Ya tienes una cuenta? <Link to="/inicio">Inicia sesión aquí</Link>
                 </div>
-
             </div>
         </div>
     );

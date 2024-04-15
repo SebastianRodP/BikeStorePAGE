@@ -13,6 +13,7 @@ import Terminos from "./Components/terminos_condiciones/terminos";
 import Reccontra from "./Components/recuperar_pass/Recuperar_pass";
 import "./Pages/style.css"
 
+import RegistroP from "./Components/Registro_prod/register_product"
 
 function App() {
   const [count, setCount] = useState(0)
