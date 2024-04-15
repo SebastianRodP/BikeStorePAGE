@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com');
+@import url('https://fonts.gstatic.com');
+@import url('https://fonts.googleapis.com/css2?family=Jockey+One&display=swap');
+@import url('https://fonts.googleapis.com');
+@import url('https://fonts.gstatic.com');
+@import url('https://fonts.googleapis.com/css2?family=Yaldevi:wght@200..700&display=swap');
+
 .content{
   display: flex;
   flex-direction: row;
@@ -12,24 +19,28 @@
   margin: 10px;
   padding: 70px;
 }
-
-.caja-bicicletas{
+.caja-bicicletas {
   margin: 10px;
   font-size: 15px;
   display: flex;
   flex-direction: column;
-  background-color: #E3E3E3;
+  background-color: #e3e3e3;
   border-radius: 8px;
-  height: auto;
+  height: 100%; /* Cambiado de auto a 100% */
+  min-height: 400px; /* Establecer una altura mínima */
   text-align: center;
   width: 390px;
   box-shadow: 5px 5px 5px #b7b7b7;
   cursor: default;
   transition: all 400ms ease;
+  overflow: hidden;
   img{
-      max-width: 100%;
-      padding: 20px;
-  }
+    max-width: 100%;
+    padding: 20px;
+}
+}
+.nombre-bici{
+  font-size: 1.5rem;
 }
 
 .caja-bicicletas:hover{
@@ -72,12 +83,14 @@
 
 
 .detalle-bicicletas{
+ 
   background-color: white;
   padding: 5px;
   border-radius: 0px 0px 8px 8px ;
   font-family: "Yaldevi", sans-serif;
   font-style: normal;
-  
+  max-height: 200px; /* Establece una altura máxima */
+  overflow: hidden; /* Oculta el contenido que se desborda */
 }
 
 .detalle-bicicletas p {
@@ -104,11 +117,9 @@
  
 }
 .button .btn{
-  border: none;
+ border: 1px solid rgb(0, 0, 0);
   width: 100%;
 }
-
-
 
 .pagination {
   display: flex;
