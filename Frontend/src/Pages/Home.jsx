@@ -3,6 +3,7 @@ import Navbar from "../Components/Navbar/Navbar";
 import Footer from "../Components/Footer/Footer";
 import Cartas from '../Components/Cartas/Cartas'
 import Marcas from '../Components/Marcas/Marcas'
+import "../Components/Home/HomeStyle.css"
 
 const Home = () => {
   const [filteredArticulos, setFilteredArticulos] = useState(null);
@@ -29,17 +30,22 @@ const Home = () => {
           <Cartas articulos={filteredArticulos} />
         </>
       ) : (
-        <div>
-          <h1 className='titulos'>NUESTRAS MARCAS</h1>
-          <Marcas />
-          <h1 className='titulos'>ACCESORIOS</h1>
-          <Cartas id_categorias={1} />
-          <h1 className='titulos'>REPUESTOS</h1>
-          <Cartas id_categorias={2} />
-          <h1 className='titulos'>VESTUARIOS</h1>
-          <Cartas id_categorias={3} />
-          <h1 className='titulos'>BICICLETAS</h1>
-          <Cartas id_categorias={4} />
+        <div className='contenedor-info'>
+          <div className='contenedor-marcas'>
+            <h1 className='titulos line'>NUESTRAS MARCAS</h1>
+            <Marcas />
+          </div>
+          
+          <div className='contenedor-articulos'>
+            <h1 className='titulos'>ACCESORIOS</h1>
+            <Cartas id_categorias={1} />
+            <h1 className='titulos'>REPUESTOS</h1>
+            <Cartas id_categorias={2} />
+            <h1 className='titulos'>VESTUARIOS</h1>
+            <Cartas id_categorias={3} />
+            <h1 className='titulos'>BICICLETAS</h1>
+            <Cartas id_categorias={4} />
+          </div>
         </div>
       )}
       <Footer />
