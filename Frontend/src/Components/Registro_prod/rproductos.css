@@ -1,0 +1,100 @@
+.todos{
+    background-color: #ffffff; /* Cambia este color al que desees */
+    position: relative; /* Asegura que el contenedor sea relativo para posicionar hijos */
+    width: 221vh; /* Ajusta el ancho al 100% */
+    height: 200vh; /* Ajusta la altura al 100% del viewport height */
+}
+.volver{
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.logo{
+  padding: 0px;
+  margin-top: 0px;
+}
+.loprim{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: solid 1px darkgray;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+.desplegables{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    justify-content: space-around;
+    border: solid 1px darkgray;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+.form{
+    min-width: 100%;
+    margin-top: 0px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+.ultm{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: solid 1px darkgray;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+.cat{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+select {
+    width: 320px;
+    height: 30px;
+}
+.marc{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.prices{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: solid 1px darkgray;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+.porcentajes{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: solid 1px darkgray;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+.porcentajes input{
+    display: flex;
+    justify-content: space-around;
+    margin: 10px;
+}
+.btnc{
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.tit{
+    color: black;
+}
