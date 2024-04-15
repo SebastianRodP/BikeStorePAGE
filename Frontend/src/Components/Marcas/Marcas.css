@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Jockey+One&display=swap');
+
+.marcas-container{
+
+ width: 75vw;
+ height: auto;
+ margin: auto;
+ overflow: hidden;
+}
+
+.marcas-container .slide-track{
+  display: flex;
+  animation: scroll 40s linear infinite;
+  -webkit-animation: scroll 40s linear infinite;
+  width: calc(450px*4);
+}
+
+.marcas-container .marca-item{
+  width: 450px;
+}
+
+.marcas-container .marca-item img{
+  width: 100%;
+}
+@keyframes scroll{
+  0%{
+    -webkit-animation: translateX(0) ;
+    transform: translateX(0);
+  }
+  100%{
+    -webkit-animation: translateX(calc(-200px*4)) ;
+    transform: translateX(calc(-200px*4));
+  }
+ 
+}
