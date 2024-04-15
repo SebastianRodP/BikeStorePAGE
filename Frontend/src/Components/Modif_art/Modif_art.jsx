@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import logo from "../../assets/img/imgInicioRegistro/logon.png";
 import { Link } from "react-router-dom";
-import "./rproductos.css";
+import "./Mproductos.css";
 import { createClient } from '@supabase/supabase-js';
 
 function MyLoginPage() {
@@ -17,6 +17,7 @@ function MyLoginPage() {
     const [descripcion, setDescrip] = useState('');
     const [imagen, setImagen] = useState('');
     const [color, setColor] = useState('');
+    const [codigo, setCodigo] = useState('');
     const [errores, setErrores] = useState({});
     const [mostrarPanel, setMostrarPanel] = useState(false);
     const [mensajePanel, setMensajePanel] = useState('');
@@ -24,10 +25,6 @@ function MyLoginPage() {
     const mostrarMensaje = (mensaje) => {
         setMensajePanel(mensaje);
         setMostrarPanel(true);
-    };
-    const generateUniqueId = () => {
-
-        return Math.floor(Math.random() * 1000).toString();
     };
 
     const supabase = createClient('https://hetfaqksgxjlcxatxcvl.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhldGZhcWtzZ3hqbGN4YXR4Y3ZsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTExNjI0OTcsImV4cCI6MjAyNjczODQ5N30.jg0cFimQOh3erlrtL9AILrtyQIrRJLnFs-594uJXiiY');
@@ -40,28 +37,18 @@ function MyLoginPage() {
             erroresTemp.nombre = "El campo nombre es obligatorio.";
             esFormularioValido = false;
         }
-        if (!categoria) {
-            erroresTemp.categoria = "Debes seleccionar una opcion en el campo categorias.";
-            esFormularioValido = false;
-        }
-        if (!marca) {
-            erroresTemp.marca = "Debes seleccionar una opcion en el campo marcas.";
-            esFormularioValido = false;
-        }
-
         if (!tipop.trim()) {
             erroresTemp.tipop = "El tipo de producto es obligatorio.";
-            esFormularioValido = false;
-        }
-        if (!margen.trim()) {
-            erroresTemp.margen = "El campo margen es obligatorio.";
             esFormularioValido = false;
         }
         if (!costo.trim()) {
             erroresTemp.costo = "El campo costo es obligatorio.";
             esFormularioValido = false;
         }
-
+        if (!margen.trim()) {
+            erroresTemp.margen = "El campo margen es obligatorio.";
+            esFormularioValido = false;
+        }
         if (!descuento.trim()) {
             erroresTemp.descuento = "El campo descuento es obligatorio.";
             esFormularioValido = false;
@@ -98,15 +85,12 @@ function MyLoginPage() {
 
         if (esFormularioValido) {
             try {
-
-                const nuevoId = generateUniqueId();
                 const idcategorias = document.getElementById('categorias').value;
                 const idmarca = document.getElementById('marcas').value;
 
                 const { data, error } = await supabase
                     .from('articulos')
-                    .insert([{
-                        id_articulos: nuevoId,
+                    .update({
                         id_categorias: parseInt(idcategorias),
                         idmarca: parseInt(idmarca),
                         tipo: tipop,
@@ -119,30 +103,17 @@ function MyLoginPage() {
                         descripcion,
                         img: imagen,
                         color
-                    }]);
-
+                    })
+                    .eq('id_articulos', parseInt(codigo));
 
                 if (error) {
-                    console.error('Error al registrar los datos:', error.message);
+                    console.error('Error al actualizar los datos:', error.message);
                 } else {
-                    console.log('Datos registrados correctamente:', data);
-                    mostrarMensaje('Producto registrado correctamente.');
-
-                    setNombre('');
-                    setTipop('');
-                    setCat('');
-                    setMarca('');
-                    setCosto('');
-                    setMargen('');
-                    setDesc('');
-                    setImpuesto('');
-                    setStock('');
-                    setDescrip('');
-                    setImagen('');
-                    setColor('');
+                    console.log('Datos actualizados correctamente:', data);
+                    mostrarMensaje('Producto actualizado correctamente.');
                 }
             } catch (error) {
-                console.error('Error al registrar los datos:', error.message);
+                console.error('Error al actualizar los datos:', error.message);
             }
         } else {
             console.log('El formulario contiene errores. Por favor, corríjalos.');
@@ -151,31 +122,28 @@ function MyLoginPage() {
 
     const handleInputChange = (e) => {
         const { id, value } = e.target;
-        let newValue = value;
 
-        // Permitir números y un punto decimal
-        if (id === 'descuento' || id === 'margen' || id === 'impuesto') {
-            newValue = value.replace(/[^0-9.]/g, ''); // Solo números y punto decimal
-        } else if (id === 'costo' || id === 'stock') {
-            newValue = value.replace(/[^0-9]/g, ''); // Solo números
-        } else {
-            newValue = value; // SinewValuen restricciones
-        }
         switch (id) {
-            case 'costo':
-                setCosto(newValue);
+            case 'nombre':
+                setNombre(value);
                 break;
-            case 'descuento':
-                setDesc(newValue);
+            case 'tipop':
+                setTipop(value.toLowerCase());
+                break;
+            case 'costo':
+                setCosto(value.replace(/[^0-9.]/g, ''));
                 break;
             case 'margen':
-                setMargen(newValue);
+                setMargen(value.replace(/[^0-9.]/g, ''));
+                break;
+            case 'descuento':
+                setDesc(value.replace(/[^0-9.]/g, ''));
                 break;
             case 'impuesto':
-                setImpuesto(newValue);
+                setImpuesto(value.replace(/[^0-9.]/g, ''));
                 break;
             case 'stock':
-                setStock(newValue);
+                setStock(value.replace(/[^0-9]/g, ''));
                 break;
             case 'descripcion':
                 setDescrip(value);
@@ -186,16 +154,18 @@ function MyLoginPage() {
             case 'color':
                 setColor(value);
                 break;
+            case 'codigo':
+                setCodigo(value);
+                break;
             default:
                 break;
         }
     };
 
     return (
-        <div className='todos'>
-            <div className='form'>
-            <img className='logo' src={logo} alt="Logo" />
-            
+        <div className='form'>
+            <div className='todos'>
+                <img className='logo' src={logo} alt="Logo" />
                 {mostrarPanel && (
                     <div className="panel-emergente">
                         <p>{mensajePanel}</p>
@@ -203,12 +173,18 @@ function MyLoginPage() {
                     </div>
                 )}
 
-
-                <h1 className='tit'>Registrar Producto </h1>
+                <h1 className='tit'>Modificar Producto </h1>
+              
                 <div className='loprim'>
                     <div className='nombre'>
                         <div>Nombre del producto</div>
-                        <input id='nombre' className='inpus' type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} />
+                        <input 
+                            id='nombre' 
+                            className='inpus' 
+                            type="text" 
+                            value={nombre} 
+                            onChange={handleInputChange} 
+                        />
                         {errores.nombre && <p className="error">{errores.nombre}</p>}
                     </div>
                     <div className='descripcion'>
@@ -233,10 +209,6 @@ function MyLoginPage() {
                         />
                         {errores.costo && <p className="error">{errores.costo}</p>}
                     </div>
-
-                </div>
-
-                <div className='desplegables'>
                     <div className='tipop'>
                         <div>Tipo de producto</div>
                         <input
@@ -244,16 +216,20 @@ function MyLoginPage() {
                             className='inpus'
                             type="text"
                             value={tipop}
-                            onChange={(e) => setTipop(e.target.value.toLowerCase())}
+                            onChange={handleInputChange}
                         />
                         {errores.tipop && <p className="error">{errores.tipop}</p>}
                     </div>
+                </div>
 
+                <div className='desplegables'>
                     <div className='cat'>
                         <label htmlFor="categorias">Categorias</label>
-                        <select className="categorias"
+                        <select 
+                            className="categorias"
                             id="categorias"
-                            value={categoria} onChange={(e) => setCat(e.target.value)}>
+                            value={categoria} 
+                            onChange={(e) => setCat(e.target.value)}>
                             <option value="">Seleccione una categoría</option>
                             <option value="1">Accesorios</option>
                             <option value="2">Repuestos</option>
@@ -262,12 +238,13 @@ function MyLoginPage() {
                         </select>
                         {errores.categoria && <p className="error">{errores.categoria}</p>}
                     </div>
-
                     <div className='marc'>
                         <label htmlFor="marcas">Marcas</label>
-                        <select className="marcas"
+                        <select 
+                            className="marcas"
                             id="marcas"
-                            value={marca} onChange={(e) => setMarca(e.target.value)}>
+                            value={marca} 
+                            onChange={(e) => setMarca(e.target.value)}>
                             <option value="">Seleccione una marca</option>
                             <option value="1">Fox</option>
                             <option value="2">Gw</option>
@@ -277,9 +254,8 @@ function MyLoginPage() {
                         </select>
                         {errores.marca && <p className="error">{errores.marca}</p>}
                     </div>
-
                 </div>
-4
+
                 <div className='porcentajes'>
                     <div className='margen'>
                         <div>Margen</div>
@@ -292,7 +268,6 @@ function MyLoginPage() {
                         />
                         {errores.margen && <p className="error">{errores.margen}</p>}
                     </div>
-
                     <div className='descuento'>
                         <div>Descuento</div>
                         <input
@@ -304,7 +279,6 @@ function MyLoginPage() {
                         />
                         {errores.descuento && <p className="error">{errores.descuento}</p>}
                     </div>
-
                     <div className='impuesto'>
                         <div>Impuesto</div>
                         <input
@@ -330,7 +304,6 @@ function MyLoginPage() {
                         />
                         {errores.stock && <p className="error">{errores.stock}</p>}
                     </div>
-
                     <div className='image'>
                         <div>Imagen</div>
                         <input
@@ -343,7 +316,6 @@ function MyLoginPage() {
                         />
                         {errores.imagen && <p className="error">{errores.imagen}</p>}
                     </div>
-
                     <div className='color'>
                         <div>Color</div>
                         <input
@@ -355,12 +327,22 @@ function MyLoginPage() {
                         />
                         {errores.color && <p className="error">{errores.color}</p>}
                     </div>
+                    <div className='codigo'>
+                        <div>Código del producto</div>
+                        <input
+                            id='codigo'
+                            className='inpus'
+                            type="text"
+                            value={codigo}
+                            onChange={handleInputChange}
+                            placeholder='Codigo del producto que se desea modificar'
+                        />
+                    </div>
                 </div>
-
 
                 <div className='btnc'>
                 <Link className='volver' to="/dashboard">Volver</Link>
-                    <button className='boton' onClick={handleSubmit}>Registrar</button>
+                    <button className='boton' onClick={handleSubmit}>Modificar</button>
                 </div>
 
             </div>

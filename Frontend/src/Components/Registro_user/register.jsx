@@ -156,7 +156,7 @@ function MyLoginPage() {
                     <button className='boton' onClick={handleSubmit}>Registrarse</button>
                 </div>
                 <div>
-                    ¿Ya tienes una cuenta? <Link to="/">Inicia sesión aquí</Link>
+                    ¿Ya tienes una cuenta? <Link to="/inicio">Inicia sesión aquí</Link>
                 </div>
             </div>
         </div>
