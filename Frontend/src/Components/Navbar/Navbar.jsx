@@ -5,17 +5,8 @@ import BicicletaNav from "../../assets/img/imgNavbar/bicicletaNavbar.png"
 import IniciarSesion from "../../assets/img/imgNavbar/iniciarSesion.png";
 import "./Navbar.css";
 
-const Navbar = ({ search }) => {
-  const [searchTerm, setSearchTerm] = useState('');
-
-  const handleSearchInputChange = (event) => {
-    const searchTerm = event.target.value;
-    setSearchTerm(searchTerm);
-    // Llamar a la función de búsqueda para filtrar los artículos
-    if (search) {
-      search(searchTerm);
-    }
-  };
+const Navbar = () => {
+  
   return (
     <header className="header">
       <nav className="nav">
@@ -30,21 +21,12 @@ const Navbar = ({ search }) => {
         </button>
         <div className="navegation">
           <div className="main">
-            <a href="">
-              {" "}
-              <i className="fa-solid fa-magnifying-glass"></i>
-            </a>
-
+          <box-icon name='search'color="#c2c2c2" ></box-icon>
             {/*Filtro de búsqueda*/}
-
-            <form>
-        <input
+     
+          <input className="buscador"
           type="text"
-          placeholder="Buscar..."
-          value={searchTerm}
-          onChange={handleSearchInputChange}
-        />
-      </form>
+          placeholder="Buscar..."/>
           </div>
 
           {/*Menu de navegación */}

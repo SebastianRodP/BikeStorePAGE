@@ -4,6 +4,7 @@ import Footer from "../Components/Footer/Footer";
 import Cartas from '../Components/Cartas/Cartas'
 import Marcas from '../Components/Marcas/Marcas'
 import "../Components/Home/HomeStyle.css"
+import "../Pages/style.css"
 
 const Home = () => {
   const [filteredArticulos, setFilteredArticulos] = useState(null);

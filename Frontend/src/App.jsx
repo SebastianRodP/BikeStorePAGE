@@ -7,6 +7,7 @@ import Accesorios from "./Pages/Accesorios";
 import Repuestos from './Pages/Repuestos'
 import Vestuarios from './Pages/Vestuarios'
 import Contactanos  from "./Components/Contactanos/Contactanos";
+import "./Pages/style.css"
 
 function App() {
   const [count, setCount] = useState(0)

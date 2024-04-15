@@ -5,6 +5,7 @@ import Banner from '../Components/Banner/Banner'
 import Filtro from '../Components/Filtro/Filtro'
 import CartasNavegacion from '../Components/CartasNavegacion/CartasNavegacion'
 import 'boxicons';
+import "../Pages/style.css"
 
 const Repuestos = () => {
   return (
