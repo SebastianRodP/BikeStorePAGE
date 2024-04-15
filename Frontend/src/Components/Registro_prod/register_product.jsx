@@ -279,7 +279,6 @@ function MyLoginPage() {
                     </div>
 
                 </div>
-4
                 <div className='porcentajes'>
                     <div className='margen'>
                         <div>Margen</div>

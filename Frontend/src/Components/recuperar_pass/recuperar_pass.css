@@ -4,9 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New&display=swap');
 
 .todo{
-background-image: url(../../assets/img/imgInicioRegistro/fondo.jpg);
-background-size: cover;
-background-repeat: no-repeat;
+
 display: flex;
 flex-direction: column;
 font-family: "Zen Kaku Gothic New", sans-serif;
@@ -50,7 +48,7 @@ align-items: center;
 .formulario{
 	background-color: white;
 	padding: 30px;
-	max-width: 350px;
+	
 	font-size: 15px;
 	border-radius: 5px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);

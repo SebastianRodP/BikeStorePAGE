@@ -14,7 +14,7 @@
   display: flex;
   flex-wrap: wrap;
   align-content: center;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   margin: 10px;
   padding: 70px;
@@ -27,9 +27,9 @@
   background-color: #e3e3e3;
   border-radius: 8px;
   height: 100%; /* Cambiado de auto a 100% */
-  min-height: 400px; /* Establecer una altura mínima */
+  min-height: 450px; /* Establecer una altura mínima */
   text-align: center;
-  width: 390px;
+  width: 300px;
   box-shadow: 5px 5px 5px #b7b7b7;
   cursor: default;
   transition: all 400ms ease;
@@ -103,17 +103,20 @@
 }
 
 .footer{
+  height: 3rem;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   padding-right: 2%;
   padding-bottom: 2%;
   
 }
 .button{
-  width: 40%;
+  width: 90%;
   max-width: 100%;
-  height: 2rem;
+  height: 100%;
   display: flex;
+  border-radius: 5px;
+  border: 1px solid black;
  
 }
 .button .btn{

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom"; // Importa useNavigate
 import "./inisesion.css";
-import logo from "../../assets/img/imgInicioRegistro/logo.png";
+import logo from "../../assets/img/imgInicioRegistro/logon.png";
 import { client } from "../../Pages/SupaBase/client";
 import { Link } from "react-router-dom";
 
@@ -55,6 +55,7 @@ function MyLoginPage() {
                                 navigate('/dashboard'); // Redirige al admin a la página de dashboard
                             } else {
                                 console.log('Bienvenido usuario');
+                                navigate('/home');
                             }
                         } else {
                             setErrores({ password: 'La contraseña no coincide.' });
@@ -73,7 +74,10 @@ function MyLoginPage() {
 
     return (
         <div className='tod'>
+            <Link to="/home"> 
             <img className='logo' src={logo} alt="Logo" />
+            </Link>
+           
             <form onSubmit={handleSubmit} className='form'>
                 <h1 className='tit'>Inicio de sesión</h1>
                 <div className='correo'>
@@ -99,10 +103,7 @@ function MyLoginPage() {
                     {errores.password && <p className="error">{errores.password}</p>}
                 </div>
 
-                <div className='reccontra'>
-                    <input type="checkbox" name="" id="" />
-                    Recordar contraseña
-                </div>
+            
 
                 <div className='btnc'>
                     <button className='boton'>Iniciar sesión</button>

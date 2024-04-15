@@ -6,12 +6,19 @@ import Filtro from '../Components/Filtro/Filtro'
 import CartasNavegacion from '../Components/CartasNavegacion/CartasNavegacion'
 import 'boxicons';
 import "../Pages/style.css"
+import"../Components/Banner/BannerVes.css"
 
 const Repuestos = () => {
   return (
     <>
     <Navbar/>
-    <Banner/>
+    <div className='centrar'>
+    <div className="banner-repu">
+      <div className="banner_contenido">
+        <p>Repuestos</p>
+      </div>
+    </div>
+  </div>
     <Filtro/>
     <CartasNavegacion id_categorias={2}/>
     <Footer/>

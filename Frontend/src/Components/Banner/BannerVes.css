@@ -1,0 +1,45 @@
+.banner-vest {
+    margin-top: 2%;
+    margin-bottom: 4%;
+    width: 90%;
+    position: relative; /* Añadimos posición relativa */
+    background-image: url("../../assets/img/imgBanner/vestuarios.jpg");
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 10px 10px 20px #6c6c6c;;
+  }
+  .banner-acces{
+    margin-top: 2%;
+    margin-bottom: 4%;
+    width: 90%;
+    position: relative; /* Añadimos posición relativa */
+    background-image: url("../../assets/img/imgBanner/Accesorios.jpg");
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 10px 10px 20px #6c6c6c;;
+  }
+  .banner-repu{
+    margin-top: 2%;
+    margin-bottom: 4%;
+    width: 90%;
+    position: relative; /* Añadimos posición relativa */
+    background-image: url("../../assets/img/imgBanner/repuestos.jpg");
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 10px 10px 20px #6c6c6c;;
+  }

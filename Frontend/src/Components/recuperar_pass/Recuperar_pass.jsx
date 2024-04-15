@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import "./recuperar_pass.css";
 import { client } from "../../Pages/SupaBase/client";
-import logo from "../../assets/img/imgInicioRegistro/logo.png";
+import logo from "../../assets/img/imgInicioRegistro/logon.png";
 import { Link } from 'react-router-dom';
 
 function MyLoginPage() {
@@ -104,7 +104,9 @@ function MyLoginPage() {
                 </div>
             )}
 
-            <img className='logo' src={logo} alt="logo "></img>
+<Link to="/home"> 
+            <img className='logo' src={logo} alt="Logo" />
+            </Link>
 
             <div className='formulario'>
                 <Link className='inic' to="/inicio">Volver</Link>

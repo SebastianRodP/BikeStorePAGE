@@ -5,7 +5,8 @@
     margin: 0;
     padding: 0;}
 
-body{ font-family: "Yaldevi", sans-serif;}
+body{ font-family: "Yaldevi", sans-serif;
+background-color: white;}
 
 .modal {
     background-color: rgba(0, 0, 0, 0.388);
