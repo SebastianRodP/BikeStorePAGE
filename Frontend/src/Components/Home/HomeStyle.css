@@ -1,3 +1,24 @@
 h1{
     text-align: center;
 }
+
+.contenedor-info{
+    font-family: "Jockey One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    margin-top: 3em;
+}
+
+.contenedor-marcas{
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+}
+
+.contenedor-articulos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
