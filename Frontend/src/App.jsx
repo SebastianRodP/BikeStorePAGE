@@ -7,6 +7,10 @@ import Accesorios from "./Pages/Accesorios";
 import Repuestos from './Pages/Repuestos'
 import Vestuarios from './Pages/Vestuarios'
 import Contactanos  from "./Components/Contactanos/Contactanos";
+import Inicio from "./Components/Inicio_sesion/inicio-sesion";
+import Registro from "./Components/Registro_user/register";
+import Terminos from "./Components/terminos_condiciones/terminos";
+import Reccontra from "./Components/recuperar_pass/Recuperar_pass";
 import "./Pages/style.css"
 
 
@@ -23,10 +27,14 @@ function App() {
         <Route path="/Repuestos" element={<Repuestos />} />
         <Route path="/Vestuarios" element={<Vestuarios />} />
         <Route path="/Contactanos" element={<Contactanos />} />
+        <Route path="/inicio" element={<Inicio />} />
+        <Route path="/registro" element={<Registro />} />
+        <Route path="/terminos" element={<Terminos />} />
+        <Route path="/reccontra" element={<Reccontra />} />
       </Routes>
     </Router>
 
   )
 }
 
-export default App
+export default App;

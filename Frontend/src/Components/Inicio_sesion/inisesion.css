@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com');
+@import url('https://fonts.gstatic.com');
+@import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New&display=swap');
+
+body{
+background-image: url(../../assets/img/imgInicioRegistro/fondo.jpg);
+background-size: cover;
+background-repeat: no-repeat;
+display: flex;
+flex-direction: column;
+font-family: "Zen Kaku Gothic New", sans-serif;
+font-style: normal;
+align-items: center;
+}
+.tit{
+	margin-top: 0px;
+	display: flex;
+	justify-content: center;
+}
+.formulario{
+	background-color: white;
+	padding: 30px;
+	max-width: 350px;
+	font-size: 15px;
+	border-radius: 5px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+	display: flex;
+	flex-direction: column;
+}
+
+.todo{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.correo{
+	margin-bottom:20px;
+}
+.logo{
+	height: auto;
+	width: 350px;
+}
+.contraseña{
+	margin-bottom: 20px;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+.nombre{
+	margin-bottom: 20px;
+}
+.contras{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+
+}
+.reccontra{
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 20px;
+}
+.btnc{
+	margin-bottom: 0px;
+}
+.crearc{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+.inpus{
+	height: 25px;
+	width: 320px;
+
+}
+.boton{
+	height: 30px;
+	width: 320px;
+	background-color: black;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 15px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+	cursor: pointer;
+	margin-bottom: 10px;
+}
+.n{
+	color: black;
+	font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+    .formulario {
+        padding: 20px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .formulario {
+        padding: 10px;
+    }
+    .inpus, .boton {
+        width: 70%;
+        max-width: none;
+		display: flex;
+		justify-content: center;
+    }
+}
+
+.error {
+    color: red;
+    font-size: 0.8rem;
+    margin-top: 5px;
+	max-width: 230px;
+	max-height: 10px;
+
+}
+.aceptarc{
+	margin-bottom: 20px;
+}
+.cuenta{
+	display: flex;
+	justify-content: center;
+}
