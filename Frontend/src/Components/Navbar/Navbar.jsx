@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import BicicletaNav from "../../assets/img/imgNavbar/bicicletaNavbar.png"
+import IniciarSesion from "../../assets/img/imgNavbar/iniciarSesion.png";
 import "./Navbar.css";
 
 const Navbar = ({ search }) => {
@@ -21,7 +23,7 @@ const Navbar = ({ search }) => {
           <Link to="/home"  className="logo-letra nav-link">
             Bike<span className="blue">Store</span>
           </Link>
-          <img src></img>
+          <img src={BicicletaNav}></img>
         </div>
         <button className="nav-toggle">
           <i className="fa-solid fa-bars"></i>
@@ -82,7 +84,7 @@ const Navbar = ({ search }) => {
 
           <div className="optionsDown">
             <p className="bienvenido">Bienvenido, usuario</p>
-            <img  className="user" alt="Iniciar sesión" />
+            <img  src={IniciarSesion} className="user" alt="Iniciar sesión"/>
           </div>
         </div>
       </nav>
