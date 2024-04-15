@@ -7,6 +7,7 @@ router.get("/articulos/categorias/:id_categorias", controller.getArticulosByCate
 
 // Otras rutas definidas anteriormente
 router.get("/", controller.saludo)
+router.get("/articulos", controller.articulos)
 router.get("/usuarios", controller.usuarios)
 router.get("/telefonos", controller.telefonos)
 router.get("/rol", controller.rol)
