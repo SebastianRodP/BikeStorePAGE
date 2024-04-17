@@ -15,7 +15,7 @@
 
 .filtro-menu {
   display: flex;
-  margin-right: 40px;
+  width: 80%;
   list-style: none;
   border-top: 1px solid #cfcfcf;
   border-bottom: 1px solid #cfcfcf;
