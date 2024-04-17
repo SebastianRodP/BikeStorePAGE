@@ -4,12 +4,12 @@ import logo from "../../assets/img/imgInicioRegistro/logo.png";
 import { Link } from "react-router-dom";
 import { createClient } from '@supabase/supabase-js';
 
-function MyRegisterPage() {
-    const [nombreUsuario, setNombreUsuario] = useState('');
-    const [correoElectronico, setCorreoElectronico] = useState('');
-    const [contraseña, setContraseña] = useState('');
-    const [confirmarContraseña, setConfirmarContraseña] = useState('');
-    const [aceptarTerminos, setAceptarTerminos] = useState(false);
+function MyLoginPage() {
+    const [nombre, setNombre] = useState('');
+    const [correo, setCorreo] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [aceptaTerminos, setAceptaTerminos] = useState(false);
     const [errores, setErrores] = useState({});
     const [mostrarPanel, setMostrarPanel] = useState(false);
     const [mensajePanel, setMensajePanel] = useState('');
@@ -19,40 +19,40 @@ function MyRegisterPage() {
         setMostrarPanel(true);
     };
 
-    const supabase = createClient('https://hetfaqksgxjlcxatxcvl.supabase.co', 'TU_API_KEY');
+    const supabase = createClient('https://hetfaqksgxjlcxatxcvl.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhldGZhcWtzZ3hqbGN4YXR4Y3ZsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTExNjI0OTcsImV4cCI6MjAyNjczODQ5N30.jg0cFimQOh3erlrtL9AILrtyQIrRJLnFs-594uJXiiY');
 
     const validarFormulario = () => {
         let erroresTemp = {};
         let esFormularioValido = true;
 
-        if (!nombreUsuario.trim()) {
-            erroresTemp.nombreUsuario = "El campo nombre es obligatorio.";
+        if (!nombre.trim()) {
+            erroresTemp.nombre = "El campo nombre es obligatorio.";
             esFormularioValido = false;
         }
 
-        if (!correoElectronico.trim()) {
-            erroresTemp.correoElectronico = "El campo correo es obligatorio.";
+        if (!correo.trim()) {
+            erroresTemp.correo = "El campo correo es obligatorio.";
             esFormularioValido = false;
-        } else if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(correoElectronico)) {
-            erroresTemp.correoElectronico = "El correo electrónico no es válido.";
-            esFormularioValido = false;
-        }
-
-        if (!contraseña.trim()) {
-            erroresTemp.contraseña = "El campo contraseña es obligatorio.";
+        } else if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(correo)) {
+            erroresTemp.correo = "El correo electrónico no es válido.";
             esFormularioValido = false;
         }
 
-        if (!confirmarContraseña.trim()) {
-            erroresTemp.confirmarContraseña = "Debe confirmar la contraseña.";
-            esFormularioValido = false;
-        } else if (confirmarContraseña !== contraseña) {
-            erroresTemp.confirmarContraseña = "Las contraseñas no coinciden.";
+        if (!password.trim()) {
+            erroresTemp.password = "El campo contraseña es obligatorio.";
             esFormularioValido = false;
         }
 
-        if (!aceptarTerminos) {
-            erroresTemp.aceptarTerminos = "Debe aceptar los términos y condiciones.";
+        if (!confirmPassword.trim()) {
+            erroresTemp.confirmPassword = "Debe confirmar la contraseña.";
+            esFormularioValido = false;
+        } else if (confirmPassword !== password) {
+            erroresTemp.confirmPassword = "Las contraseñas no coinciden.";
+            esFormularioValido = false;
+        }
+
+        if (!aceptaTerminos) {
+            erroresTemp.aceptaTerminos = "Debe aceptar los términos y condiciones.";
             esFormularioValido = false;
         }
 
@@ -66,80 +66,113 @@ function MyRegisterPage() {
         const esFormularioValido = validarFormulario();
 
         if (esFormularioValido) {
-            // Aquí va tu código para registrar al usuario en Supabase
+            try {
+                const { data: usuarios, error: errorConsulta } = await supabase
+                    .from('usuarios')
+                    .select('*')
+                    .eq('correo', correo);
+
+                if (errorConsulta) {
+                    console.error('Error al consultar el correo:', errorConsulta.message);
+                    return;
+                }
+
+                if (usuarios && usuarios.length > 0) {
+                    console.log('El correo ya está en uso.');
+                    setErrores(prevErrores => ({
+                        ...prevErrores,
+                        correo: 'El correo ya está en uso.'
+                    }));
+                    return;
+                }
+
+                // insertar datos en  Supabase
+                const { data, error } = await supabase
+                    .from('usuarios')
+                    .insert([{ nombre, correo, contraseña: password, idrol: 2 }]);
+
+                if (error) {
+                    console.error('Error al registrar los datos:', error.message);
+                } else {
+                    console.log('Datos registrados correctamente:', data);
+                    mostrarMensaje('Se registro al usuario correctamente, inicie sesion.');
+
+                    // necesito el mercho escuchando a fercho, para poder redirigir al home.
+                }
+            } catch (error) {
+                console.error('Error al registrar los datos:', error.message);
+            }
         } else {
             console.log('El formulario contiene errores. Por favor, corríjalos.');
         }
     };
 
+
     return (
         <div className='contenedor'>
-            {/* Aquí va el código para el panel emergente */}
-            <Link to="/home">
+             <Link to="/home">
                 <img className='logon' src={logo} alt="Logo" />
             </Link>
+            {mostrarPanel && (
+                <div className="panel-emergente">
+                    <p>{mensajePanel}</p>
+                    <Link className='inic2' to="/inicio">Continuar</Link>
+                </div>
+            )}
+           
             <div className='formulario'>
-                <h1 className='titulo'>Registro de usuario</h1>
-                <div className='campo'>
+                <h1 className='tit'>Registro de usuario</h1>
+                <div className='name'>
                     <div>Nombre</div>
-                    <input 
-                        id='nombreUsuario' 
-                        className='entrada' 
-                        type="text" 
-                        value={nombreUsuario} 
-                        onChange={(e) => setNombreUsuario(e.target.value)} 
-                    />
-                    {errores.nombreUsuario && <p className="mensaje-error">{errores.nombreUsuario}</p>}
+                    <input id='nombre'
+                        className='entrada'
+                        type="text"
+                        value={nombre}
+                        onChange={(e) => setNombre(e.target.value)} />
+                    {errores.nombre && <p className="error">{errores.nombre}</p>}
                 </div>
-                <div className='campo'>
+                <div className='correo'>
                     <div>Correo electrónico</div>
-                    <input 
-                        id='correoElectronico' 
-                        className='entrada' 
-                        type="email" 
-                        value={correoElectronico} 
-                        onChange={(e) => setCorreoElectronico(e.target.value.toLowerCase())} 
+                    <input
+                        id='correo'
+                        className='entrada'
+                        type="email"
+                        value={correo}
+                        onChange={(e) => setCorreo(e.target.value.toLowerCase())}
                     />
-                    {errores.correoElectronico && <p className="mensaje-error">{errores.correoElectronico}</p>}
+                    {errores.correo && <p className="error">{errores.correo}</p>}
                 </div>
-                <div className='campo'>
+                <div className='contraseña'>
                     <div>Contraseña</div>
-                    <input 
-                        id='contraseña' 
-                        className='entrada' 
-                        type="password" 
-                        value={contraseña} 
-                        onChange={(e) => setContraseña(e.target.value)} 
-                    />
-                    {errores.contraseña && <p className="mensaje-error">{errores.contraseña}</p>}
+                    <input id='contraseña'
+                        className='entrada'
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)} />
+                    {errores.password && <p className="error">{errores.password}</p>}
                 </div>
-                <div className='campo'>
+                <div className='confcontra'>
                     <div>Confirmar contraseña</div>
-                    <input 
-                        id='confirmarContraseña' 
-                        className='entrada' 
-                        type="password" 
-                        value={confirmarContraseña} 
-                        onChange={(e) => setConfirmarContraseña(e.target.value)} 
-                    />
-                    {errores.confirmarContraseña && <p className="mensaje-error">{errores.confirmarContraseña}</p>}
+                    <input className='entrada'
+                        type="password"
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)} />
+                    {errores.confirmPassword && <p className="error">{errores.confirmPassword}</p>}
                 </div>
-                <div className='campo'>
-                    <input 
-                        type="checkbox" 
+                <div className='aceptarc'>
+                    <input type="checkbox"
                         className='check'
-                        checked={aceptarTerminos} 
-                        onChange={(e) => setAceptarTerminos(e.target.checked)} 
-                    />
+                        checked={aceptaTerminos}
+                        onChange={(e) => setAceptaTerminos(e.target.checked)} />
                     <div>
-                        Aceptar <Link to="/terminos">Términos y condiciones</Link>
+                        aceptar <Link to="/terminos">Terminos y condiciones</Link>
                     </div>
                 </div>
-                {errores.aceptarTerminos && <p className="mensaje-error">{errores.aceptarTerminos}</p>}
-                <div className='boton-container'>
+                {errores.aceptaTerminos && <p className="error">{errores.aceptaTerminos}</p>}
+                <div className='r'>
                     <button className='boton' onClick={handleSubmit}>Registrarse</button>
                 </div>
-                <div className='cuenta'>
+                <div>
                     ¿Ya tienes una cuenta? <Link to="/inicio">Inicia sesión aquí</Link>
                 </div>
             </div>
@@ -147,4 +180,4 @@ function MyRegisterPage() {
     );
 }
 
-export default MyRegisterPage;
+export default MyLoginPage;

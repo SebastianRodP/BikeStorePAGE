@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import logo from "../../assets/img/imgInicioRegistro/logon.png";
 import { Link } from "react-router-dom";
-import "./rproductos.css";
+import "./formularios_admin.css";
 import { createClient } from '@supabase/supabase-js';
 
 function MyLoginPage() {
@@ -192,21 +192,21 @@ function MyLoginPage() {
     };
 
     return (
-        <div className='todos'>
+        <div className='todoa'>
             <div className='form'>
-            <img className='logo' src={logo} alt="Logo" />
+            <img className='logox' src={logo} alt="Logo" />
             
                 {mostrarPanel && (
                     <div className="panel-emergente">
                         <p>{mensajePanel}</p>
-                        <Link className='inic2' to="/dashboard">Continuar</Link>
+                        <Link className='btn' to="/dashboard">Continuar</Link>
                     </div>
                 )}
 
 
                 <h1 className='tit'>Registrar Producto </h1>
                 <div className='loprim'>
-                    <div className='nombre'>
+                    <div className='nombrhe'>
                         <div>Nombre del producto</div>
                         <input id='nombre' className='inpus' type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} />
                         {errores.nombre && <p className="error">{errores.nombre}</p>}
@@ -273,7 +273,6 @@ function MyLoginPage() {
                             <option value="2">Gw</option>
                             <option value="3">Specialized</option>
                             <option value="4">Venzo</option>
-                            <option value="0">Otra</option>
                         </select>
                         {errores.marca && <p className="error">{errores.marca}</p>}
                     </div>
@@ -356,10 +355,10 @@ function MyLoginPage() {
                     </div>
                 </div>
 
-
-                <div className='btnc'>
-                <Link className='volver' to="/dashboard">Volver</Link>
-                    <button className='boton' onClick={handleSubmit}>Registrar</button>
+                
+                <div className='botons'>
+                <Link className='btnv' to="/dashboard">Volver</Link>
+                    <Link className='btnc' onClick={handleSubmit}>Registrar</Link>
                 </div>
 
             </div>

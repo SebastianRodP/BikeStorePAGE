@@ -16,7 +16,7 @@ function TerminosCondiciones() {
             </Link>
 
             <div className='formulario'>
-                <h1 className='titulo'>Términos y condiciones</h1>
+                <h1 className='titulon'>Términos y condiciones</h1>
                 <div className='texto'>
                     <ul>
                         <li>¡Bienvenido/a a nuestra tienda en línea de bicicletas, repuestos, accesorios y vestuarios! Antes de realizar cualquier compra, te pedimos que leas detenidamente los siguientes términos y condiciones. Al utilizar nuestros servicios y realizar una compra, aceptas estar sujeto/a a estos términos y condiciones. Si tienes alguna pregunta, no dudes en contactarnos.</li>

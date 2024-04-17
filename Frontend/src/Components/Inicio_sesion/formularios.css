@@ -19,8 +19,9 @@
 .logon {
     width: 100%;
 }
-.titulo{
+.titulon{
     font-size: 30px;
+    align-items: center;
 }
 input{
     height: 25px;
@@ -29,14 +30,14 @@ input{
 .recuperar-contraseña input {
     display: flex;
     flex-direction: row;
-    background-color: red;
+
 }
 
 .nombre {
     margin-bottom: 20px;
 }
 .check{
-    background-color: red;
+    margin-right: 10px;
     height: auto;
     width: auto;
 }
@@ -97,20 +98,54 @@ input{
     padding: 8px;
     margin-bottom: 10px;
 }
-
+.recuperar-contraseña{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+.panele{
+    margin-top: 350px;
+    color: black;
+    background-color: #aed6d6;
+    position: absolute;
+    border-radius: 5px;
+    padding: 5px;
+    width: auto;
+    height: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+}
 .nombre {
     color: black;
     font-weight: bold;
+
+}
+.botn{
+    background-color: black;
+    color: white;
+    height: auto;
+    width: auto;
+    padding: 5px;
+    border-radius: 5px;
+    font-style: none;
 }
 
-.mensaje-error {
+.error {
     color: red;
     font-size: 0.8rem;
     margin-top: 5px;
-    max-width: 230px;
-    max-height: 10px;
-}
 
+    max-width: 90%;
+}
+.aceptarc{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
 .aceptar-cambios {
     margin-bottom: 20px;
 }
@@ -120,7 +155,6 @@ input{
     justify-content: center;
 }
 
-/* pantallas medianas */
 @media (max-width: 992px) {
     body {
         font-size: 14px;
@@ -136,7 +170,6 @@ input{
     }
 }
 
-/* pantallas pequeñas */
 @media (max-width: 667px) {
     body {
         font-size: 15px;
@@ -146,7 +179,6 @@ input{
         margin: 0;
         padding: 10px;
         max-width: none;
-        /* Elimina el ancho máximo */
     }
 
     .entrada,

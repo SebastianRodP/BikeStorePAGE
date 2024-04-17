@@ -19,6 +19,10 @@
 background-color: #aed6d6;
 color: black;
 }
+.logoa{
+  height: auto;
+  width: 40%;
+}
 .cuadro img{
   width: 120px;
   height: auto;
@@ -82,10 +86,10 @@ color: black;
 #cajas{
   margin-right: -80%;
 }
-/* Ajusta la imagen de inicio de sesión */
+
 .sidenav-header {
-  opacity: 0.5; /* Reduce la opacidad de la imagen */
-  z-index: 1; /* Asegura que la imagen esté por encima del fondo */
+  opacity: 0.5; 
+  z-index: 1; 
 }
 .titulo{
 width: 200px;
@@ -104,7 +108,7 @@ width: 200px;
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   padding: 10px;
-  margin-left: 50px;
+  margin-left: 10px;
 }
 
 
