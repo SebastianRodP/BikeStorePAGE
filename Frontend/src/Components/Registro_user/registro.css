@@ -4,9 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New&display=swap');
 
 .todo{
-background-image: url(../../assets/img/imgInicioRegistro/fondo.jpg);
-background-size: cover;
-background-repeat: no-repeat;
+
 display: flex;
 flex-direction: column;
 font-family: "Zen Kaku Gothic New", sans-serif;

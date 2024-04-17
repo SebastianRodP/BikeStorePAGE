@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import "./registro.css";
-import logo from "../../assets/img/imgInicioRegistro/logo.png";
+import logo from "../../assets/img/imgInicioRegistro/logon.png";
 import { Link } from "react-router-dom";
 import { createClient } from '@supabase/supabase-js';
 
@@ -116,7 +116,9 @@ function MyLoginPage() {
                     <Link className='inic2' to="/inicio">Continuar</Link>
                 </div>
             )}
+            <Link to="/home"> 
             <img className='logo' src={logo} alt="Logo" />
+            </Link>
             <div className='formulario'>
                 <h1 className='tit'>Registro de usuario</h1>
                 <div className='nombre'>

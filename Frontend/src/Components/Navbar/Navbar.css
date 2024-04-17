@@ -113,16 +113,18 @@
     gap: 5px;
 }
 
- input {
+ .buscador {
 
     font-family: "Jockey One", sans-serif;
-    font-weight: 300;
+    font-weight: 3002;
     font-style: normal;
+    height: 25px;
     color: #C2C2C2;
     border: 0px;
     outline: 0px;
     width: 400px;
-    font-size: 16px;
+    font-size: 14px;
+    box-shadow: none;
 }
 
 .fa-magnifying-glass {

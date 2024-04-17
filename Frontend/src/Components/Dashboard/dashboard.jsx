@@ -98,27 +98,27 @@ function Dashboard() {
       <aside className="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gradient-dark" id="izqui">
         <div className="sidenav-header">
           <i className="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-          <span className="ms-1 font-weight-bold text-white">Dashboard</span>
+          <span className="teztitu" >Dashboard</span>
         </div>
         <hr className="horizontal light mt-0 mb-2" />
         <div className="collapse navbar-collapse w-auto" id="sidenav-collapse-main">
           <ul className="navbar-nav">
             <li className="nav-item">
               <Link to="/dashboard" className="nav-link text-white">
-                <span className="nav-link-text ms-1">Dashboard</span>
+                <span className="nav-link-text ms-1" id='tezt'>Dashboard</span>
               </Link>
             </li>
             <li className="nav-item">
               <Link to="/registrop" className="nav-link text-white">
-                <span className="nav-link-text ms-1">Registrar articulos</span>
+                <span className="nav-link-text ms-1" id='tezt'>Registrar articulos</span>
               </Link>
             </li>
             <li className="nav-item">
               <Link to="/modificar" className="nav-link text-white">
-                <span className="nav-link-text ms-1">Modificar articulos</span>
+                <span className="nav-link-text ms-1" id='tezt'>Modificar articulos</span>
               </Link>
             </li>
-            <div className='elimn'>
+            <div className='elimn' id='tezt'>
               Eliminar articulos
               <input
                 type="text"
@@ -131,7 +131,7 @@ function Dashboard() {
             </div>
             <li className="nav-item" id='cers'>
               <Link to="/inicio" className="nav-link text-white">
-                <span className="nav-link-text ms-1">Cerrar sesion</span>
+                <span className="nav-link-text ms-1" id='tezt'>Cerrar sesion</span>
               </Link>
             </li>
           </ul>
@@ -170,7 +170,7 @@ function Dashboard() {
                   </div>
                 </div>
               </div>
-              <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 gx-4" id='cajas'>
+              <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 gx-10" id='cajas'>
                 {productos.map((producto) => {
                   const margen = producto.margen || 0;
                   const impuesto = producto.impuesto || 0;

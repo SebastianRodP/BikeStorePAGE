@@ -66,7 +66,10 @@ const Navbar = () => {
 
           <div className="optionsDown">
             <p className="bienvenido">Bienvenido, usuario</p>
+            <Link to="/inicio" >
             <img  src={IniciarSesion} className="user" alt="Iniciar sesión"/>
+            </Link>
+          
           </div>
         </div>
       </nav>

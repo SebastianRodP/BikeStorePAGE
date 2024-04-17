@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from "../../assets/img/imgInicioRegistro/logo.png";
+import logo from "../../assets/img/imgInicioRegistro/logon.png";
 import "./terminos.css";
 import { Link } from "react-router-dom";
 
@@ -11,7 +11,9 @@ function TerminosCondiciones() {
 
     return (
         <div className='todo'>
-            <img className='logo' src={logo} alt="logo"></img>
+            <Link to="/home"> 
+            <img className='logo' src={logo} alt="Logo" />
+            </Link>
 
             <div className='formulario'>
                 <h1 className='tit'>Términos y condiciones</h1>
