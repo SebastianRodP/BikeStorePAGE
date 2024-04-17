@@ -18,7 +18,7 @@ function Iniciop() {
                         </li>))}
                 </div>
                 <div className='box-repuestos'>
-                
+                        
                 </div>
                 <div className='box-accesorios'>
                 
