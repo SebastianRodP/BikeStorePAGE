@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import "./recuperar_pass.css";
+import "../Inicio_sesion/formularios.css";
 import { client } from "../../Pages/SupaBase/client";
-import logo from "../../assets/img/imgInicioRegistro/logon.png";
+import logo from "../../assets/img/imgInicioRegistro/logo.png";
 import { Link } from 'react-router-dom';
 
-function MyLoginPage() {
+function RecuperarContraseña() {
     const [correo, setCorreo] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
@@ -17,7 +17,6 @@ function MyLoginPage() {
         setMostrarPanel(true);
     };
 
-
     const validarFormulario = () => {
         let erroresTemp = {};
         let esFormularioValido = true;
@@ -29,6 +28,7 @@ function MyLoginPage() {
             erroresTemp.correo = "El correo electrónico no es válido.";
             esFormularioValido = false;
         }
+
         if (!password.trim()) {
             erroresTemp.password = "El campo contraseña es obligatorio.";
             esFormularioValido = false;
@@ -68,8 +68,6 @@ function MyLoginPage() {
                         console.log('Número de documento:', usuario.nodocumento);
                         console.log('Dirección:', usuario.direccion);
 
-                        console.log('Bienvenido usuario');
-
                         const { error: updateError } = await client
                             .from('usuarios')
                             .update({ contraseña: password })
@@ -79,8 +77,7 @@ function MyLoginPage() {
                             console.error('Error al actualizar la contraseña:', updateError.message);
                         } else {
                             console.log('Contraseña actualizada con éxito.');
-                            console.log('Se modificó la contraseña.');
-                            mostrarMensaje('Se modifico la contraseña correctamente, inicie sesion.');
+                            mostrarMensaje('Se modificó la contraseña correctamente, inicie sesion.');
                         }
                     } else {
                         setErrores({ correo: 'El correo electrónico no está registrado.' });
@@ -89,14 +86,13 @@ function MyLoginPage() {
             } catch (error) {
                 console.error('Error al consultar la base de datos:', error.message);
             }
-
         } else {
             console.log('El formulario contiene errores. Por favor, corríjalos.');
         }
     };
 
     return (
-        <div className='todo'>
+        <div className='contenedor'>
             {mostrarPanel && (
                 <div className="panel-emergente">
                     <p>{mensajePanel}</p>
@@ -104,20 +100,20 @@ function MyLoginPage() {
                 </div>
             )}
 
-<Link to="/home"> 
-            <img className='logo' src={logo} alt="Logo" />
+            <Link to="/home">
+                <img className='logon' src={logo} alt="Logo" />
             </Link>
 
             <div className='formulario'>
                 <Link className='inic' to="/inicio">Volver</Link>
                 <h1 className='tit'>Recuperar contraseña</h1>
-                <div className='texto'>Por favor introduce tu correo electrónico para cambiar la contraseña.</div>
+                <div className='textos'>Por favor introduce tu correo electrónico para cambiar la contraseña.</div>
 
                 <div className='correo'>
                     <div>Correo electrónico</div>
                     <input
                         id='correo'
-                        className='inpus'
+                        className='entrada'
                         type="email"
                         value={correo}
                         onChange={(e) => setCorreo(e.target.value.toLowerCase())}
@@ -127,8 +123,8 @@ function MyLoginPage() {
                 <div className='contraseña'>
                     <div>Contraseña</div>
                     <input id='contraseña'
-                        className='inpus'
-                        type="text"
+                        className='entrada'
+                        type="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
@@ -136,8 +132,8 @@ function MyLoginPage() {
                 </div>
                 <div className='confcontra'>
                     <div>Confirmar contraseña</div>
-                    <input className='inpus'
-                        type="text"
+                    <input className='entrada'
+                        type="password"
                         value={confirmPassword}
                         onChange={(e) => setConfirmPassword(e.target.value)}
                     />
@@ -152,4 +148,4 @@ function MyLoginPage() {
     );
 }
 
-export default MyLoginPage;
+export default RecuperarContraseña;

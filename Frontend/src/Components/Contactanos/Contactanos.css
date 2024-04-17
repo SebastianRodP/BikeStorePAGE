@@ -81,7 +81,7 @@ input{
     margin-bottom: 15px;
     margin-left: 0; margin-right: 0;
     border-radius: 5px;
-    box-shadow: 0vh 0vh 10px 0  rgb(82, 79, 79)}
+}
 
 .enviar-mensaje {
     display: flex;

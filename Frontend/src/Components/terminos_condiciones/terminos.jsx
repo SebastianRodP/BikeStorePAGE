@@ -1,24 +1,24 @@
 import React from 'react';
-import logo from "../../assets/img/imgInicioRegistro/logon.png";
-import "./terminos.css";
+import logo from "../../assets/img/imgInicioRegistro/logo.png";
+import "../Inicio_sesion/formularios.css";
 import { Link } from "react-router-dom";
 
 function TerminosCondiciones() {
 
-    const handleSubmit = () => {
+    const manejarEnvio = () => {
         console.log('Formulario enviado');
     };
 
     return (
-        <div className='todo'>
+        <div className='contenedor'>
             <Link to="/home"> 
-            <img className='logo' src={logo} alt="Logo" />
+                <img className='logon' src={logo} alt="Logo" />
             </Link>
 
             <div className='formulario'>
-                <h1 className='tit'>Términos y condiciones</h1>
-                <div className='letras'>
-                <ul>
+                <h1 className='titulo'>Términos y condiciones</h1>
+                <div className='texto'>
+                    <ul>
                         <li>¡Bienvenido/a a nuestra tienda en línea de bicicletas, repuestos, accesorios y vestuarios! Antes de realizar cualquier compra, te pedimos que leas detenidamente los siguientes términos y condiciones. Al utilizar nuestros servicios y realizar una compra, aceptas estar sujeto/a a estos términos y condiciones. Si tienes alguna pregunta, no dudes en contactarnos.</li>
                         <li>
                             1. Información de la empresa
@@ -77,9 +77,8 @@ function TerminosCondiciones() {
                         </li>
                     </ul>
                 </div>
-                <div className='btnc'>
-                <Link to="/registro"><button className='boton' onClick={handleSubmit}>Continuar</button></Link>
-                    
+                <div className='boton-container'>
+                    <Link to="/registro"><button className='boton' onClick={manejarEnvio}>Continuar</button></Link>
                 </div>
             </div>
         </div>
@@ -87,4 +86,3 @@ function TerminosCondiciones() {
 }
 
 export default TerminosCondiciones;
-
