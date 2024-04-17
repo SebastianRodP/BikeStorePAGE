@@ -1,32 +1,40 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import BicicletaNav from "../../assets/img/imgNavbar/bicicletaNavbar.png"
+import BicicletaNav from "../../assets/img/imgNavbar/bicicletaNavbar.png";
 import IniciarSesion from "../../assets/img/imgNavbar/iniciarSesion.png";
 import "./Navbar.css";
+import { Carrito } from "../Carrito/Carrito";
 
 const Navbar = () => {
-  
+  const [carritoAbierto, setCarritoAbierto] = useState(false);
+
+  // Función para cambiar el estado del carrito
+  const toggleCarrito = () => {
+    setCarritoAbierto(!carritoAbierto);
+  };
+
   return (
     <header className="header">
       <nav className="nav">
         <div className="logo">
-          <Link to="/home"  className="logo-letra nav-link">
+          <Link to="/home" className="logo-letra nav-link">
             Bike<span className="blue">Store</span>
           </Link>
-          <img src={BicicletaNav}></img>
+          <img src={BicicletaNav} alt="Bicicleta" />
         </div>
         <button className="nav-toggle">
           <i className="fa-solid fa-bars"></i>
         </button>
         <div className="navegation">
           <div className="main">
-          <box-icon name='search'color="#c2c2c2" ></box-icon>
+            <box-icon name="search" color="#c2c2c2"></box-icon>
             {/*Filtro de búsqueda*/}
-     
-          <input className="buscador"
-          type="text"
-          placeholder="Buscar..."/>
+            <input
+              className="buscador"
+              type="text"
+              placeholder="Buscar..."
+            />
           </div>
 
           {/*Menu de navegación */}
@@ -58,7 +66,8 @@ const Navbar = () => {
             <Link to="/Contactanos" className="contactanos">
               Contactanos
             </Link>
-            <div className="carrito-compra">
+            <div className="carrito-compra" onClick={toggleCarrito}>
+              {/* Llama a toggleCarrito al hacer clic */}
               <box-icon name="cart" color="white"></box-icon>
               <span className="item-total">0</span>
             </div>
@@ -66,17 +75,20 @@ const Navbar = () => {
 
           <div className="optionsDown">
             <p className="bienvenido">Bienvenido, usuario</p>
-            <Link to="/inicio" >
-            <img  src={IniciarSesion} className="user" alt="Iniciar sesión"/>
+            <Link to="/inicio">
+              <img src={IniciarSesion} className="user" alt="Iniciar sesión" />
             </Link>
-          
           </div>
         </div>
       </nav>
+      {/* Renderiza el componente Carrito con la prop carritoAbierto */}
+      <Carrito carritoAbierto={carritoAbierto} toggleCarrito={toggleCarrito} />
     </header>
   );
 };
+
 Navbar.propTypes = {
   search: PropTypes.number.isRequired,
 };
+
 export default Navbar;

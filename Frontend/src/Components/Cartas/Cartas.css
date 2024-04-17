@@ -29,7 +29,7 @@
   height: 100%; /* Cambiado de auto a 100% */
   min-height: 450px; /* Establecer una altura mínima */
   text-align: center;
-  width: 300px;
+  width: 350px;
   box-shadow: 5px 5px 5px #b7b7b7;
   cursor: default;
   transition: all 400ms ease;

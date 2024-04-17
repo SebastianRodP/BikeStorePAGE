@@ -5,7 +5,7 @@ import Cartas from '../Components/Cartas/Cartas'
 import Marcas from '../Components/Marcas/Marcas'
 import "../Components/Home/HomeStyle.css"
 import "../Pages/style.css"
-import { Carrito } from '../Components/Carrito/Carrito';
+
 
 const Home = () => {
   const [filteredArticulos, setFilteredArticulos] = useState(null);
@@ -24,7 +24,7 @@ const Home = () => {
 
   return (
     <>
-    <Carrito/>
+  
       <Navbar search={handleSearch} />
       {/* Aquí muestras los artículos filtrados si existen, de lo contrario, muestras todos los artículos */}
       {filteredArticulos ? (
