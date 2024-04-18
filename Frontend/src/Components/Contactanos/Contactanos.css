@@ -6,8 +6,27 @@
     padding: 0;}
 
 body{ font-family: "Yaldevi", sans-serif;
-background-color: white;}
-
+background-color: white;
+}
+.mensaje{
+    resize: none;
+}
+.campos-cont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+}
+.arriba{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.abajo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
 .modal {
     background-color: rgba(0, 0, 0, 0.388);
     display: flex;
@@ -17,16 +36,18 @@ background-color: white;}
     top: 0;
     left: 0;
     width: 100%; /* Ancho igual al ancho de la ventana del navegador */
-    height: 100%; /* Altura igual a la altura de la ventana del navegador */}
+    height: 100%; /* Altura igual a la altura de la ventana del navegador */
+}
 
-p{margin-bottom: 10px;}
+p{margin-bottom: 10px;
+}
 
 .modal-contenedor{
-    padding: 30px ;
-    margin: 0;
+    padding: 10px ;
     border-radius: 10px;
     background-color: rgb(242, 241, 241);
-    height: 500px;}
+    height: auto;
+}
 @media (max-width: 768px){
         .modal-contenedor
          {width: 90%; 
@@ -51,10 +72,6 @@ p{margin-bottom: 10px;}
     text-align: center;
     margin-bottom: 20px;}
 
-.input-group{
-    display: flex;
-    justify-content:
-    space-between;}
 
 .input-group input{width: calc(50% - 10px);}
 
