@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import "./recuperar_pass.css";
-import { client } from "../../Pages/SupaBase/client";
-import logo from "../../assets/img/imgInicioRegistro/logon.png";
 import { Link } from 'react-router-dom';
+import "../Inicio_sesion/formularios.css";
+import logo from "../../assets/img/imgInicioRegistro/logo.png";
 
-function MyLoginPage() {
+function RecuperarContraseña() {
     const [correo, setCorreo] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
@@ -12,11 +11,13 @@ function MyLoginPage() {
     const [mostrarPanel, setMostrarPanel] = useState(false);
     const [mensajePanel, setMensajePanel] = useState('');
 
+    const supabaseUrl = 'https://hetfaqksgxjlcxatxcvl.supabase.co';
+    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhldGZhcWtzZ3hqbGN4YXR4Y3ZsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTExNjI0OTcsImV4cCI6MjAyNjczODQ5N30.jg0cFimQOh3erlrtL9AILrtyQIrRJLnFs-594uJXiiY';
+
     const mostrarMensaje = (mensaje) => {
         setMensajePanel(mensaje);
         setMostrarPanel(true);
     };
-
 
     const validarFormulario = () => {
         let erroresTemp = {};
@@ -29,6 +30,7 @@ function MyLoginPage() {
             erroresTemp.correo = "El correo electrónico no es válido.";
             esFormularioValido = false;
         }
+
         if (!password.trim()) {
             erroresTemp.password = "El campo contraseña es obligatorio.";
             esFormularioValido = false;
@@ -48,76 +50,72 @@ function MyLoginPage() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const esFormularioValido = validarFormulario();
+        if (!validarFormulario()) {
+            console.log('El formulario contiene errores. Por favor, corríjalos.');
+            return;
+        }
 
-        if (esFormularioValido) {
-            try {
-                const { data, error } = await client
-                    .from('usuarios')
-                    .select('nombre, direccion, nodocumento')
-                    .eq('correo', correo);
+        const headers = {
+            'apikey': supabaseKey,
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${supabaseKey}`
+        };
 
-                if (error) {
-                    console.error('Error al consultar la base de datos:', error.message);
-                } else {
-                    if (data.length > 0) {
-                        const usuario = data[0];
+        try {
+            const response = await fetch(`${supabaseUrl}/rest/v1/usuarios?select=*&correo=eq.${correo}`, {
+                headers: headers
+            });
 
-                        console.log('Usuario encontrado en la base de datos:');
-                        console.log('Nombre:', usuario.nombre);
-                        console.log('Número de documento:', usuario.nodocumento);
-                        console.log('Dirección:', usuario.direccion);
-
-                        console.log('Bienvenido usuario');
-
-                        const { error: updateError } = await client
-                            .from('usuarios')
-                            .update({ contraseña: password })
-                            .eq('correo', correo);
-
-                        if (updateError) {
-                            console.error('Error al actualizar la contraseña:', updateError.message);
-                        } else {
-                            console.log('Contraseña actualizada con éxito.');
-                            console.log('Se modificó la contraseña.');
-                            mostrarMensaje('Se modifico la contraseña correctamente, inicie sesion.');
-                        }
-                    } else {
-                        setErrores({ correo: 'El correo electrónico no está registrado.' });
-                    }
-                }
-            } catch (error) {
-                console.error('Error al consultar la base de datos:', error.message);
+            if (!response.ok) {
+                throw new Error('Error al consultar la base de datos');
             }
 
-        } else {
-            console.log('El formulario contiene errores. Por favor, corríjalos.');
+            const data = await response.json();
+
+            if (data.length === 0) {
+                setErrores({ correo: 'El correo electrónico no está registrado.' });
+                return;
+            }
+
+            const updateResponse = await fetch(`${supabaseUrl}/rest/v1/usuarios?correo=eq.${correo}`, {
+                method: 'PATCH',
+                headers: headers,
+                body: JSON.stringify({ contraseña: password })
+            });
+
+            if (!updateResponse.ok) {
+                throw new Error('Error al actualizar la contraseña');
+            }
+
+            mostrarMensaje('Se modificó la contraseña correctamente, inicie sesión.');
+        } catch (error) {
+            console.error(error.message);
         }
     };
 
     return (
-        <div className='todo'>
+        <div className='contenedor'>
             {mostrarPanel && (
-                <div className="panel-emergente">
+                <div className="panele">
                     <p>{mensajePanel}</p>
-                    <Link className='inic2' to="/inicio">Continuar</Link>
+                    <Link className='botn' to="/inicio">Continuar</Link>
                 </div>
             )}
 
-<Link to="/home"> 
-            <img className='logo' src={logo} alt="Logo" />
+            <Link to="/home">
+                <img className='logon' src={logo} alt="Logo" />
             </Link>
 
             <div className='formulario'>
                 <Link className='inic' to="/inicio">Volver</Link>
-                <h1 className='tit'>Recuperar contraseña</h1>
-                <div className='texto'>Por favor introduce tu correo electrónico para cambiar la contraseña.</div>
+                <h1 className='titulon'>Recuperar contraseña</h1>
+                <div className='textos'>Por favor introduce tu correo electrónico para cambiar la contraseña.</div>
 
                 <div className='correo'>
-                    <div>Correo electrónico</div>
+                    <label htmlFor='correo'>Correo electrónico</label>
                     <input
                         id='correo'
-                        className='inpus'
+                        className='entrada'
                         type="email"
                         value={correo}
                         onChange={(e) => setCorreo(e.target.value.toLowerCase())}
@@ -125,9 +123,10 @@ function MyLoginPage() {
                     {errores.correo && <p className="error">{errores.correo}</p>}
                 </div>
                 <div className='contraseña'>
-                    <div>Contraseña</div>
-                    <input id='contraseña'
-                        className='inpus'
+                    <label htmlFor='contraseña'>Contraseña</label>
+                    <input
+                        id='contraseña'
+                        className='entrada'
                         type="text"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
@@ -135,8 +134,10 @@ function MyLoginPage() {
                     {errores.password && <p className="error">{errores.password}</p>}
                 </div>
                 <div className='confcontra'>
-                    <div>Confirmar contraseña</div>
-                    <input className='inpus'
+                    <label htmlFor='confirmPassword'>Confirmar contraseña</label>
+                    <input
+                        id='confirmPassword'
+                        className='entrada'
                         type="text"
                         value={confirmPassword}
                         onChange={(e) => setConfirmPassword(e.target.value)}
@@ -152,4 +153,4 @@ function MyLoginPage() {
     );
 }
 
-export default MyLoginPage;
+export default RecuperarContraseña;

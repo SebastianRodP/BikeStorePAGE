@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import logo from "../../assets/img/imgInicioRegistro/logon.png";
 import { Link } from "react-router-dom";
-import "./Mproductos.css";
+import "../Registro_prod/register_product";
 import { createClient } from '@supabase/supabase-js';
 
 function MyLoginPage() {
@@ -16,7 +16,7 @@ function MyLoginPage() {
     const [stock, setStock] = useState('');
     const [descripcion, setDescrip] = useState('');
     const [imagen, setImagen] = useState('');
-    const [color, setColor] = useState('');
+    const [color, setColor] = useState('')
     const [codigo, setCodigo] = useState('');
     const [errores, setErrores] = useState({});
     const [mostrarPanel, setMostrarPanel] = useState(false);
@@ -164,8 +164,8 @@ function MyLoginPage() {
 
     return (
         <div className='form'>
-            <div className='todos'>
-                <img className='logo' src={logo} alt="Logo" />
+            <div className='todoa'>
+                <img className='logox' src={logo} alt="Logo" />
                 {mostrarPanel && (
                     <div className="panel-emergente">
                         <p>{mensajePanel}</p>
@@ -174,6 +174,20 @@ function MyLoginPage() {
                 )}
 
                 <h1 className='tit'>Modificar Producto </h1>
+                <div className='necesario'>
+                    <div className='text'> Por favor introduzca el codigo del articulo que desea modificar</div>
+                <div className='codigo'>
+                        <div>Código del producto</div>
+                        <input
+                            id='codigo'
+                            className='inpus'
+                            type="text"
+                            value={codigo}
+                            onChange={handleInputChange}
+                            placeholder='Codigo del producto que se desea modificar'
+                        />
+                    </div>
+                </div>
               
                 <div className='loprim'>
                     <div className='nombre'>
@@ -250,7 +264,6 @@ function MyLoginPage() {
                             <option value="2">Gw</option>
                             <option value="3">Specialized</option>
                             <option value="4">Venzo</option>
-                            <option value="0">Otra</option>
                         </select>
                         {errores.marca && <p className="error">{errores.marca}</p>}
                     </div>
@@ -327,22 +340,12 @@ function MyLoginPage() {
                         />
                         {errores.color && <p className="error">{errores.color}</p>}
                     </div>
-                    <div className='codigo'>
-                        <div>Código del producto</div>
-                        <input
-                            id='codigo'
-                            className='inpus'
-                            type="text"
-                            value={codigo}
-                            onChange={handleInputChange}
-                            placeholder='Codigo del producto que se desea modificar'
-                        />
-                    </div>
+                    
                 </div>
-
-                <div className='btnc'>
-                <Link className='volver' to="/dashboard">Volver</Link>
-                    <button className='boton' onClick={handleSubmit}>Modificar</button>
+                
+                <div className='botons'>
+                <Link className='btnv' to="/dashboard">Volver</Link>
+                    <Link className='btnc' onClick={handleSubmit}>Modificar</Link>
                 </div>
 
             </div>

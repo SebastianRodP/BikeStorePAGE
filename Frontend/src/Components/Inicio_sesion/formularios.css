@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com');
+@import url('https://fonts.gstatic.com');
+@import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New&display=swap');
+
+.contenedor {
+    background-image: url(../../assets/img/imgInicioRegistro/fondo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: "Zen Kaku Gothic New", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto; 
+    width: 100%; 
+    padding: 120px;
+}
+.contenedorterm{
+    background-image: url(../../assets/img/imgInicioRegistro/fondo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: "Zen Kaku Gothic New", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto; 
+    width: 100%; 
+    padding: 80px;
+}
+
+
+.logon {
+    width: 100%;
+}
+.titulon{
+    font-size: 30px;
+    align-items: center;
+}
+input{
+    height: 25px;
+    margin-bottom: 10px;
+}
+
+.recuperar-contraseña input {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.nombre {
+    margin-bottom: 20px;
+}
+.check{
+    margin-right: 10px;
+    height: auto;
+    width: auto;
+}
+
+.contras {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.crear-cuenta {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.boton {
+    height: 40px;
+    width: 100%;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+
+}
+
+.formulario {
+    background-color: white;
+    padding: 2%;
+    font-size: 15px;
+    width:40%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+.formularioterm {
+    background-color: white;
+    padding: 2%;
+    font-size: 15px;
+    width:40%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+
+.texto {
+    max-width: auto;
+    font-size: 12px;
+
+}
+
+.entrada {
+    width: 100%;
+    border: solid 2px darkgray;
+    box-sizing: border-box;
+    align-items: center;
+    font-size: 16px;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+.recuperar-contraseña{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+.panele{
+    margin-top: 350px;
+    color: black;
+    background-color: #aed6d6;
+    position: absolute;
+    border-radius: 5px;
+    padding: 5px;
+    width: auto;
+    height: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+}
+.nombre {
+    color: black;
+    font-weight: bold;
+
+}
+.botn{
+    background-color: black;
+    color: white;
+    height: auto;
+    width: auto;
+    padding: 5px;
+    border-radius: 5px;
+    font-style: none;
+}
+
+.error {
+    color: red;
+    font-size: 0.8rem;
+    margin-top: 5px;
+
+    max-width: 90%;
+}
+.aceptarc{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+.aceptar-cambios {
+    margin-bottom: 20px;
+}
+
+.crear-cuenta {
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 992px) {
+    .contenedor {
+        height: 100vh;
+        width: 100%; 
+        padding: 10px;
+    }
+    .contenedorterm{
+        height: 300vh;
+    }
+.formularioterm{
+    width: 90%;
+}
+    .formulario {
+        width: 70%;
+        
+    }
+
+    button.boton {
+        max-width: 70vh;
+    }
+}
+
+@media (max-width: 667px) {
+    .contenedor {
+        height: 120vh; 
+        width: 100%; 
+        padding: 10px;
+    }
+    .contenedorterm{
+        height: 500vh; 
+        width: 100%; 
+        padding: 10px;
+    }
+    .formularioterm{
+        width: 90%;
+        padding: 10px;
+        max-width: none;
+    }
+    .formulario {
+        margin: 0;
+        padding: 10px;
+        max-width: none;
+    }
+
+    .entrada,
+    .boton {
+        width: 100%;
+    }
+}

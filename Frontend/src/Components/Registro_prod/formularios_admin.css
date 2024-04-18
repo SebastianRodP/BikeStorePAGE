@@ -1,8 +1,8 @@
-.todos{
+.todoa{
     background-color: #ffffff; /* Cambia este color al que desees */
     position: relative; /* Asegura que el contenedor sea relativo para posicionar hijos */
-    width: 221vh; /* Ajusta el ancho al 100% */
-    height: 200vh; /* Ajusta la altura al 100% del viewport height */
+    width: auto; /* Ajusta el ancho al 100% */
+    height: auto; /* Ajusta la altura al 100% del viewport height */
 }
 .volver{
     background-color: black;
@@ -15,9 +15,42 @@
     text-align: center;
     margin-bottom: 10px;
 }
-.logo{
+.panel-emergente{
+    margin-top: 350px;
+    color: black;
+    background-color: #aed6d6;
+    position: absolute;
+    border-radius: 5px;
+    padding: 5px;
+    width: auto;
+    height: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.logox{
+    height: auto;
+    width: 20%;
   padding: 0px;
-  margin-top: 0px;
+
+}
+.necesario{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    border: solid 1px darkgray;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+.codigo{
+    font-size: 11px;
+}
+.image{
+    font-size: 11px;
 }
 .loprim{
     display: flex;
@@ -43,10 +76,12 @@
     margin-top: 0px;
 
 }
+
 .ultm{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-items: center;
     border: solid 1px darkgray;
     border-radius: 5px;
     margin-bottom: 20px;
@@ -91,10 +126,38 @@ select {
     margin: 10px;
 }
 .btnc{
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
+    height: auto;
+    width: auto;
+    padding: 5px;
+
 }
 .tit{
     color: black;
+}
+.botons{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+}
+.btnv{
+    background-color: rgb(0, 0, 0);
+    color: white;
+    height: auto;
+    width: auto;
+    padding: 5px;
+    border-radius: 5px;
+    font-style: none;
+}
+
+.btnc{
+    background-color: black;
+    color: white;
+    height: auto;
+    width: auto;
+    padding: 5px;
+    border-radius: 5px;
+    font-style: none;
+
 }

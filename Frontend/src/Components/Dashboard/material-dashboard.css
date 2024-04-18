@@ -19,6 +19,10 @@
 background-color: #aed6d6;
 color: black;
 }
+.logoa{
+  height: auto;
+  width: 40%;
+}
 .cuadro img{
   width: 120px;
   height: auto;
@@ -43,8 +47,10 @@ color: black;
   color: white;
   font-size: 30px;
 }
+
 .elimn{
-  border: solid 1px rgb(255, 255, 255);
+  border: solid 2px rgb(255, 255, 255);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -55,12 +61,13 @@ color: black;
   margin-bottom: 10px;
 }
 .elim{
+  width: 100%;
+  height: auto;
   color: white;
   background-color: black;
   border-radius: 5px;
   margin-top: 10px;
-  width: 200px;
-  height: 35px;
+
 }
 .codigo{
   width: fit-content;
@@ -82,10 +89,17 @@ color: black;
 #cajas{
   margin-right: -80%;
 }
-/* Ajusta la imagen de inicio de sesión */
+.imgp{
+  height: auto;
+}
+.cod{
+  width: auto;
+  height: auto;
+  background-color: rgba(255, 255, 255, 0.39);
+}
 .sidenav-header {
-  opacity: 0.5; /* Reduce la opacidad de la imagen */
-  z-index: 1; /* Asegura que la imagen esté por encima del fondo */
+  opacity: 0.5; 
+  z-index: 1; 
 }
 .titulo{
 width: 200px;
@@ -104,7 +118,7 @@ width: 200px;
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   padding: 10px;
-  margin-left: 50px;
+  margin-left: 10px;
 }
 
 
