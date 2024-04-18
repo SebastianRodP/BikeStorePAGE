@@ -4,8 +4,23 @@ import PropTypes from "prop-types";
 import BicicletaNav from "../../assets/img/imgNavbar/bicicletaNavbar.png"
 import IniciarSesion from "../../assets/img/imgNavbar/iniciarSesion.png";
 import "./Navbar.css";
+import useFetchGetArticulos from "../../hooks/useFetchGetArticulos";
 
 const Navbar = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const {loading, error } = useFetchGetArticulos(undefined, searchTerm);
+
+  const handleSearchInputChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  if (error) {
+    return <div>Error al cargar los datos</div>;
+  }
+
+  if (loading) {
+    return <div>Cargando...</div>;
+  }
   
   return (
     <header className="header">
@@ -25,8 +40,10 @@ const Navbar = () => {
             {/*Filtro de búsqueda*/}
      
           <input className="buscador"
-          type="text"
-          placeholder="Buscar..."/>
+            type="text"
+            placeholder="Buscar..."
+            value={searchTerm}
+            onChange={handleSearchInputChange}/>
           </div>
 
           {/*Menu de navegación */}

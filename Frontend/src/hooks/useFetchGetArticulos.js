@@ -28,7 +28,7 @@ const useFetchGetArticulos = (id_categorias, searchTerm) => {
     };
 
     fetchData();
-  }, [id_categorias, searchTerm]);
+  }, [id_categorias, searchTerm]); // Incluir searchTerm como dependencia
 
   return { dataArticulos, loading };
 };
