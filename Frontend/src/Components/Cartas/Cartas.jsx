@@ -59,4 +59,5 @@ Cartas.propTypes = {
   id_categorias: PropTypes.number.isRequired,
 };
 
+
 export default Cartas;
