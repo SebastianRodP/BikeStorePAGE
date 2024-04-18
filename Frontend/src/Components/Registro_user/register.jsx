@@ -121,7 +121,7 @@ function MyLoginPage() {
             )}
            
             <div className='formulario'>
-                <h1 className='tit'>Registro de usuario</h1>
+                <h1 className='titulon'>Registro de usuario</h1>
                 <div className='name'>
                     <div>Nombre</div>
                     <input id='nombre'

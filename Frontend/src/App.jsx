@@ -21,7 +21,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/"element={<Navigate replace to="/inicio"/>}/>
+        <Route path="/"element={<Navigate replace to="/home"/>}/>
         <Route path="/home" element={<Home />} />
         <Route path="/detallesArt" element={<DetallesArt />} />
         <Route path="/Bicicletas" element={<Bicicletas />} />

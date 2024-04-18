@@ -10,12 +10,12 @@ function TerminosCondiciones() {
     };
 
     return (
-        <div className='contenedor'>
+        <div className='contenedorterm'>
             <Link to="/home"> 
                 <img className='logon' src={logo} alt="Logo" />
             </Link>
 
-            <div className='formulario'>
+            <div className='formularioterm'>
                 <h1 className='titulon'>Términos y condiciones</h1>
                 <div className='texto'>
                     <ul>

@@ -108,7 +108,7 @@ function RecuperarContraseña() {
 
             <div className='formulario'>
                 <Link className='inic' to="/inicio">Volver</Link>
-                <h1 className='tit'>Recuperar contraseña</h1>
+                <h1 className='titulon'>Recuperar contraseña</h1>
                 <div className='textos'>Por favor introduce tu correo electrónico para cambiar la contraseña.</div>
 
                 <div className='correo'>

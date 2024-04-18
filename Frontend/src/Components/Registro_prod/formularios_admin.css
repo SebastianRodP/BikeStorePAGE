@@ -36,7 +36,20 @@
   padding: 0px;
 
 }
+.necesario{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    border: solid 1px darkgray;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
 .codigo{
+    font-size: 11px;
+}
+.image{
     font-size: 11px;
 }
 .loprim{

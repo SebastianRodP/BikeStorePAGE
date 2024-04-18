@@ -174,6 +174,20 @@ function MyLoginPage() {
                 )}
 
                 <h1 className='tit'>Modificar Producto </h1>
+                <div className='necesario'>
+                    <div className='text'> Por favor introduzca el codigo del articulo que desea modificar</div>
+                <div className='codigo'>
+                        <div>Código del producto</div>
+                        <input
+                            id='codigo'
+                            className='inpus'
+                            type="text"
+                            value={codigo}
+                            onChange={handleInputChange}
+                            placeholder='Codigo del producto que se desea modificar'
+                        />
+                    </div>
+                </div>
               
                 <div className='loprim'>
                     <div className='nombre'>
@@ -326,17 +340,7 @@ function MyLoginPage() {
                         />
                         {errores.color && <p className="error">{errores.color}</p>}
                     </div>
-                    <div className='codigo'>
-                        <div>Código del producto</div>
-                        <input
-                            id='codigo'
-                            className='inpus'
-                            type="text"
-                            value={codigo}
-                            onChange={handleInputChange}
-                            placeholder='Codigo del producto que se desea modificar'
-                        />
-                    </div>
+                    
                 </div>
                 
                 <div className='botons'>

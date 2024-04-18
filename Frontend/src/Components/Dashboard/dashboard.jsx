@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { createClient } from '@supabase/supabase-js';
 import "./material-dashboard.css";
 import { Link } from 'react-router-dom';
-import logo from "../../assets/img/imgInicioRegistro/logon.png";
 
 const supabase = createClient('https://hetfaqksgxjlcxatxcvl.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhldGZhcWtzZ3hqbGN4YXR4Y3ZsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTExNjI0OTcsImV4cCI6MjAyNjczODQ5N30.jg0cFimQOh3erlrtL9AILrtyQIrRJLnFs-594uJXiiY');
 
@@ -141,9 +140,7 @@ function Dashboard() {
       <main className="main-content border-radius-lg">
         <nav className="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
           <div className="container-fluid py-1 px-3">
-          <Link to="/home">
-                <img className='logoa' src={logo} alt="Logo" />
-            </Link>
+            <div>BIKE STORE</div>
             <div className="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
               <ul className="navbar-nav justify-content-end">
                 <li className="nav-item d-xl-none ps-3 d-flex align-items-center">
