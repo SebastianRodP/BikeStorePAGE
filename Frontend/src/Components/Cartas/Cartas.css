@@ -157,3 +157,7 @@
   color: #fff;
 }
 
+.erroresCarga{
+  display: flex;
+  justify-content: center;
+}

@@ -8,11 +8,11 @@ const Cartas = ({ id_categorias }) => {
   const { dataArticulos, loading, error } = useFetchGetArticulos(id_categorias);
 
   if (error) {
-    return <div>Error al cargar los datos</div>;
+    return <div className="erroresCarga">Error al cargar los datos</div>;
   }
 
   if (loading) {
-    return <div>Cargando...</div>;
+    return <div className="erroresCarga">Cargando...</div>;
   }
 
   // Verificar si dataArticulos es un array y tiene al menos un elemento
