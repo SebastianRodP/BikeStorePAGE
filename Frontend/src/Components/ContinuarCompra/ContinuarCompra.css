@@ -1,0 +1,60 @@
+body{margin: 0;
+padding-left: 0;}
+h1{font-size: 30px;}
+p{font-weight: bolder;
+font-size: medium;}
+.Continue-buying{
+    width: 100%;
+    font-weight: bolder;
+    height: 10vh;
+    padding: 1% 2%;
+    border: solid 1px rgb(156, 156, 156);}
+
+.header2{text-align: center;
+}
+.header2 .date1{text-align: start;
+}
+
+.right{width: 50%;
+    border: solid 1px rgb(156, 156, 156);
+    padding-top: 1%;
+    display: flex;
+    justify-content: center;}
+
+.submission-form{
+    background-color: #aed6d6;
+    border-radius: 3%;
+    width: 90%;
+    height: 118vh;
+    padding-left: 5%;}
+
+.information-entry{
+    width: 95%;
+    border: none;
+    height: 7vh;
+}
+.information-entry2{
+ display: flex;
+ justify-content: space-evenly;
+ margin-top: 3vh;
+   margin-left: 0;
+ 
+    
+}
+.information-entry3{
+    margin-right: 5vh;
+ width: 41vh;  
+border: none;
+height: 7vh;
+}
+
+.below{display: flex;
+justify-content: space-between;
+margin-right: 5vh;}
+
+.ask{width: 95%;
+height: 7vh;
+border: none;
+border-radius: 1vh;
+color: white;
+background: #000;}

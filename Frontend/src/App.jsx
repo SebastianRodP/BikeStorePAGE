@@ -16,13 +16,15 @@ import Registrop from "./Components/Registro_prod//register_product"
 import Modificar from "./Components/Modif_art/Modif_art"
 import "./Pages/style.css"
 import { Carrito } from '../src/Components/Carrito/Carrito';
+import ContinuarComprar from './Components/ContinuarCompra/ContinuarComprar';
 function App() {
   const [count, setCount] = useState(0)
   return (
     <Router>
         <Carrito/>
       <Routes>
-        <Route path="/"element={<Navigate replace to="/home"/>}/>
+        <Route path="/"element={<Navigate replace to="ContinuarComprar/"/>}/>
+        <Route path="/ContinuarComprar" element={<ContinuarComprar />} />
         <Route path="/home" element={<Home />} />
         <Route path="/detallesArt" element={<DetallesArt />} />
         <Route path="/Bicicletas" element={<Bicicletas />} />
