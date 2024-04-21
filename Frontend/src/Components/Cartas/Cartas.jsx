@@ -2,6 +2,7 @@ import React from "react";
 import "./Cartas.css";
 import PropTypes from "prop-types";
 import useFetchGetArticulos from "../../hooks/useFetchGetArticulos";
+import { Link } from "react-router-dom";
 
 const Cartas = ({ id_categorias }) => {
   // Llamada al hook para obtener los artículos de la categoría con ID proporcionado
@@ -26,7 +27,9 @@ const Cartas = ({ id_categorias }) => {
       <main className="content">
         {firstFourArticulos.map((articulo) => (
           <div className="caja-bicicletas" key={articulo.idArticulos}>
-            <img src={articulo.img} alt="" />
+            <Link to={`/Bicicleta/${articulo.idArticulos}`}>
+              <img src={articulo.img} alt="" />
+            </Link>
             <p id="descuento">
               {articulo.descuento}
               <span>%</span>

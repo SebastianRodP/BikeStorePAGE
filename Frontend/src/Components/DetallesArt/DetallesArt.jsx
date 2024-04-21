@@ -5,7 +5,7 @@ import { Footer } from "../Footer/Footer";
 import Bicicleta from "../../assets/img/Bicicleta.png";
 import "./DetallesArt.css";
 import useFetchGetArticulos from "../../hooks/useFetchGetArticulos";
-
+import { useParams } from "react-router-dom";
 
 
 export const DetallesArt = () => {
