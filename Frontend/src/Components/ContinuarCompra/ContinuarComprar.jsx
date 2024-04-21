@@ -7,12 +7,13 @@ import logo from "../../assets/img/imgInicioRegistro/logon.png";
 const ContinuarCompra = () => {
 return(
     <div>
+        {/*lado izquierdo */}
     <div className="header1">
         <div className="Continue-buying">Continuar Comprando </div>
         {/* <img className='logotipo' src={logo} alt="Logo" /> */}
     </div>
     <div className="parent-container">
-        <div className="right">
+        <div className="left">
         <div className="submission-form">
         <div className="header2">
         <h1>Datos de cliente</h1>
@@ -61,7 +62,38 @@ return(
         </div>
         
     </div>          
-    <div className="left"></div>
+    <div className="right">
+<div className="car-body">
+    <div className="data">
+        <div className="imagen"></div>
+        <div className="iformacion"></div>
+    </div>
+    <div className="cantida">
+        <div className="cantidad"></div>
+        <div className="precio"></div>
+    </div>
+</div>
+<div className="car-body">
+    <div className="data">
+        <div className="imagen"></div>   
+        <div className="iformacion"></div>
+    </div>
+    <div className="cantida">
+        <div className="cantidad"></div>
+        <div className="precio"></div>
+    </div>
+</div>
+<div className="car-body">
+    <div className="data">
+        <div className="imagen"></div>
+        <div className="iformacion"></div>
+    </div>
+    <div className="cantida">
+        <div className="cantidad"></div>
+        <div className="precio"></div>
+    </div>
+</div>
+    </div>
     </div>
     </div>
     

@@ -1,8 +1,9 @@
 body{margin: 0;
 padding-left: 0;}
-h1{font-size: 30px;}
-p{font-weight: bolder;
-font-size: medium;}
+.parent-container{display: flex;}
+.parent-container h1{font-size: 30px;}
+.parent-container p{font-weight: bolder;}
+.header1{font-weight: bolder;}
 .Continue-buying{
     width: 100%;
     font-weight: bolder;
@@ -15,7 +16,7 @@ font-size: medium;}
 .header2 .date1 {text-align: start;
 }
 
-.right{width: 50%;
+.left{width: 50%;
     border: solid 1px rgb(156, 156, 156);
     padding-top: 1%;
     display: flex;
@@ -58,3 +59,12 @@ border: none;
 border-radius: 1vh;
 color: white;
 background: #000;}
+
+.right{ width: 50%;
+    border: solid 1px rgb(156, 156, 156);
+    padding-top: 1%;
+    display: flex;
+  flex-direction: column; }
+
+.car-body{   background-color: #aed6d6;
+border: solid 2px;}
