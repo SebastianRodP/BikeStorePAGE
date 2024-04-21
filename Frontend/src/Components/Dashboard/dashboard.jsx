@@ -15,34 +15,34 @@ function Dashboard() {
   function obtenerNombreCategoria(id_categorias) {
     if (id_categorias === 1) {
       return 'Accesorio';
-    } 
+    }
     else if (id_categorias === 2) {
       return 'Repuesto';
-    } 
+    }
     else if (id_categorias === 3) {
       return 'Vestuario';
-    } 
+    }
     else if (id_categorias === 4) {
       return 'Bicicletas';
-    } 
+    }
     else {
       return 'Desconocido';
     }
   }
-  
+
   function obtenerMarca(idmarca) {
     if (idmarca === 1) {
       return 'Fox';
-    } 
+    }
     else if (idmarca === 2) {
       return 'GW';
-    } 
+    }
     else if (idmarca === 3) {
       return 'Specialized';
-    } 
+    }
     else if (idmarca === 4) {
       return 'Venzo';
-    } 
+    }
     else {
       return 'Otra';
     }
@@ -71,12 +71,24 @@ function Dashboard() {
   const handleDelete = async () => {
     try {
       const codigoNumber = parseInt(codigoEliminar);
-
+  
+      const { data: existingProduct } = await supabase
+        .from('articulos')
+        .select('*')
+        .eq('id_articulos', codigoNumber)
+        .single();
+  
+      if (!existingProduct) {
+        setMensajePanelEliminado(`El artículo con el ID ${codigoNumber} no existe.`);
+        setMostrarPanelEliminado(true);
+        return;
+      }
+  
       const { data, error } = await supabase
         .from('articulos')
         .delete()
         .eq('id_articulos', codigoNumber);
-
+  
       if (error) {
         console.error('Error al eliminar el producto:', error.message);
       } else {
@@ -88,6 +100,22 @@ function Dashboard() {
       console.error('Error al eliminar el producto:', error.message);
     }
   };
+  
+  useEffect(() => {
+    if (mostrarPanelEliminado) {
+      const timer = setTimeout(() => {
+        setMostrarPanelEliminado(false);
+        setMensajePanelEliminado('');
+      }, 5000); // Oculta el panel después de 5 segundos
+  
+      // Limpia el timer cuando el componente se desmonta o cuando se cambia el estado de mostrarPanelEliminado
+      return () => {
+        clearTimeout(timer);
+      };
+    }
+  }, [mostrarPanelEliminado]);
+  
+  
 
   const handleCodigoEliminarChange = (event) => {
     setCodigoEliminar(event.target.value);
@@ -95,6 +123,12 @@ function Dashboard() {
 
   return (
     <div className="ola">
+      {mostrarPanelEliminado && (
+      <div className={`panel-eliminado ${mensajePanelEliminado.includes('no existe') ? 'panel-error' : ''}`}>
+        <p>{mensajePanelEliminado}</p>
+      </div>
+    )}
+
       <aside className="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gradient-dark" id="izqui">
         <div className="sidenav-header">
           <i className="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
@@ -170,8 +204,8 @@ function Dashboard() {
                   </div>
                 </div>
               </div>
-            
-              <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 gx-4" id='cajas'>
+
+              <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 gx-4" id='cajas'>
                 {productos.map((producto) => {
                   const margen = producto.margen || 0;
                   const impuesto = producto.impuesto || 0;

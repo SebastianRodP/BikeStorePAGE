@@ -163,13 +163,14 @@ function MyLoginPage() {
     };
 
     return (
-        <div className='form'>
-            <div className='todoa'>
+        <div className='todoa'>
+            <div className='form'>
                 <img className='logox' src={logo} alt="Logo" />
+                
                 {mostrarPanel && (
                     <div className="panel-emergente">
                         <p>{mensajePanel}</p>
-                        <Link className='inic2' to="/dashboard">Continuar</Link>
+                        <Link className='btn' to="/dashboard">Continuar</Link>
                     </div>
                 )}
 
@@ -177,7 +178,7 @@ function MyLoginPage() {
                 <div className='necesario'>
                     <div className='text'> Por favor introduzca el codigo del articulo que desea modificar</div>
                 <div className='codigo'>
-                        <div>Código del producto</div>
+                        <div className='nombres_dashboard'>Código del producto</div>
                         <input
                             id='codigo'
                             className='inpus'
@@ -191,7 +192,7 @@ function MyLoginPage() {
               
                 <div className='loprim'>
                     <div className='nombre'>
-                        <div>Nombre del producto</div>
+                        <div className='nombres_dashboard'>Nombre del producto</div>
                         <input 
                             id='nombre' 
                             className='inpus' 
@@ -202,7 +203,7 @@ function MyLoginPage() {
                         {errores.nombre && <p className="error">{errores.nombre}</p>}
                     </div>
                     <div className='descripcion'>
-                        <div>Descripcion</div>
+                        <div className='nombres_dashboard'>Descripcion</div>
                         <input
                             id='descripcion'
                             className='inpus'
@@ -213,7 +214,7 @@ function MyLoginPage() {
                         {errores.descripcion && <p className="error">{errores.descripcion}</p>}
                     </div>
                     <div className='costo'>
-                        <div>Costo unitario</div>
+                        <div className='nombres_dashboard'>Costo unitario</div>
                         <input
                             id='costo'
                             className='inpus'
@@ -224,7 +225,7 @@ function MyLoginPage() {
                         {errores.costo && <p className="error">{errores.costo}</p>}
                     </div>
                     <div className='tipop'>
-                        <div>Tipo de producto</div>
+                        <div className='nombres_dashboard'>Tipo de producto</div>
                         <input
                             id='tipop'
                             className='inpus'
@@ -238,7 +239,7 @@ function MyLoginPage() {
 
                 <div className='desplegables'>
                     <div className='cat'>
-                        <label htmlFor="categorias">Categorias</label>
+                        <label className='nombres_dashboard' htmlFor="categorias">Categorias</label>
                         <select 
                             className="categorias"
                             id="categorias"
@@ -255,7 +256,7 @@ function MyLoginPage() {
                     <div className='marc'>
                         <label htmlFor="marcas">Marcas</label>
                         <select 
-                            className="marcas"
+                            className='nombres_dashboard'
                             id="marcas"
                             value={marca} 
                             onChange={(e) => setMarca(e.target.value)}>
@@ -271,7 +272,7 @@ function MyLoginPage() {
 
                 <div className='porcentajes'>
                     <div className='margen'>
-                        <div>Margen</div>
+                        <div className='nombres_dashboard'>Margen</div>
                         <input
                             id='margen'
                             className='inpus'
@@ -282,7 +283,7 @@ function MyLoginPage() {
                         {errores.margen && <p className="error">{errores.margen}</p>}
                     </div>
                     <div className='descuento'>
-                        <div>Descuento</div>
+                        <div className='nombres_dashboard'>Descuento</div>
                         <input
                             id='descuento'
                             className='inpus'
@@ -293,7 +294,7 @@ function MyLoginPage() {
                         {errores.descuento && <p className="error">{errores.descuento}</p>}
                     </div>
                     <div className='impuesto'>
-                        <div>Impuesto</div>
+                        <div className='nombres_dashboard'>Impuesto</div>
                         <input
                             id='impuesto'
                             className='inpus'
@@ -307,7 +308,7 @@ function MyLoginPage() {
 
                 <div className='ultm'>
                     <div className='stock'>
-                        <div>Stock</div>
+                        <div className='nombres_dashboard'>Stock</div>
                         <input
                             id='stock'
                             className='inpus'
@@ -318,7 +319,7 @@ function MyLoginPage() {
                         {errores.stock && <p className="error">{errores.stock}</p>}
                     </div>
                     <div className='image'>
-                        <div>Imagen</div>
+                        <div className='nombres_dashboard'>Imagen</div>
                         <input
                             id='imagen'
                             className='inpus'
@@ -330,7 +331,7 @@ function MyLoginPage() {
                         {errores.imagen && <p className="error">{errores.imagen}</p>}
                     </div>
                     <div className='color'>
-                        <div>Color</div>
+                        <div className='nombres_dashboard'>Color</div>
                         <input
                             id='color'
                             className='inpus'
@@ -344,8 +345,8 @@ function MyLoginPage() {
                 </div>
                 
                 <div className='botons'>
-                <Link className='btnv' to="/dashboard">Volver</Link>
-                    <Link className='btnc' onClick={handleSubmit}>Modificar</Link>
+                <Link className='btn' to="/dashboard">Volver</Link>
+                    <Link className='btn' onClick={handleSubmit}>Modificar</Link>
                 </div>
 
             </div>

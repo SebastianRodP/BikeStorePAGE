@@ -1,10 +1,14 @@
-.todoa{
-    background-color: #ffffff; /* Cambia este color al que desees */
-    position: relative; /* Asegura que el contenedor sea relativo para posicionar hijos */
-    width: auto; /* Ajusta el ancho al 100% */
-    height: auto; /* Ajusta la altura al 100% del viewport height */
+.todoa {
+    background-color: #ffffff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -45%);
+    width: 95%;
+    height: auto;
 }
-.volver{
+
+.volver {
     background-color: black;
     color: white;
     border-radius: 5px;
@@ -15,13 +19,16 @@
     text-align: center;
     margin-bottom: 10px;
 }
-.panel-emergente{
-    margin-top: 350px;
+
+.panel-emergente {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     color: black;
     background-color: #aed6d6;
-    position: absolute;
     border-radius: 5px;
-    padding: 5px;
+    padding: 15px;
     width: auto;
     height: auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
@@ -29,119 +36,152 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    z-index: 9999;
 }
-.logox{
+
+.logox {
     height: auto;
     width: 20%;
-  padding: 0px;
+    padding: 0px;
 
 }
-.necesario{
+
+.necesario {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
     border: solid 1px darkgray;
     border-radius: 5px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     padding: 10px;
 }
-.codigo{
+
+.codigo {
     font-size: 11px;
 }
-.image{
+
+.image {
     font-size: 11px;
 }
-.loprim{
+
+.loprim {
+    font-weight: ;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     border: solid 1px darkgray;
     border-radius: 5px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     padding: 10px;
 }
-.desplegables{
+
+.desplegables {
     display: flex;
     flex-direction: row;
     margin-bottom: 10px;
     justify-content: space-around;
+    align-items: center;
     border: solid 1px darkgray;
     border-radius: 5px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     padding: 10px;
 }
-.form{
+
+.form {
     min-width: 100%;
     margin-top: 0px;
 
 }
 
-.ultm{
+.ultm {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
     border: solid 1px darkgray;
     border-radius: 5px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     padding: 10px;
 }
-.cat{
+
+.cat {
     display: flex;
     flex-direction: column;
     justify-content: center;
 
 }
+
 select {
     width: 320px;
     height: 30px;
 }
-.marc{
+
+.marc {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-.prices{
+
+.prices {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     border: solid 1px darkgray;
     border-radius: 5px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     padding: 10px;
 }
-.porcentajes{
+
+.porcentajes {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     border: solid 1px darkgray;
     border-radius: 5px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     padding: 10px;
 }
-.porcentajes input{
+
+.porcentajes input {
     display: flex;
     justify-content: space-around;
     margin: 10px;
 }
-.btnc{
+
+.btnc {
     height: auto;
     width: auto;
     padding: 5px;
 
 }
-.tit{
+
+.tit {
     color: black;
 }
-.botons{
+
+.botons {
     display: flex;
     align-items: center;
     flex-direction: row;
     justify-content: space-between;
     padding: 10px;
 }
-.btnv{
+.panel-error {
+    background-color: #9d0d0d;
+  }
+  
+.btn {
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    height: auto;
+    width: auto;
+    padding: 5px;
+    border-radius: 5px;
+
+}
+
+.btnv {
     background-color: rgb(0, 0, 0);
     color: white;
     height: auto;
@@ -151,7 +191,7 @@ select {
     font-style: none;
 }
 
-.btnc{
+.btnc {
     background-color: black;
     color: white;
     height: auto;
