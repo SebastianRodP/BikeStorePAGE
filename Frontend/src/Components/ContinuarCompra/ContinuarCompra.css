@@ -64,7 +64,17 @@ background: #000;}
     border: solid 1px rgb(156, 156, 156);
     padding-top: 1%;
     display: flex;
-  flex-direction: column; }
+    
+  flex-direction: column; 
+  
+ align-items: center;
 
-.car-body{   background-color: #aed6d6;
-border: solid 2px;}
+  padding-top: 15px;
+}
+
+.car-body{  
+    margin-bottom: 20px;
+     background-color: #aed6d6;
+     width: 80%;
+border-radius: 10px;
+height: 10vh;}
