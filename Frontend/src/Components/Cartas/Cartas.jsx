@@ -13,7 +13,7 @@ const Cartas = ({ id_categorias }) => {
   }
 
   if (loading) {
-    return <div>Cargando...</div>;
+    return <div className="cargaArticulos">Cargando...</div>;
   }
 
   // Verificar si dataArticulos es un array y tiene al menos un elemento

@@ -11,7 +11,7 @@ const CartasNavegacion = ({ id_categorias }) => {
   }
 
   if (loading) {
-    return <div>Cargando...</div>;
+    return <div className="cargaArticulos">Cargando...</div>;
   }
 
   return (

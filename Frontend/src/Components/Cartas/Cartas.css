@@ -19,6 +19,12 @@
   margin: 10px;
   padding: 70px;
 }
+
+.cargaArticulos{
+  display: flex;
+  justify-content: center;
+}
+
 .caja-bicicletas {
   margin: 10px;
   font-size: 15px;
