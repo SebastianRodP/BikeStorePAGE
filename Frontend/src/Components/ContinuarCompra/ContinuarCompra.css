@@ -86,8 +86,11 @@ align-items: center;}
     width: 10vh;
     height: 4px;
 }
-@media (max-width: 768px) {
-    .parent-container {
+@media (max-width: 768px)
+{body{}
+    .parent-container {height: 100%;
+        width: 100%;
+        margin: 0;
         flex-direction: column; /* Cambia a una disposición de columna */
     }
     .left, .right {
