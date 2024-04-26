@@ -67,6 +67,11 @@ const Contactanos = () => {
           setMensajeError('Hubo un error al enviar el mensaje.');
         } else {
           setMensajeExito('Se ha enviado el mensaje correctamente.');
+          
+          setCorreoElectronico("");
+          setNombre("");
+          setTelefono("");
+          setMensaje("");
         }
       } catch (error) {
 

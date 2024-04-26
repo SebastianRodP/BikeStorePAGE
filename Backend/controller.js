@@ -68,6 +68,16 @@ const categorias = (req, res) => {
         res.status(200).json(results.rows);
     });
 };
+const contactanos = (req, res) => {
+    pool.query('SELECT * FROM contactanos', (error, results) => {
+        if (error) {
+            console.error('Error al ejecutar la consulta:', error);
+            res.status(500).json({ error: 'Error interno del servidor' });
+            return;
+        }
+        res.status(200).json(results.rows);
+    });
+};
 
 
 const getArticulosByCategoria = async (req, res) => {
@@ -90,7 +100,7 @@ const getArticulosByCategoria = async (req, res) => {
 
 
 module.exports = {
-    saludo, usuarios, telefonos , rol, marcas, articulos, categorias, getArticulosByCategoria}
+    saludo, usuarios, telefonos , rol, marcas, articulos, categorias, getArticulosByCategoria, contactanos}
 
 
 

@@ -12,6 +12,7 @@ function Dashboard() {
   const [mostrarPanelEliminado, setMostrarPanelEliminado] = useState(false);
   const [mensajePanelEliminado, setMensajePanelEliminado] = useState('');
 
+    //  se elige por categorias
   function obtenerNombreCategoria(id_categorias) {
     if (id_categorias === 1) {
       return 'Accesorio';
@@ -29,7 +30,7 @@ function Dashboard() {
       return 'Desconocido';
     }
   }
-
+  // Se elige por marcas
   function obtenerMarca(idmarca) {
     if (idmarca === 1) {
       return 'Fox';
