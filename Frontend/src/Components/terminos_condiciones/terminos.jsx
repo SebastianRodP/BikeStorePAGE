@@ -1,24 +1,41 @@
+// Importación de bibliotecas y recursos necesarios
 import React from 'react';
-import logo from "../../assets/img/imgInicioRegistro/logo.png";
-import "../Inicio_sesion/formularios.css";
-import { Link } from "react-router-dom";
+import logo from "../../assets/img/imgInicioRegistro/logo.png"; // Importa el logo de la tienda
+import "../Inicio_sesion/formularios.css"; // Importa estilos CSS
+import { Link } from "react-router-dom"; // Importa el componente Link de react-router-dom
 
+// Definición del componente funcional TerminosCondiciones
 function TerminosCondiciones() {
 
+    // Función para manejar el envío del formulario (actualmente solo imprime un mensaje en la consola)
     const manejarEnvio = () => {
         console.log('Formulario enviado');
     };
 
+    // Renderizado del componente
     return (
-        <div className='contenedorterm'>
-            <Link to="/home"> 
-                <img className='logon' src={logo} alt="Logo" />
+        <div className='contenedorterm'> {/* Contenedor principal */}
+            <Link to="/home"> {/* Enlace al inicio */}
+                <img className='logon' src={logo} alt="Logo" /> {/* Mostrar el logo */}
             </Link>
 
-            <div className='formularioterm'>
-                <h1 className='titulon'>Términos y condiciones</h1>
-                <div className='texto'>
-                    <ul>
+            <div className='formularioterm'> {/* Contenedor del formulario */}
+                <h1 className='titulon'>Términos y condiciones</h1> {/* Título */}
+                <div className='texto'> {/* Contenedor de texto */}
+                    <ul> {/* Lista de viñetas */}
+                        {/* Términos y condiciones detallados */}
+                        <li> {/* Punto 1 */}
+                            ¡Bienvenido/a a nuestra tienda en línea de bicicletas, repuestos, accesorios y vestuarios! Antes de realizar cualquier compra, te pedimos que leas detenidamente los siguientes términos y condiciones. Al utilizar nuestros servicios y realizar una compra, aceptas estar sujeto/a a estos términos y condiciones. Si tienes alguna pregunta, no dudes en contactarnos.
+                        </li>
+                        <li> {/* Punto 2 */}
+                            1. Información de la empresa
+                            <ul> {/* Sublista */}
+                                <li>Nombre de la empresa: BikeStore</li>
+                                <li>Dirección: CRA11 No25 Barrio: obrero</li>
+                                <li>Correo electrónico: BikeStore@gmail.com</li>
+                                <li>Teléfono: 3175843654</li>
+                            </ul>
+                        </li>
                         <li>¡Bienvenido/a a nuestra tienda en línea de bicicletas, repuestos, accesorios y vestuarios! Antes de realizar cualquier compra, te pedimos que leas detenidamente los siguientes términos y condiciones. Al utilizar nuestros servicios y realizar una compra, aceptas estar sujeto/a a estos términos y condiciones. Si tienes alguna pregunta, no dudes en contactarnos.</li>
                         <li>
                             1. Información de la empresa
@@ -77,6 +94,7 @@ function TerminosCondiciones() {
                         </li>
                     </ul>
                 </div>
+                {/* Botón de continuar */}
                 <div className='boton-container'>
                     <Link to="/registro"><button className='boton' onClick={manejarEnvio}>Continuar</button></Link>
                 </div>
@@ -85,4 +103,4 @@ function TerminosCondiciones() {
     );
 }
 
-export default TerminosCondiciones;
+export default TerminosCondiciones; // Exporta el componente TerminosCondiciones

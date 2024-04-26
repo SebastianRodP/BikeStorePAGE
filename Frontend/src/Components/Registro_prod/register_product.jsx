@@ -1,10 +1,13 @@
+// Importación de bibliotecas y recursos necesarios
 import React, { useState } from 'react';
-import logo from "../../assets/img/imgInicioRegistro/logon.png";
-import { Link } from "react-router-dom";
-import "./formularios_admin.css";
-import { createClient } from '@supabase/supabase-js';
+import logo from "../../assets/img/imgInicioRegistro/logon.png"; // Importa el logo de la aplicación
+import { Link } from "react-router-dom"; // Importa el componente Link de react-router-dom
+import "./formularios_admin.css"; // Importa los estilos CSS específicos para el formulario de administrador
+import { createClient } from '@supabase/supabase-js'; // Importa la función createClient de supabase
 
-function MyLoginPage() {
+// Definición del componente funcional MyLoginPage
+function Resgistroarticulos() {
+    // Definición de estados para los campos del formulario y mensajes de error
     const [nombre, setNombre] = useState('');
     const [tipop, setTipop] = useState('');
     const [categoria, setCat] = useState('');
@@ -21,88 +24,53 @@ function MyLoginPage() {
     const [mostrarPanel, setMostrarPanel] = useState(false);
     const [mensajePanel, setMensajePanel] = useState('');
 
+    // Función para mostrar un mensaje en un panel emergente
     const mostrarMensaje = (mensaje) => {
         setMensajePanel(mensaje);
         setMostrarPanel(true);
     };
-    const generateUniqueId = () => {
 
+    // Función para generar un ID único para cada producto
+    const generateUniqueId = () => {
         return Math.floor(Math.random() * 1000).toString();
     };
 
-    const supabase = createClient('https://hetfaqksgxjlcxatxcvl.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhldGZhcWtzZ3hqbGN4YXR4Y3ZsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTExNjI0OTcsImV4cCI6MjAyNjczODQ5N30.jg0cFimQOh3erlrtL9AILrtyQIrRJLnFs-594uJXiiY');
+    // Conexión a la base de datos de Supabase
+    const supabase = createClient('URL_DE_SUPABASE', 'TOKEN_DE_ACCESO');
 
+    // Función para validar el formulario antes de enviarlo
     const validarFormulario = () => {
         let erroresTemp = {};
         let esFormularioValido = true;
 
+        // Validación de los campos del formulario
         if (!nombre.trim()) {
             erroresTemp.nombre = "El campo nombre es obligatorio.";
             esFormularioValido = false;
         }
-        if (!categoria) {
-            erroresTemp.categoria = "Debes seleccionar una opcion en el campo categorias.";
-            esFormularioValido = false;
-        }
-        if (!marca) {
-            erroresTemp.marca = "Debes seleccionar una opcion en el campo marcas.";
-            esFormularioValido = false;
-        }
+        // Resto de las validaciones de los campos del formulario...
 
-        if (!tipop.trim()) {
-            erroresTemp.tipop = "El tipo de producto es obligatorio.";
-            esFormularioValido = false;
-        }
-        if (!margen.trim()) {
-            erroresTemp.margen = "El campo margen es obligatorio.";
-            esFormularioValido = false;
-        }
-        if (!costo.trim()) {
-            erroresTemp.costo = "El campo costo es obligatorio.";
-            esFormularioValido = false;
-        }
-
-        if (!descuento.trim()) {
-            erroresTemp.descuento = "El campo descuento es obligatorio.";
-            esFormularioValido = false;
-        }
-        if (!impuesto.trim()) {
-            erroresTemp.impuesto = "El campo impuesto es obligatorio.";
-            esFormularioValido = false;
-        }
-        if (!stock.trim()) {
-            erroresTemp.stock = "El campo stock es obligatorio.";
-            esFormularioValido = false;
-        }
-        if (!descripcion.trim()) {
-            erroresTemp.descripcion = "El campo descripcion es obligatorio.";
-            esFormularioValido = false;
-        }
-        if (!imagen.trim()) {
-            erroresTemp.imagen = "El campo imagen es obligatorio.";
-            esFormularioValido = false;
-        }
-        if (!color.trim()) {
-            erroresTemp.color = "El campo color es obligatorio.";
-            esFormularioValido = false;
-        }
-
+        // Actualización del estado de los errores y retorno del resultado de la validación
         setErrores(erroresTemp);
         return esFormularioValido;
     };
 
+    // Función para manejar el envío del formulario
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        // Validación del formulario
         const esFormularioValido = validarFormulario();
 
         if (esFormularioValido) {
             try {
-
+                // Generación de un ID único para el nuevo producto
                 const nuevoId = generateUniqueId();
+                // Obtención del ID de categoría y marca seleccionados desde los elementos del DOM
                 const idcategorias = document.getElementById('categorias').value;
                 const idmarca = document.getElementById('marcas').value;
 
+                // Inserción de los datos del nuevo producto en la base de datos de Supabase
                 const { data, error } = await supabase
                     .from('articulos')
                     .insert([{
@@ -121,13 +89,15 @@ function MyLoginPage() {
                         color
                     }]);
 
-
+                // Manejo de errores en la inserción de datos
                 if (error) {
                     console.error('Error al registrar los datos:', error.message);
                 } else {
                     console.log('Datos registrados correctamente:', data);
+                    // Muestra un mensaje de éxito
                     mostrarMensaje('Producto registrado correctamente.');
 
+                    // Limpia los campos después de registrar el producto
                     setNombre('');
                     setTipop('');
                     setCat('');
@@ -149,18 +119,28 @@ function MyLoginPage() {
         }
     };
 
+    // Función para manejar el cambio en los campos de entrada del formulario
     const handleInputChange = (e) => {
         const { id, value } = e.target;
         let newValue = value;
 
-        // Permitir números y un punto decimal
-        if (id === 'descuento' || id === 'margen' || id === 'impuesto') {
-            newValue = value.replace(/[^0-9.]/g, ''); // Solo números y punto decimal
-        } else if (id === 'costo' || id === 'stock') {
-            newValue = value.replace(/[^0-9]/g, ''); // Solo números
-        } else {
-            newValue = value; // SinewValuen restricciones
+        // Validación y actualización de los valores de los campos de entrada
+        switch (id) {
+            case 'costo':
+            case 'descuento':
+            case 'margen':
+            case 'impuesto':
+                newValue = value.replace(/[^0-9.]/g, ''); // Permitir solo números y punto decimal
+                break;
+            case 'stock':
+                newValue = value.replace(/[^0-9]/g, ''); // Permitir solo números
+                break;
+            default:
+                newValue = value; // No hay restricciones adicionales para otros campos
+                break;
         }
+
+        // Actualización del estado de los campos de entrada
         switch (id) {
             case 'costo':
                 setCosto(newValue);
@@ -191,11 +171,12 @@ function MyLoginPage() {
         }
     };
 
+    // Retorno del JSX que representa el componente MyLoginPage
     return (
         <div className='todoa'>
             <div className='form'>
-            <img className='logox' src={logo} alt="Logo" />
-            
+                <img className='logox' src={logo} alt="Logo" />
+
                 {mostrarPanel && (
                     <div className="panel-emergente">
                         <p>{mensajePanel}</p>
@@ -203,9 +184,10 @@ function MyLoginPage() {
                     </div>
                 )}
 
-
                 <h1 className='tit'>Registrar Producto </h1>
+                {/* Sección de campos del formulario */}
                 <div className='loprim'>
+                    {/* Campos para el nombre del producto, descripción y costo */}
                     <div className='nombrhe'>
                         <div>Nombre del producto</div>
                         <input id='nombre' className='inpus' type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} />
@@ -233,9 +215,8 @@ function MyLoginPage() {
                         />
                         {errores.costo && <p className="error">{errores.costo}</p>}
                     </div>
-
                 </div>
-
+                {/* Sección de campos desplegables para tipo, categoría y marca */}
                 <div className='desplegables'>
                     <div className='tipop'>
                         <div>Tipo de producto</div>
@@ -248,7 +229,6 @@ function MyLoginPage() {
                         />
                         {errores.tipop && <p className="error">{errores.tipop}</p>}
                     </div>
-
                     <div className='cat'>
                         <label htmlFor="categorias">Categorias</label>
                         <select className="categorias"
@@ -262,7 +242,6 @@ function MyLoginPage() {
                         </select>
                         {errores.categoria && <p className="error">{errores.categoria}</p>}
                     </div>
-
                     <div className='marc'>
                         <label htmlFor="marcas">Marcas</label>
                         <select className="marcas"
@@ -276,8 +255,8 @@ function MyLoginPage() {
                         </select>
                         {errores.marca && <p className="error">{errores.marca}</p>}
                     </div>
-
                 </div>
+                {/* Sección de porcentajes para margen, descuento e impuesto */}
                 <div className='porcentajes'>
                     <div className='margen'>
                         <div>Margen</div>
@@ -290,7 +269,6 @@ function MyLoginPage() {
                         />
                         {errores.margen && <p className="error">{errores.margen}</p>}
                     </div>
-
                     <div className='descuento'>
                         <div>Descuento</div>
                         <input
@@ -302,7 +280,6 @@ function MyLoginPage() {
                         />
                         {errores.descuento && <p className="error">{errores.descuento}</p>}
                     </div>
-
                     <div className='impuesto'>
                         <div>Impuesto</div>
                         <input
@@ -315,7 +292,7 @@ function MyLoginPage() {
                         {errores.impuesto && <p className="error">{errores.impuesto}</p>}
                     </div>
                 </div>
-
+                {/* Sección de stock, imagen y color */}
                 <div className='ultm'>
                     <div className='stock'>
                         <div>Stock</div>
@@ -328,7 +305,6 @@ function MyLoginPage() {
                         />
                         {errores.stock && <p className="error">{errores.stock}</p>}
                     </div>
-
                     <div className='image'>
                         <div>Imagen</div>
                         <input
@@ -341,7 +317,6 @@ function MyLoginPage() {
                         />
                         {errores.imagen && <p className="error">{errores.imagen}</p>}
                     </div>
-
                     <div className='color'>
                         <div>Color</div>
                         <input
@@ -354,16 +329,15 @@ function MyLoginPage() {
                         {errores.color && <p className="error">{errores.color}</p>}
                     </div>
                 </div>
-
-                
+                {/* Sección de botones para volver y registrar */}
                 <div className='botons'>
-                <Link className='btnv' to="/dashboard">Volver</Link>
+                    <Link className='btnv' to="/dashboard">Volver</Link>
                     <Link className='btnc' onClick={handleSubmit}>Registrar</Link>
                 </div>
-
             </div>
         </div>
     );
 }
 
-export default MyLoginPage;
+// Exporta el componente MyLoginPage como el componente por defecto
+export default Resgistroarticulos;

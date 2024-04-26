@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import logo from "../../assets/img/imgInicioRegistro/logon.png";
-import { Link } from "react-router-dom";
-import "../Registro_prod/register_product";
-import { createClient } from '@supabase/supabase-js';
+import React, { useState, useEffect } from 'react'; // Importa useState y useEffect desde React
+import logo from "../../assets/img/imgInicioRegistro/logon.png"; // Importa la imagen del logo
+import { Link } from "react-router-dom"; // Importa Link de react-router-dom para la navegación
+import "../Registro_prod/register_product"; // Importa el componente register_product (no se utiliza en este código)
+import { createClient } from '@supabase/supabase-js'; // Importa createClient de supabase-js para interactuar con Supabase
 
 function MyLoginPage() {
+    // Estados para almacenar los diferentes campos del formulario y mensajes de error
     const [nombre, setNombre] = useState('');
     const [tipop, setTipop] = useState('');
     const [categoria, setCat] = useState('');
@@ -22,17 +23,21 @@ function MyLoginPage() {
     const [mostrarPanel, setMostrarPanel] = useState(false);
     const [mensajePanel, setMensajePanel] = useState('');
 
+    // Función para mostrar un mensaje en un panel emergente
     const mostrarMensaje = (mensaje) => {
         setMensajePanel(mensaje);
         setMostrarPanel(true);
     };
 
+    // Cliente de Supabase para interactuar con la base de datos
     const supabase = createClient('https://hetfaqksgxjlcxatxcvl.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhldGZhcWtzZ3hqbGN4YXR4Y3ZsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTExNjI0OTcsImV4cCI6MjAyNjczODQ5N30.jg0cFimQOh3erlrtL9AILrtyQIrRJLnFs-594uJXiiY');
 
+    // Función para validar los campos del formulario
     const validarFormulario = () => {
         let erroresTemp = {};
         let esFormularioValido = true;
 
+        // Validación de campos requeridos y almacenamiento de errores
         if (!nombre.trim()) {
             erroresTemp.nombre = "El campo nombre es obligatorio.";
             esFormularioValido = false;
@@ -78,6 +83,7 @@ function MyLoginPage() {
         return esFormularioValido;
     };
 
+    // Función para manejar el envío del formulario
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -85,9 +91,11 @@ function MyLoginPage() {
 
         if (esFormularioValido) {
             try {
+                // Obtiene valores de campos relacionados del DOM
                 const idcategorias = document.getElementById('categorias').value;
                 const idmarca = document.getElementById('marcas').value;
 
+                // Actualiza los datos del producto en la base de datos
                 const { data, error } = await supabase
                     .from('articulos')
                     .update({
@@ -120,6 +128,7 @@ function MyLoginPage() {
         }
     };
 
+    // Función para manejar cambios en los campos del formulario
     const handleInputChange = (e) => {
         const { id, value } = e.target;
 
@@ -162,10 +171,13 @@ function MyLoginPage() {
         }
     };
 
+    // Renderiza el componente con el formulario y elementos relacionados
     return (
         <div className='form'>
             <div className='todoa'>
+                {/* Imagen del logo */}
                 <img className='logox' src={logo} alt="Logo" />
+                {/* Panel emergente para mostrar mensajes */}
                 {mostrarPanel && (
                     <div className="panel-emergente">
                         <p>{mensajePanel}</p>
@@ -173,10 +185,11 @@ function MyLoginPage() {
                     </div>
                 )}
 
+                {/* Título del formulario */}
                 <h1 className='tit'>Modificar Producto </h1>
                 <div className='necesario'>
                     <div className='text'> Por favor introduzca el codigo del articulo que desea modificar</div>
-                <div className='codigo'>
+                    <div className='codigo'>
                         <div>Código del producto</div>
                         <input
                             id='codigo'
@@ -199,6 +212,7 @@ function MyLoginPage() {
                             value={nombre} 
                             onChange={handleInputChange} 
                         />
+                        {/* Muestra mensaje de error si existe */}
                         {errores.nombre && <p className="error">{errores.nombre}</p>}
                     </div>
                     <div className='descripcion'>
@@ -210,6 +224,7 @@ function MyLoginPage() {
                             value={descripcion}
                             onChange={handleInputChange}
                         />
+                        {/* Muestra mensaje de error si existe */}
                         {errores.descripcion && <p className="error">{errores.descripcion}</p>}
                     </div>
                     <div className='costo'>
@@ -221,6 +236,7 @@ function MyLoginPage() {
                             value={costo}
                             onChange={handleInputChange}
                         />
+                        {/* Muestra mensaje de error si existe */}
                         {errores.costo && <p className="error">{errores.costo}</p>}
                     </div>
                     <div className='tipop'>
@@ -232,6 +248,7 @@ function MyLoginPage() {
                             value={tipop}
                             onChange={handleInputChange}
                         />
+                        {/* Muestra mensaje de error si existe */}
                         {errores.tipop && <p className="error">{errores.tipop}</p>}
                     </div>
                 </div>
@@ -250,6 +267,7 @@ function MyLoginPage() {
                             <option value="3">Vestuarios</option>
                             <option value="4">Bicicletas</option>
                         </select>
+                        {/* Muestra mensaje de error si existe */}
                         {errores.categoria && <p className="error">{errores.categoria}</p>}
                     </div>
                     <div className='marc'>
@@ -265,6 +283,7 @@ function MyLoginPage() {
                             <option value="3">Specialized</option>
                             <option value="4">Venzo</option>
                         </select>
+                        {/* Muestra mensaje de error si existe */}
                         {errores.marca && <p className="error">{errores.marca}</p>}
                     </div>
                 </div>
@@ -279,6 +298,7 @@ function MyLoginPage() {
                             value={margen}
                             onChange={handleInputChange}
                         />
+                        {/* Muestra mensaje de error si existe */}
                         {errores.margen && <p className="error">{errores.margen}</p>}
                     </div>
                     <div className='descuento'>
@@ -290,6 +310,7 @@ function MyLoginPage() {
                             value={descuento}
                             onChange={handleInputChange}
                         />
+                        {/* Muestra mensaje de error si existe */}
                         {errores.descuento && <p className="error">{errores.descuento}</p>}
                     </div>
                     <div className='impuesto'>
@@ -301,6 +322,7 @@ function MyLoginPage() {
                             value={impuesto}
                             onChange={handleInputChange}
                         />
+                        {/* Muestra mensaje de error si existe */}
                         {errores.impuesto && <p className="error">{errores.impuesto}</p>}
                     </div>
                 </div>
@@ -315,6 +337,7 @@ function MyLoginPage() {
                             value={stock}
                             onChange={handleInputChange}
                         />
+                        {/* Muestra mensaje de error si existe */}
                         {errores.stock && <p className="error">{errores.stock}</p>}
                     </div>
                     <div className='image'>
@@ -327,6 +350,7 @@ function MyLoginPage() {
                             onChange={handleInputChange}
                             placeholder='URL de la imagen'
                         />
+                        {/* Muestra mensaje de error si existe */}
                         {errores.imagen && <p className="error">{errores.imagen}</p>}
                     </div>
                     <div className='color'>
@@ -338,16 +362,17 @@ function MyLoginPage() {
                             value={color}
                             onChange={handleInputChange}
                         />
+                        {/* Muestra mensaje de error si existe */}
                         {errores.color && <p className="error">{errores.color}</p>}
                     </div>
                     
                 </div>
                 
+                {/* Botones para volver y modificar */}
                 <div className='botons'>
-                <Link className='btnv' to="/dashboard">Volver</Link>
+                    <Link className='btnv' to="/dashboard">Volver</Link>
                     <Link className='btnc' onClick={handleSubmit}>Modificar</Link>
                 </div>
-
             </div>
         </div>
     );
