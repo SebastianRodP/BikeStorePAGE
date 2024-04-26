@@ -1,7 +1,7 @@
 .ola {
   background-color: #ffffff; /* Cambia este color al que desees */
   position: relative; /* Asegura que el contenedor sea relativo para posicionar hijos */
-  width: 221vh; /* Ajusta el ancho al 100% */
+  width: 100%; /* Ajusta el ancho al 100% */
   height: 200vh; /* Ajusta la altura al 100% del viewport height */
 }
 
@@ -87,7 +87,8 @@ color: black;
 }
 
 #cajas{
-  margin-right: -80%;
+  margin-right: -79%;
+  padding-top: 10px;
 }
 .imgp{
   height: auto;

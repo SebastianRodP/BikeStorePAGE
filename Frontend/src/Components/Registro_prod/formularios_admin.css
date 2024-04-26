@@ -15,13 +15,15 @@
     text-align: center;
     margin-bottom: 10px;
 }
-.panel-emergente{
-    margin-top: 350px;
+.panel-emergente {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     color: black;
     background-color: #aed6d6;
-    position: absolute;
     border-radius: 5px;
-    padding: 5px;
+    padding: 15px;
     width: auto;
     height: auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
@@ -29,6 +31,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    z-index: 9999;
 }
 .logox{
     height: auto;
