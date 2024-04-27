@@ -85,12 +85,26 @@ const getArticulosByCategoria = async (req, res) => {
         res.status(500).json({ error: 'Error interno del servidor' });
     }
 };
-
+// 
+const getArticulosByDetalles = async (req, res) => {
+    const { idDetalles} = req.params;
+    let response = parseInt(idDetalles);
+    console.log(typeof idDetalles);
+    console.log(response);
+    try {
+        const query = 'SELECT * FROM articulos WHERE id_articulos = $1;';
+        const respuesta = await pool.query(query, [response]);
+        res.status(200).json(respuesta.rows);
+    } catch (error) {
+        console.error('Error al ejecutar la consulta:', error);
+        res.status(500).json({ error: 'Error interno del servidor' });
+    }
+};
 
 
 
 module.exports = {
-    saludo, usuarios, telefonos , rol, marcas, articulos, categorias, getArticulosByCategoria}
+    saludo, usuarios, telefonos , rol, marcas, articulos, categorias, getArticulosByCategoria, getArticulosByDetalles}
 
 
 

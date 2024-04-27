@@ -1,55 +1,46 @@
-// eslint-disable-next-line no-unused-vars
 import React from "react";
-import Navbar  from "../Navbar/Navbar";
+import Navbar from "../Navbar/Navbar";
+import PropTypes from "prop-types";
 import { Footer } from "../Footer/Footer";
-import Bicicleta from "../../assets/img/Bicicleta.png";
 import "./DetallesArt.css";
-import useFetchGetArticulos from "../../hooks/useFetchGetArticulos";
+import useFetchGetDetalles from "../../hooks/useFetchGetDetalles";
 
 
+export const DetallesArt = ({id}) => {
+  
+  const { dataArticulos } = useFetchGetDetalles(id);
 
-export const DetallesArt = () => {
-  const {dataArticulos}=useFetchGetArticulos()
   return (
     <>
-     <Navbar />
+      <Navbar />
       <div className="contenedor-separador">
         <div className="separador"></div>
       </div>
-    {dataArticulos.map((articulos)=>{
-      return(<div className="tarjeta">
-      <div className="columna imagen">
-        <img src={Bicicleta} alt="Imagen del producto" />
-      </div>
-      <div className="columna contenido">
-        <h2>{articulos.nombre}</h2>
-        <h3>Descripción</h3>
-        <p>
-          Es una bicicleta pequeña, liviana y muy resistente, especialmente
-          construida para parques de salto, donde el conductor debe ser muy
-          experimentado y ágil. Esta bicicleta permiten el pedaleo en ascenso,
-          sin embargo, no están construidas para recorridos largos.
-        </p>
-        <p>
-          <strong>COLORES DISPONIBLES</strong>
-        </p>
-        <div className="colores-disponibles">
-          <div className="color-rojo"></div>
-          <div className="color-azul"></div>
-          <div className="color-verde"></div>
-        </div>
-        <div className="precio-y-boton">
-          <div className="precio">
-            <span>$1.444.555</span>
+      {dataArticulos.map((articulo) => (
+        <div className="tarjeta" key={articulo.idArticulos}>
+          <div className="columna imagen">
+            <img src={articulo.img} alt="Imagen del producto" />
           </div>
-          <a href="#" className="compra">AÑADIR AL CARRITO</a>
+          <div className="columna contenido">
+            <h2>{articulo.nombre}</h2>
+            <h3>DESCRIPCION</h3>
+            <p>{articulo.descripcion}</p>
+            <div className="precio-y-boton">
+              <div className="precio">
+                <span>{articulo.costo}</span>
+              </div>
+              <a href="#" className="compra">
+                AÑADIR AL CARRITO
+              </a>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>)})}
-     
+      ))}
       <Footer />
     </>
   );
 };
-
-export default DetallesArt
+DetallesArt.propTypes = {
+  id: PropTypes.number.isRequired,
+};
+export default DetallesArt;

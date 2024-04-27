@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import {BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom';
 import  Home  from './Pages/Home';
-import{DetallesArt} from './Components/DetallesArt/DetallesArt';
+import DetallesArt from './Components/DetallesArt/DetallesArt';
 import Bicicletas from './Pages/Bicicletas';
 import Dashboard  from './Components/Dashboard/dashboard';
 import Accesorios from "./Pages/Accesorios";
@@ -24,7 +24,7 @@ function App() {
       <Routes>
         <Route path="/"element={<Navigate replace to="/home"/>}/>
         <Route path="/home" element={<Home />} />
-        <Route path="/detallesArt" element={<DetallesArt />} />
+        <Route path="/DetallesArt/:id" element={<DetallesArt />} />
         <Route path="/Bicicletas" element={<Bicicletas />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/Accesorios" element={<Accesorios />} />
