@@ -1,12 +1,17 @@
-    import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
-    const useFetchGetDetalles = ({ id }) => {
+const useFetchGetDetalles = (id) => {
     const [data, setData] = useState([]);
-    
+
+    console.log('====================================IOIIIIIIIIIIIIIIIIIIIIIIID');
+    console.log(id);
+    console.log('====================================');
+
     useEffect(() => {
         const fetchData = async () => {
         try {
             if (id) { // Verificar si id está definido antes de hacer la solicitud
+
             const response = await fetch(`http://localhost:3000/articulos/detalles/${id}`, {
                 method: "GET",
                 headers: {
@@ -14,7 +19,9 @@
                 },
                 redirect: "follow",
             });
+
             const resultados = await response.json();
+
             setData(resultados);
             }
         } catch (error) {
@@ -25,9 +32,7 @@
         fetchData();
     }, [id]);
 
-    return {
-        data,
-    };
-    };
+    return data
+};
 
-    export default useFetchGetDetalles;
+export default useFetchGetDetalles;

@@ -6,6 +6,7 @@ import IniciarSesion from "../../assets/img/imgNavbar/iniciarSesion.png";
 import "./Navbar.css";
 import { Carrito } from "../Carrito/Carrito";
 
+
 const Navbar = () => {
   const [carritoAbierto, setCarritoAbierto] = useState(false);
 

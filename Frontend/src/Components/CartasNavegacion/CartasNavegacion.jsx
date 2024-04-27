@@ -1,5 +1,6 @@
 import React from "react";
 import "../Cartas/Cartas";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import useFetchGetArticulos from "../../hooks/useFetchGetArticulos";
 
@@ -22,7 +23,9 @@ const CartasNavegacion = ({ id_categorias }) => {
       <main className="content">
         {firstFourArticulos.map((articulo) => (
           <div className="caja-bicicletas" key={articulo.idArticulos}>
+            <Link to={`/DetallesArt/${articulo.id_articulos}`}>
             <img src={articulo.img} alt="" />
+            </Link>
             <p id="descuento">
               {articulo.descuento}
               <span>%</span>

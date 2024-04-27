@@ -16,13 +16,14 @@ const Cartas = ({ id_categorias }) => {
   }
 
   const firstFourArticulos = dataArticulos.slice(0, 4);
+  // firstFourArticulos = filter()
 
   return (
     <>
       <main className="content">
         {firstFourArticulos.map((articulo) => (
           <div className="caja-bicicletas" key={articulo.id_articulos}>
-            <Link to={`/DetallesArt/${articulo.id}`}>
+            <Link to={`/DetallesArt/${articulo.id_articulos}`}>
               <img src={articulo.img} alt="" />
             </Link>
             <p id="descuento">

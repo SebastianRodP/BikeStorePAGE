@@ -20,6 +20,9 @@
   display: flex;
   padding: 3%;
 }
+.descripcion{
+  font-size: 22pt;
+}
 
 .columna {
   flex: 1; /* Cada columna ocupa 50% del ancho */
@@ -40,25 +43,27 @@
   padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .precio-y-boton {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
   margin-top: 20px;
   text-align: center;
 }
 
 .precio {
-  max-width: fit-content;
-  padding: 20px; /* Aumentar el relleno */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: fit-content; 
   border-radius: 0 0 10px 0; /* Ajustar el radio de borde de la esquina inferior izquierda */
 }
 
-.precio span {
-  font-size: 50px; /* Aumentar el tamaño de fuente */
+.precio p {
+  font-size: 40px; /* Aumentar el tamaño de fuente */
   font-weight: bold;
 }
 
