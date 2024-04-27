@@ -15,6 +15,7 @@ const Cartas = ({ id_categorias }) => {
     return <div className="erroresCarga">Cargando...</div>;
   }
 
+  
   const firstFourArticulos = dataArticulos.slice(0, 4);
   // firstFourArticulos = filter()
 

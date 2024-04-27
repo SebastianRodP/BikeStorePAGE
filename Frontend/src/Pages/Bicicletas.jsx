@@ -6,13 +6,22 @@ import Filtro from '../Components/Filtro/Filtro'
 import CartasNavegacion from '../Components/CartasNavegacion/CartasNavegacion'
 import "../Pages/style.css"
 import 'boxicons';
+import useFetchGetArticulos from '../hooks/useFetchGetArticulos'
+
 
 const Bicicletas = () => {
+  const [categoriaSeleccionada, setCategoriaSeleccionada] = useState(null);
+
+  const handleCategoriaSeleccionada = (categoria) => {
+    setCategoriaSeleccionada(categoria);
+  };
+
+  const { dataArticulos, loading } = useFetchGetArticulos(categoriaSeleccionada)
   return (
     <>
     <Navbar/>
     <Banner/>
-    <Filtro/>
+    <Filtro onCategoriaSeleccionada={handleCategoriaSeleccionada}/>
     <CartasNavegacion id_categorias = {4}/>
     <Footer/>
     </>
