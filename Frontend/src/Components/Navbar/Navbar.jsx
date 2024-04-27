@@ -20,26 +20,24 @@ const Navbar = () => {
 
   return (
     <header className="header">
-      <nav className="nav">
+      <nav className="navprincipal">
         <div className="logo">
           <Link to="/home" className="logo-letra nav-link">
             Bike<span className="blue">Store</span>
           </Link>
           <img src={BicicletaNav} alt="Bicicleta" />
         </div>
-        <button className="nav-toggle">
-          <i className="fa-solid fa-bars"></i>
-        </button>
+       
         <div className="navegation">
-          <div className="main">
+          {/* <div className="main">
             <box-icon name="search" color="#c2c2c2"></box-icon>
             {/*Filtro de búsqueda*/}
-            <input
+            {/* <input
               className="buscador"
               type="text"
               placeholder="Buscar..."
-            />
-          </div>
+            /> *
+          </div> */}
 
           {/*Menu de navegación */}
           <ul className="nav-menu">
