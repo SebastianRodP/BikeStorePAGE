@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'; // Importa useEffect y useSt
 import { createClient } from '@supabase/supabase-js'; // Importa createClient de supabase-js para interactuar con Supabase
 import "./material-dashboard.css"; // Importa el archivo de estilos para el dashboard
 import { Link } from 'react-router-dom'; // Importa Link de react-router-dom para la navegación
+import IniciarSesion from "../../assets/img/imgNavbar/iniciarSesion.png";
+ 
 
 const supabase = createClient('https://hetfaqksgxjlcxatxcvl.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhldGZhcWtzZ3hqbGN4YXR4Y3ZsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTExNjI0OTcsImV4cCI6MjAyNjczODQ5N30.jg0cFimQOh3erlrtL9AILrtyQIrRJLnFs-594uJXiiY'); // Cliente de Supabase para interactuar con la base de datos
 
@@ -12,6 +14,8 @@ function Dashboard() {
   const [codigoEliminar, setCodigoEliminar] = useState('');
   const [mostrarPanelEliminado, setMostrarPanelEliminado] = useState(false);
   const [mensajePanelEliminado, setMensajePanelEliminado] = useState('');
+
+  const nombreUsuario = sessionStorage.getItem('usuario.nombre');
 
   // Función para obtener el nombre de la categoría según su ID
   function obtenerNombreCategoria(id_categorias) {
@@ -147,6 +151,7 @@ function Dashboard() {
         <hr className="horizontal light mt-0 mb-2" />
         <div className="collapse navbar-collapse w-auto" id="sidenav-collapse-main">
           <ul className="navbar-nav">
+            <div>Bienvenido/a:{sessionStorage.getItem('nombreUsuario')}</div>
             {/* Opciones de navegación */}
             <li className="nav-item">
               <Link to="/dashboard" className="nav-link text-white">

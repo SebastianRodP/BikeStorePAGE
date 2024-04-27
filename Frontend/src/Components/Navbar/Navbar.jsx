@@ -2,12 +2,16 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import BicicletaNav from "../../assets/img/imgNavbar/bicicletaNavbar.png";
-import IniciarSesion from "../../assets/img/imgNavbar/iniciarSesion.png";
 import "./Navbar.css";
 import { Carrito } from "../Carrito/Carrito";
 
+const handleLogout = () => {
+  sessionStorage.clear(); // Limpiar todos los datos del sessionStorage
+};
+
 const Navbar = () => {
   const [carritoAbierto, setCarritoAbierto] = useState(false);
+  const [inicioSesionExitoso, setInicioSesionExitoso] = useState(sessionStorage.getItem('inicioSesionExitoso') === 'true');
 
   // Función para cambiar el estado del carrito
   const toggleCarrito = () => {
@@ -74,10 +78,23 @@ const Navbar = () => {
           </div>
 
           <div className="optionsDown">
-            <p className="bienvenido">Bienvenido, usuario</p>
-            <Link to="/inicio">
-              <img src={IniciarSesion} className="user" alt="Iniciar sesión" />
-            </Link>
+            {inicioSesionExitoso ? (
+              <>
+                <p className="bienvenido">Bienvenido/a {sessionStorage.getItem('nombreUsuario')}</p>
+                <Link to="/inicio">
+                  <div className="botonesuser" onClick={handleLogout}>Cerrar sesión</div>
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link to="/inicio">
+                  <div className="botonesuser">Iniciar sesión</div>
+                </Link>
+                <Link to="/inicio">
+                  <div className="botonesuser">Registrarse</div>
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </nav>
