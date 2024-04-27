@@ -44,7 +44,7 @@
     }
 }
 
-.nav {
+.navprincipal {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -134,6 +134,7 @@
 }
 
 .options {
+    margin-top: 5vh;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -172,8 +173,10 @@
     background-color: red;
 }
    
-
+.optionsDown .bienvenido{font-size:10px ;}
+.optionsDown  .user{width: 10vh     ;}
 .optionsUp {
+    margin-top: 5vh;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -188,88 +191,39 @@
     align-items: center;
 }
 
+@media screen and (max-width:667px) {
 
-
-@media screen and (max-width: 768px) {
-    body {
-        background-color: white;
-    }
-
-    .header {
-        height: 60px;
-
-    }
-
-    .nav {
+.header {height: 60vh;}
+.navprincipal {
+            height: 50px;
         display: flex;
-        justify-content: space-between;
-    }
+        flex-direction: column;}
+        
 
-    .nav-link {
-        text-decoration: none;
-        color: white;
-    }
 
-    .logo {
-        display: flex;
-        align-items: center;
-    }
 
-    .logo img {
-        height: 50px;
-    }
+.logo img {
+    margin-top: 10px;
+        height: 30px;
+        align-items: center;}
 
-    .logo-letra {
-        font-size: 40px;
+.logo-letra {
+        font-size: 20px;
 
-        padding: 0px 0px 0px 30px;
+      margin-left: -50px;
         line-height: 60px;
 
 
+
     }
 
-
-    .nav {
-        height: 50px;
-    }
-
-    .nav-menu {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-right: 30px;
-        background-color: #cfcfcf;
-        position: fixed;
-        left: 0px;
-        top: 60px;
-        width: 100%;
-        padding: 20px 0;
-        height: calc(100% - 60px);
-        overflow-y: auto;
-        left: 100%;
-        transition: left 0.3s;
-    }
-
-    .nav-menu-item {
-        font-size: 28px;
-        line-height: 70px;
-    }
+  
+   
 
 
 
-    .nav-menu-link:hover {
-        background: none;
-        color: #000000;
-    }
+   
 
-
-    .nav-toggle {
-        display: block;
-    }
-
-    .nav-menu-visible {
-        left: 0;
-    }
-
+   
 
 }
