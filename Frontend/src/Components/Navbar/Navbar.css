@@ -208,9 +208,7 @@
     display: flex;
     color: white;
     justify-content: space-between;
-    align-items: center;
-    padding: ;
-}
+    align-items: center;}
 
 @media screen and (max-width:667px) {
 
