@@ -1,33 +1,31 @@
 import React from "react";
 import "./Cartas.css";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import useFetchGetArticulos from "../../hooks/useFetchGetArticulos";
-import { Link } from "react-router-dom";
 
 const Cartas = ({ id_categorias }) => {
   // Llamada al hook para obtener los artículos de la categoría con ID proporcionado
   const { dataArticulos, loading, error } = useFetchGetArticulos(id_categorias);
 
   if (error) {
-    return <div>Error al cargar los datos</div>;
+    return <div className="erroresCarga">Error al cargar los datos</div>;
   }
 
   if (loading) {
-    return <div className="cargaArticulos">Cargando...</div>;
+    return <div className="erroreCarga">Cargando...</div>;
   }
-
   // Verificar si dataArticulos es un array y tiene al menos un elemento
-
 
   // Mostrar solo los primeros cuatro artículos
   const firstFourArticulos = dataArticulos.slice(0, 4);
 
-  return (
+  return  (
     <>
       <main className="content">
         {firstFourArticulos.map((articulo) => (
-          <div className="caja-bicicletas" key={articulo.idArticulos}>
-            <Link to={`/Bicicleta/${articulo.idArticulos}`}>
+          <div className="caja-bicicletas" key={articulo.id_articulos}>
+            <Link to={`/DetallesArt/${articulo.id_articulos}`}>
               <img src={articulo.img} alt="" />
             </Link>
             <p id="descuento">
@@ -44,7 +42,6 @@ const Cartas = ({ id_categorias }) => {
               </p>
               <p>{articulo.color}</p>
               <i className="fa-solid fa-house"></i>
-
               <div className="footer">
                 <div className="button">
                   <button className="btn">Añadir al carrito</button>
@@ -54,12 +51,15 @@ const Cartas = ({ id_categorias }) => {
           </div>
         ))}
       </main>
-    </>
+      </>
   );
 };
 
 Cartas.propTypes = {
   id_categorias: PropTypes.number.isRequired,
 };
+
+
+
 
 export default Cartas;

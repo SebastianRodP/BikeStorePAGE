@@ -1,55 +1,52 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import Navbar  from "../Navbar/Navbar";
+import PropTypes from "prop-types";
 import { Footer } from "../Footer/Footer";
-import Bicicleta from "../../assets/img/Bicicleta.png";
 import "./DetallesArt.css";
-import useFetchGetArticulos from "../../hooks/useFetchGetArticulos";
-import { useParams } from "react-router-dom";
+import useFetchGetDetalles from "../../hooks/useFetchGetDetalles";
+import { useLocation } from "react-router-dom";
 
+export const DetallesArt =  () => {
 
-export const DetallesArt = () => {
-  const {dataArticulos}=useFetchGetArticulos()
+  const { pathname } = useLocation();
+  console.log(pathname);
+
+  const pito = pathname.split('/'); 
+  const data =  useFetchGetDetalles(parseInt(pito[2]));
+  console.log(data);
+
   return (
-    <>
-     <Navbar />
-      <div className="contenedor-separador">
-        <div className="separador"></div>
+  <>
+    <Navbar />
+    <div className="contenedor-separador">
+    <div className="separador"></div>
+    </div>
+    {data && data.map((articulo) => (
+    <div className="tarjeta" key={articulo.idArticulos}>
+    <div className="columna imagen">
+      <img src={articulo.img} alt="Imagen del producto" />
+    </div>
+    <div className="columna contenido">
+      <h2>{articulo.nombre}</h2>
+      <h3>DESCRIPCION</h3>
+      <p className="descripcion">{articulo.descripcion}</p>
+      <div className="precio-y-boton">
+      <div className="precio">
+      <h3 className="precio-">PRECIO:</h3> <pre> </pre>
+      <p> ${articulo.costo}</p> </div>
+      <a href="#" className="compra">
+      AÑADIR AL CARRITO</a>
       </div>
-    {dataArticulos.map((articulos)=>{
-      return(<div className="tarjeta">
-      <div className="columna imagen">
-        <img src={Bicicleta} alt="Imagen del producto" />
       </div>
-      <div className="columna contenido">
-        <h2>{articulos.nombre}</h2>
-        <h3>Descripción</h3>
-        <p>
-          Es una bicicleta pequeña, liviana y muy resistente, especialmente
-          construida para parques de salto, donde el conductor debe ser muy
-          experimentado y ágil. Esta bicicleta permiten el pedaleo en ascenso,
-          sin embargo, no están construidas para recorridos largos.
-        </p>
-        <p>
-          <strong>COLORES DISPONIBLES</strong>
-        </p>
-        <div className="colores-disponibles">
-          <div className="color-rojo"></div>
-          <div className="color-azul"></div>
-          <div className="color-verde"></div>
-        </div>
-        <div className="precio-y-boton">
-          <div className="precio">
-            <span>$1.444.555</span>
-          </div>
-          <a href="#" className="compra">AÑADIR AL CARRITO</a>
-        </div>
       </div>
-    </div>)})}
-     
+      ))}
       <Footer />
     </>
   );
+};
+DetallesArt.propTypes = {
+  id: PropTypes.number.isRequired,
 };
 
 export default DetallesArt
