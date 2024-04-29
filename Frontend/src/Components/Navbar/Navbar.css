@@ -11,8 +11,8 @@
     box-sizing: border-box;
 }
 .botonesuser{
-    background-color: white;
-    color: black;
+ 
+    color: white;
     border-radius: 5px;
     padding: 5px;
 }
@@ -154,7 +154,7 @@
 }
 
 .options {
-    margin-top: 5vh;
+  
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;

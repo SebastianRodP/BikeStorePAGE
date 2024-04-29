@@ -23,7 +23,7 @@ export const DetallesArt =  () => {
         <div className="separador"></div>
       </div>
       {data && data.map((articulo) => (
-        <div className="tarjeta" key={articulo.id_articulos}>
+        <div className="tarjeta" key={articulo.idArticulos}>
           <div className="columna imagen">
             <img src={articulo.img} alt="Imagen del producto" />
           </div>
