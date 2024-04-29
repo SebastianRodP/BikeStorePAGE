@@ -224,7 +224,7 @@ function Dashboard() {
                 </div>
               </div>
 
-              <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 gx-4" id='cajas'>
+              <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 gx-4" id='cajas'>
                 {/* Mapeo de productos para mostrar en tarjetas */}
                 {productos.map((producto) => {
                   const margen = producto.margen || 0;

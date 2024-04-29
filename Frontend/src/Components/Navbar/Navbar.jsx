@@ -77,7 +77,7 @@ const Navbar = () => {
 
           <div className="optionsDown">
             {inicioSesionExitoso ? (
-              <>
+              < >
                 <p className="bienvenido">Bienvenido/a {sessionStorage.getItem('nombreUsuario')}</p>
                 <Link to="/inicio">
                   <div className="botonesuser" onClick={handleLogout}>Cerrar sesión</div>
