@@ -212,29 +212,43 @@
 
 @media screen and (max-width:667px) {
 
-.header {height: 60vh;}
+.header {height: auto;
+width: 50%;}
 .navprincipal {
-            height: 50px;
-        display: flex;
-        flex-direction: column;}
+     /* height: 50px;
+    display: flex; */
+    flex-direction: column;
+    align-items: center;}
         
 
-
+.logo{margin-bottom: 20px;}
 
 .logo img {
     margin-top: 10px;
-        height: 30px;
-        align-items: center;}
+    height: 30px;
+    align-items: center;}
 
 .logo-letra {
-        font-size: 20px;
+    font-size: 20px;
+    margin-left: 0;
+    line-height: 30px;}
 
-      margin-left: -50px;
-        line-height: 60px;
+.nav-menu {
+    flex-direction: column; /* Cambiar la dirección del flexbox a columna */
+    align-items: center; /* Centrar los elementos horizontalmente */}
+        
+.nav-menu-item {
+    margin: 10px 0; /* Agregar espaciado entre elementos */}
 
-
-
-    }
+.optionsDown {
+    flex-direction: column; /* Cambiar la dirección del flexbox a columna */
+    align-items: center; /* Centrar los elementos horizontalmente */}
+        
+.carrito-compra {margin-top: 10px; /* Agregar espacio entre el botón del carrito y otros elementos */}
+        
+.optionsDown .bienvenido {font-size: 14px; /* Aumentar el tamaño del texto de bienvenida */}
+        }
+    
 
   
    
@@ -242,7 +256,3 @@
 
 
    
-
-   
-
-}
