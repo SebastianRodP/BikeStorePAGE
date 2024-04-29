@@ -136,8 +136,9 @@
 }
 
 .options {
-    width: 20vh;
+    width: 50vh;
     display: flex;
+    align-items: center;
     flex-direction: column;
 }
 
@@ -167,7 +168,7 @@
 }
 
 .cerrar-s{
-    background-color:white;
+    background-color:rgb(255, 0, 0);
     color: black;
     border-radius: 5px;
     padding: 10px;
@@ -206,10 +207,10 @@
     background-color: red;
 }
 
-.optionsDown .bienvenido{font-size:10px ;
+.optionsDown .bienvenido{
 margin-top: 2vh;
-color: green;
-font-size: 2vh;
+color: rgb(255, 255, 255);
+font-size: 1.5vh;
 margin-right: 2vh;}
 
 

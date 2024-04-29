@@ -62,9 +62,6 @@ const Contactanos = () => {
             <input type="text" placeholder='Telefono' value={telefono} onChange={e => setTelefono(e.target.value)} />
             {errores.telefono && <p className="error">{errores.telefono}</p>}
           </div>
-          <div className='campos-cont'>
-            <input type="text" placeholder='Empresa' />
-          </div>
         </div>
 
         <p>Mensaje</p>

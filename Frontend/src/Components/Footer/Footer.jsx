@@ -2,6 +2,7 @@ import React from 'react';
 import "./Footer.css";
 
 import BicicletaNegraFooter from '../../assets/img/imgFooter/BicicletaNegraFooter.png'
+import { Link } from 'react-router-dom';
 export const Footer = () =>{
   return(
     <footer className="pie-pagina"> 
@@ -9,9 +10,9 @@ export const Footer = () =>{
             <div className="box">
                 <div className="logo-footer"> 
                 <a href="" className="logo-footer nav-link">Bike<span className="blue">Store</span></a>    
-                  <a href="#">
+                  <Link to={"/vestuarios"}>
                       <img src={BicicletaNegraFooter} alt="Logo de BikeStore"></img>
-                  </a>
+                  </Link>
                 </div>
             </div>
 
