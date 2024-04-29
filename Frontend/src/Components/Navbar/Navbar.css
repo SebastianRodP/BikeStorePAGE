@@ -10,6 +10,7 @@
     padding: 0;
     box-sizing: border-box;
 }
+.optionsDown 
 .botonesuser{
  
     color: white;
@@ -162,8 +163,8 @@
 
 .options .contactanos {
     text-decoration: none;
-    color: black;
-    background-color: white;
+    color: white;
+   
     border-radius: 10px;
     padding: 2px 4px;
 }
@@ -192,14 +193,21 @@
     font-weight: 500;
     background-color: red;
 }
-   
-.optionsDown .bienvenido{font-size:10px ;}
+
+.optionsDown .bienvenido{font-size:10px ;
+margin-top: 2vh;
+color: green;
+font-size: 2vh;
+margin-right: 2vh;}
 .optionsDown  .user{width: 10vh     ;}
+
+
 .optionsUp {
-    margin-top: 5vh;
+    margin-top: 4.5vh;
+    margin-left: 30vh;
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+  margin-right: -5vh;
+    align-items:center;
     gap: 10px;
    
 }

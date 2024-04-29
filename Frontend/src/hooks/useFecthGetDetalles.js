@@ -21,7 +21,7 @@ const useFetchGetDetalles = (id) => {
             });
 
             const resultados = await response.json();
-
+            console.log(resultados)
             setData(resultados);
             }
         } catch (error) {
