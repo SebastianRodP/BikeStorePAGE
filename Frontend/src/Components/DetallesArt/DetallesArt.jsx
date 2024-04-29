@@ -3,8 +3,8 @@ import Navbar from "../Navbar/Navbar";
 import PropTypes from "prop-types";
 import { Footer } from "../Footer/Footer";
 import "./DetallesArt.css";
-import useFetchGetDetalles from "../../hooks/useFecthGetDetalles";
 import { useLocation } from "react-router-dom";
+import useFetchGetDetalles from "../../hooks/useFecthGetDetalles";
 
 
 export const DetallesArt =  () => {

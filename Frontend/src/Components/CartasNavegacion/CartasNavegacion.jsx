@@ -18,7 +18,7 @@ const CartasNavegacion = ({ id_categorias }) => {
     <main className="content">
       {dataArticulos.map((articulo) => (
         <div className="caja-bicicletas" key={articulo.idArticulos}>
-          <Link to={`/Bicicleta/${articulo.idArticulos}`}>
+          <Link to={`/DetallesArt/${articulo.id_articulos}`}>
             <img src={articulo.img} alt="" />
           </Link>
           <p id="descuento">

@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import {BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom';
 import  Home  from './Pages/Home';
-import DetallesArt from './Components/DetallesArt/DetallesArt';
 import Bicicletas from './Pages/Bicicletas';
 import Dashboard  from './Components/Dashboard/dashboard';
 import Accesorios from "./Pages/Accesorios";
@@ -16,6 +15,7 @@ import Registrop from "./Components/Registro_prod//register_product"
 import Modificar from "./Components/Modif_art/Modif_art"
 import "./Pages/style.css"
 import { Carrito } from '../src/Components/Carrito/Carrito';
+import DetallesArt from './Components/DetallesArt/DetallesArt';
 function App() {
   const [count, setCount] = useState(0)
   return (

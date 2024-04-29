@@ -5,7 +5,6 @@ import PropTypes from "prop-types";
 import useFetchGetArticulos from "../../hooks/useFetchGetArticulos";
 
 const Cartas = ({ id_categorias }) => {
-  // Llamada al hook para obtener los artículos de la categoría con ID proporcionado
   const { dataArticulos, loading, error } = useFetchGetArticulos(id_categorias);
 
   if (error) {
@@ -13,14 +12,14 @@ const Cartas = ({ id_categorias }) => {
   }
 
   if (loading) {
-    return <div className="erroreCarga">Cargando...</div>;
+    return <div className="erroresCarga">Cargando...</div>;
   }
-  // Verificar si dataArticulos es un array y tiene al menos un elemento
 
-  // Mostrar solo los primeros cuatro artículos
+  
   const firstFourArticulos = dataArticulos.slice(0, 4);
+  // firstFourArticulos = filter()
 
-  return  (
+  return (
     <>
       <main className="content">
         {firstFourArticulos.map((articulo) => (
@@ -51,15 +50,12 @@ const Cartas = ({ id_categorias }) => {
           </div>
         ))}
       </main>
-      </>
+    </>
   );
 };
 
 Cartas.propTypes = {
   id_categorias: PropTypes.number.isRequired,
 };
-
-
-
 
 export default Cartas;
