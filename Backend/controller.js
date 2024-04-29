@@ -4,7 +4,7 @@ const saludo = (req, res) => {
     res.send("<h1>Hola este es un saludo</h1>")
 }
 const articulos = (req, res) => {
-    pool.query('SELECT * FROM telefonos', (error, results) => {
+    pool.query('SELECT * FROM articulos', (error, results) => {
         if (error) {
             console.error('Error al ejecutar la consulta:', error);
             res.status(500).json({ error: 'Error interno del servidor' });
@@ -85,7 +85,7 @@ const getArticulosByCategoria = async (req, res) => {
         res.status(500).json({ error: 'Error interno del servidor' });
     }
 };
-
+// 
 const getArticulosByDetalles = async (req, res) => {
     const { idDetalles} = req.params;
     let response = parseInt(idDetalles);
@@ -102,8 +102,6 @@ const getArticulosByDetalles = async (req, res) => {
 };
 
 
+
 module.exports = {
     saludo, usuarios, telefonos , rol, marcas, articulos, categorias, getArticulosByCategoria, getArticulosByDetalles}
-
-
-

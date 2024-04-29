@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import {BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom';
 import  Home  from './Pages/Home';
+import DetallesArt from './Components/DetallesArt/DetallesArt';
 import Bicicletas from './Pages/Bicicletas';
 import Dashboard  from './Components/Dashboard/dashboard';
 import Accesorios from "./Pages/Accesorios";
@@ -13,7 +14,6 @@ import Terminos from "./Components/terminos_condiciones/terminos";
 import Reccontra from "./Components/recuperar_pass/Recuperar_pass";
 import Registrop from "./Components/Registro_prod//register_product"
 import Modificar from "./Components/Modif_art/Modif_art"
-import CartasDet from "./Components/CartasDet/CartasDet"
 import "./Pages/style.css"
 import { Carrito } from '../src/Components/Carrito/Carrito';
 function App() {
@@ -24,8 +24,8 @@ function App() {
       <Routes>
         <Route path="/"element={<Navigate replace to="/home"/>}/>
         <Route path="/home" element={<Home />} />
+        <Route path="/DetallesArt/:id" element={<DetallesArt />} />
         <Route path="/Bicicletas" element={<Bicicletas />} />
-        <Route path="/Bicicleta/:id" element={<CartasDet/>} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/Accesorios" element={<Accesorios />} />
         <Route path="/Repuestos" element={<Repuestos />} />
